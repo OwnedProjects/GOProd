@@ -1,0 +1,16 @@
+$font: 'brandon_grotesque_regularRg';
+$text-color: #000;
+$body-color: #ecf0f5;
+
+body {
+  font-family: $font;
+  color: $text-color;
+  font-size: 14px;
+  background: $body-color;
+}
+.fontThin{font-family: 'brandon_grotesquethin'};
+.fontLight{font-family: 'brandon_grotesquelight'};
+.fontRegular{font-family: 'brandon_grotesque_regularRg'};
+.fontMedium{font-family: 'brandon_grotesquemedium'};
+.fontbold{font-family: 'brandon_grotesquebold'};
+.fontblack{font-family: 'brandon_grotesqueblack'};
