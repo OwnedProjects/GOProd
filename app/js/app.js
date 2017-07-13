@@ -8,7 +8,7 @@ angular.module('GreenApp', ['ui.router']).config(function($stateProvider, $urlRo
   var aboutState = {
     name: 'about',
     url: '/about',
-    component: 'dashboradComponent'
+    component: 'dashboardComponent'
   }
 
   $stateProvider.state(helloState);

@@ -1,8 +1,5 @@
 angular.module('GreenApp').component('loginComponent', {
-  templateUrl: 'components/logincomponent/logincomponent.html',
-  bindings: {
-    hero: '='
-  },
+  templateUrl: 'components/logincomponent/login.html',
   controller: LoginController,
   controllerAs: "loginctrl"
 });
