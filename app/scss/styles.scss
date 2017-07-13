@@ -14,3 +14,46 @@ body {
 .fontMedium{font-family: 'brandon_grotesquemedium'};
 .fontbold{font-family: 'brandon_grotesquebold'};
 .fontblack{font-family: 'brandon_grotesqueblack'};
+
+.navbar-cnt {
+  background: #f05c49;
+  border: none;
+  border-radius: 0;
+  height: 58px;
+}
+
+.navbar .navbar-brand {
+  padding: 5px 10px;
+}
+
+.navbar-cnt {
+  .nav-right {
+    ul {
+      height: 58px;
+    }
+    li {
+      height: 58px;
+      a {
+        height: 58px;
+        i.icon-power {
+          display: block;
+          font-size: 18px;
+          color: #fff;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+  .navbar-right > li.active.avatar-cnt {
+    width: 150px;
+    border-right: solid 1px rgba(0, 0, 0, 0.1);
+    > a {
+      color: #fff;
+      padding: 0;
+      background-color: transparent;
+    }
+  }
+  .nav-right > .avatar-cnt > a > img {
+    margin-right: 10px;
+  }
+}
