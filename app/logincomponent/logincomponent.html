@@ -1,0 +1,27 @@
+<div class="login-wrapper">
+    <div class="login-cnt">
+        <div class="logo-cnt">
+            <img src="images/logo.png" />
+        </div>
+        <div class="login-middle">
+            <form id="loginform" class="form-horizontal" role="form" ng-submit="loginctrl.signin()">
+                <div class="input-group">
+                    <span class="input-group-addon fontLight"><i class="icon-user icons"></i> User Name</span>
+                    <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email" ng-model="loginctrl.usernm" autofocus required />                                        
+                </div>
+                    
+                <div class="input-group">
+                    <span class="input-group-addon fontLight"><i class="icon-lock icons"></i> Password</span>
+                    <input id="login-password" type="password" class="form-control" name="password" placeholder="password" ng-model="loginctrl.passwd" required />
+                </div>
+                <div style="margin-top:10px" class="form-group">
+                    <!-- Button -->
+                    <div class="col-sm-12 controls">
+                        <button id="btn-login" type="submit" class="btn btn-login fontRegular">Login  </button>
+                        <a id="btn-forgotPass" href="#" class="btn btn-forgot fontRegular">Forgot Password?</a>
+                    </div>
+                </div>    
+            </form>  
+        </div>
+    </div>
+</div>
