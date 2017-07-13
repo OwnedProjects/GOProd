@@ -1,6 +1,6 @@
 (function(angular) {
   'use strict';
-angular.module('heroApp').component('heroDetail', {
+angular.module('GreenApp').component('loginComponent', {
   templateUrl: 'logincomponent/logincomponent.html',
   bindings: {
     hero: '='
