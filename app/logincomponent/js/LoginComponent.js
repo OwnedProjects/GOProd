@@ -1,14 +1,25 @@
-(function(angular) {
-  'use strict';
 angular.module('GreenApp').component('loginComponent', {
   templateUrl: 'logincomponent/logincomponent.html',
   bindings: {
     hero: '='
   },
-  controller: LoginController
+  controller: LoginController,
+  controllerAs: "loginctrl"
 });
 
-function LoginController(){
-	alert("Test")
-}
-})(window.angular);
+LoginController.$inject = ["LoginService", "$state"];
+
+function LoginController(LoginService, $state){
+	var vm = this;
+	vm.signin = signin;
+	
+	function signin(){
+		LoginService.checkLogin(vm.usernm, vm.passwd)
+			.then(function(response){
+				 $state.go('about')
+			})
+			.catch(function(err){
+				alert("Login failed need to create a popup");
+			});
+	};
+};
