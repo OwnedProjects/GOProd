@@ -16,7 +16,7 @@ gulp.task('sass', function(){
 gulp.task('cssStream', function(){
 	return gulp.src('css/*.css')
 	.pipe(concatCss('main.css')) //Concatenate all css in master.css
-	.pipe(minify()) //Minify master.css
+	//.pipe(minify()) //Minify master.css
 	.pipe(gulp.dest('css')) //Place master.css in Styles folder
 });
 

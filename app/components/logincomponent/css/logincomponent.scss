@@ -59,12 +59,12 @@
   padding: 6px 40px;
   border: solid 2px $red;
   border-radius: 30px;
-  color: $red;
-  background: none;
+  color: $white;
   transition: all 0.2s ease-in-out 0s;
+  background: $red;
   &:hover {
-    background: $red;
-    color: $white;
+    background: none;
+    color: $red;
   }
 }
 
