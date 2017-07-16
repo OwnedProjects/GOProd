@@ -7,7 +7,7 @@ var uglify = require('gulp-uglify');
 var imagemin = require('gulp-image-optimization');
 
 gulp.task('sass', function(){
-	return gulp.src('scss/main.scss')
+	return gulp.src(['scss/main.scss', '../components/*.scss'])
 	.pipe(sass()) //Convert SASS to CSS
 	//.pipe(minify()) //Minify master.css
 	.pipe(gulp.dest('css')) //Place Converted CSS file in �CSS� folder
@@ -26,11 +26,16 @@ return gulp.src(['images/*.jpg','images/*.png', 'images/*.gif'])
 	.pipe(gulp.dest('images'))
 });
 
+
+gulp.task('dash', function(){
+	return gulp.src('components/dashboardcomponent/css/dashboardcomponent.scss')
+	.pipe(sass()) //Convert SASS to CSS
+	.pipe(gulp.dest('css')) //Place Converted CSS file in �CSS� folder
+});
+
+
 gulp.task('watch', function(){
-	gulp.watch('*.scss',['sass']);
-	gulp.watch('css/*.css',['cssStream']);
-	gulp.watch('js/**/*.js',['script']);
-	gulp.watch(['images/*.jpg','images/*.png', 'images/*.gif'],['optimg']);
+    gulp.watch('components/dashboardcomponent/css/dashboardcomponent.scss',['dash']);
 });
 
 gulp.task('default', ['sass', 'cssStream']);

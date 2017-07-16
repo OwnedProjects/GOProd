@@ -5,5 +5,5 @@ angular.module('GreenApp').component('dashboardComponent', {
 });
 
 function DashboardController(){
-    alert('asdfasd');
+    //alert('asdfasd');
 };

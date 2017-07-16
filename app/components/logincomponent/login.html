@@ -6,12 +6,12 @@
         <div class="login-middle">
             <form id="loginform" class="form-horizontal" role="form" ng-submit="loginctrl.signin()">
                 <div class="input-group">
-                    <span class="input-group-addon fontLight"><i class="icon-user icons"></i> User Name</span>
+                    <label class="input-group-addon fontLight" for="login-username"><i class="icon-user icons"></i> User Name</label>
                     <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email" ng-model="loginctrl.usernm" autofocus required />                                        
                 </div>
                     
                 <div class="input-group">
-                    <span class="input-group-addon fontLight"><i class="icon-lock icons"></i> Password</span>
+                    <label class="input-group-addon fontLight" for="login-password"><i class="icon-lock icons"></i> Password</label>
                     <input id="login-password" type="password" class="form-control" name="password" placeholder="password" ng-model="loginctrl.passwd" required />
                 </div>
                 <div style="margin-top:10px" class="form-group">
