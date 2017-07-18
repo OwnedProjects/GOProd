@@ -1,5 +1,5 @@
-angular.module('GreenApp').component('SidemenuComponent', {
-  templateUrl: '../components/sidemenucomponent/sidemenucomponent.html'
+angular.module('GreenApp').component('sidemenuComponent', {
+  templateUrl: 'components/sidemenucomponent/sidemenucomponent.html'
 });
 
 function SidemenuController(){
