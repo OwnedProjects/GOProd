@@ -35,7 +35,9 @@ gulp.task('dash', function(){
 
 
 gulp.task('watch', function(){
-    gulp.watch('components/dashboardcomponent/css/dashboardcomponent.scss',['dash']);
+	//gulp.watch('components/dashboardcomponent/css/dashboardcomponent.scss',['dash']);
+	gulp.watch(['scss/main.scss', 'components/dashboardcomponent/css/dashboardcomponent.scss', 'components/logincomponent/css/logincomponent.scss', 'components/sidemenucomponent/css/SidemenuComponent.scss'],['sass']);
+	gulp.watch('css/*.css',['cssStream']);
 });
 
 gulp.task('default', ['sass', 'cssStream']);
