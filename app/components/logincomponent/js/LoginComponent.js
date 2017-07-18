@@ -13,7 +13,7 @@ function LoginController(LoginService, $state){
 	function signin(){
 		LoginService.checkLogin(vm.usernm, vm.passwd)
 			.then(function(response){
-				 $state.go('about')
+				 $state.go('home')
 			})
 			.catch(function(err){
 				alert("Login failed need to create a popup");
