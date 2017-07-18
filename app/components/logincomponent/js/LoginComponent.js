@@ -11,19 +11,19 @@ angular.module('GreenApp').config(function($stateProvider) {
   controllerAs: "loginctrl"
 });
 
-LoginController.$inject = ["LoginService", "$state"];
+LoginController.$inject = ["LoginService", "$state", "LogService"];
 
-function LoginController(LoginService, $state){
+function LoginController(LoginService, $state, LogService){
 	var vm = this;
 	vm.signin = signin;
-	
+
 	function signin(){
 		LoginService.checkLogin(vm.usernm, vm.passwd)
 			.then(function(response){
 				 $state.go('dashboard')
 			})
 			.catch(function(err){
-				alert("Login failed need to create a popup");
+				LogService.setError("Login failed.").then(function(){});
 			});
 	};
 };
