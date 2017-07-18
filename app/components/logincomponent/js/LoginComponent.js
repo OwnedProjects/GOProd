@@ -1,8 +1,8 @@
 angular.module('GreenApp').config(function($stateProvider) {
 	$stateProvider
-        .state('login', {
-            url: '/login',
-		component: 'loginComponent'
+		.state('login', {
+			url: '/login',
+			component: 'loginComponent'
 	});
 })
 .component('loginComponent', {

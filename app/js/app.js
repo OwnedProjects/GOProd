@@ -1,3 +1,3 @@
-angular.module('GreenApp', ['ui.router']).config(function($stateProvider, $urlRouterProvider) {
+angular.module('GreenApp', ['ui.router']).config(function($urlRouterProvider) {
 	$urlRouterProvider.otherwise('/login');
 });	
