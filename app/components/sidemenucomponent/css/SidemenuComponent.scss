@@ -1,5 +1,7 @@
 @import '../../../scss/_variables.scss';
 
+
+// header section css
 .navbar-cnt {
   background: #f05c49;
   border: none;
@@ -56,4 +58,84 @@
     margin-right: 10px;
     height: 50px;
   }
+}
+
+// Side bar component css
+.main-sidebar{
+    position: absolute;
+    top: 50px;
+    left: 0;
+    min-height: calc(100vh - 49px);
+    width: 230px;
+    background: $white;
+    .user-panel {
+      color: $grey;
+      font-size: 18px;
+      font-family: 'brandon_grotesque_regularRg';
+      position: relative;
+      width: 100%;
+      padding: 10px 30px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      border-bottom: solid 1px $lgrey;
+      .menu-btn{
+        background: none;
+        border: none;
+        border-left:solid 1px #e5e5e5;
+        margin-right: -30px;
+        padding: 20px;
+        margin-top: -10px;
+        margin-bottom: -10px;
+        transition: all 0.3s ease-in-out 0.2s;
+        &:hover, &:focus{
+          background: $grey;
+          color: $white;
+        }
+      }
+    }
+    .sidebar-menu {
+        list-style: none;
+        margin: 0 15px;
+        padding: 0;
+        li {
+            position: relative;
+            margin: 0 0 5px;
+            padding: 0;
+            a{    
+              color: #a4aeb3;
+              padding: 12px 5px 12px 15px;
+              display: block;
+              border-radius: 5px;
+              &:hover{
+                text-decoration: none;
+              }
+              i.fa{
+                margin-right: 15px;
+              }
+            }
+        }
+        li.active{
+          a{
+            color: $white;
+            background: #f44336;
+            box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2);
+          }
+        }
+        .treeview-menu {
+          display: none;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          li{
+            margin: 0;
+            a{
+              display: block;
+              font-size: 14px;
+              padding: 5px 5px 5px 35px;
+              margin: 0 1px;
+              background: #2c3b41;
+            }
+          }
+      }
+    }
 }

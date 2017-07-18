@@ -1,6 +1,6 @@
 <div class="content-wrapper">
     <section class="col-sm-12 col-xs-12 content-header">
-        <ol class="breadcrumb">
+        <ol class="breadcrumb pull-right">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         </ol>
         <h1>Dashboard</h1>
@@ -8,10 +8,10 @@
     <section>
       <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
-              <div class="card-header" data-background-color="orange">
+              <div class="card-header pull-left" data-background-color="orange">
                   <i class="fa fa-cubes"></i>
               </div>
-              <div class="card-content">
+              <div class="card-content text-right">
                   <p class="category">Products</p>
                   <h3 class="title">150</h3>
               </div>
@@ -24,10 +24,10 @@
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
-              <div class="card-header" data-background-color="green">
+              <div class="card-header pull-left" data-background-color="green">
                   <i class="fa fa-user"></i>
               </div>
-              <div class="card-content">
+              <div class="card-content text-right">
                   <p class="category">Customers</p>
                   <h3 class="title">$34,245</h3>
               </div>
@@ -40,10 +40,10 @@
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
-              <div class="card-header" data-background-color="red">
+              <div class="card-header pull-left" data-background-color="red">
                   <i class="fa fa-users"></i>
               </div>
-              <div class="card-content">
+              <div class="card-content text-right">
                   <p class="category">Suppliers</p>
                   <h3 class="title">75</h3>
               </div>
@@ -56,10 +56,10 @@
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
-              <div class="card-header" data-background-color="blue">
+              <div class="card-header pull-left" data-background-color="blue">
                   <i class="fa fa-pie-chart"></i>
               </div>
-              <div class="card-content">
+              <div class="card-content text-right">
                   <p class="category">Stocks</p>
                   <h3 class="title">+245</h3>
               </div>
@@ -71,6 +71,99 @@
           </div>
       </div>
       <div class="clearfix"></div>
-      <hr/>
+    </section>
+    <section id="main-datCnt">
+        <div class="col-md-12 col-xs-12">
+            <div class="card table-card">
+                <div class="card-header" data-background-color="red">
+                    <h4 class="title text-left">Pending Order's </h4>
+                    <!-- <p class="category">Here is a subtitle for this table</p> -->
+                </div>
+                <div class="card-content table-responsive">
+                    <table class="table">
+                        <thead class="text-danger text-left">
+                            <tr>
+                                <th>Order Number</th>
+                                <th>Client Name</th>
+                                <th>Quantity</th>
+                                <th>Date of Order</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>345</td>
+                                <td>MAHARASHTRA AGRO AGENCIES</td>
+                                <td>20.000</td>
+                                <td>04-11-2015</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-6">
+            <div class="card table-card">
+                <div class="card-header" data-background-color="blue">
+                    <h4 class="title text-left">Finished Product</h4>
+                    <!-- <p class="category">Here is a subtitle for this table</p> -->
+                </div>
+                <div class="card-content table-responsive">
+                    <table class="table">
+                        <thead class="text-info text-left">
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Stock Available</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ECHOMEAL</td>
+                                <td>-20.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-6">
+            <div class="card table-card">
+                <div class="card-header" data-background-color="purple">
+                    <h4 class="title text-left">Raw Material</h4>
+                    <!-- <p class="category">Here is a subtitle for this table</p> -->
+                </div>
+                <div class="card-content table-responsive text-left">
+                    <table class="table">
+                        <thead class="text-primary">
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Stock Available</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Filler Powder</td>				
+                                <td>7.000</td>				
+                            </tr>
+                            <tr>				
+                                <td>Raw Organic Manure</td>				
+                                <td>6.000</td>				
+                            </tr>
+                            <tr>				
+                                <td>Slaughter House Waste</td>				
+                                <td>345.000</td>				
+                            </tr>
+                            <tr>				
+                                <td>Animal Waste Filler</td>				
+                                <td>0.000</td>				
+                            </tr>
+                            <tr>				
+                                <td>HDPE Bags</td>				
+                                <td>100 Bags</td>				
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </section>
 </div>
