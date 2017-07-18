@@ -6,6 +6,7 @@ LogService.$inject = ["$rootScope", "$timeout", "$q"];
 function LogService($rootScope, $timeout, $q){
 	var vm = this;
 	vm.setSuccess = setSuccess;
+	vm.setError = setError;
 	vm.init = init;
 		
 	function setSuccess(msg){
