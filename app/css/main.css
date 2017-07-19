@@ -8648,11 +8648,19 @@ body {
   color: #fff;
   transition: all 0.2s ease-in-out 0s;
   background: #f44336;
+  outline: none;
 }
 
-.btn-login:hover {
+.btn-login.btn {
+  outline: none;
+}
+
+.btn-login.btn:hover,
+.btn-login.btn:focus,
+.btn-login.btn:active {
   background: none;
   color: #f44336;
+  outline: none;
 }
 
 .btn-forgot {
@@ -8878,7 +8886,7 @@ body {
   position: absolute;
   top: 50px;
   left: 0;
-  min-height: calc(100vh - 49px);
+  min-height: calc(100vh - 50px);
   width: 230px;
   background: #fff;
 }

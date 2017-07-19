@@ -56,7 +56,6 @@
     border-bottom: solid 1px $lgrey;
   }
 }
-
 .btn-login {
   padding: 6px 40px;
   border: solid 2px $red;
@@ -64,9 +63,14 @@
   color: $white;
   transition: all 0.2s ease-in-out 0s;
   background: $red;
-  &:hover {
-    background: none;
-    color: $red;
+  outline: none;
+  &.btn{
+    outline: none ;
+    &:hover, &:focus, &:active {
+      background: none;
+      color: $red;
+      outline: none;
+    }
   }
 }
 
