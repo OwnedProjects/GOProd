@@ -1,3 +1,3 @@
-angular.module('GreenApp', ['ui.router', 'ngAnimate']).config(function($urlRouterProvider) {
+angular.module('GreenApp', ['ui.router', 'ngAnimate', 'ui.bootstrap']).config(function($urlRouterProvider) {
 	$urlRouterProvider.otherwise('/login');
 });	
