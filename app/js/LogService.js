@@ -15,7 +15,7 @@ function LogService($rootScope, $timeout, $q){
 			$timeout(function(){
 				$rootScope.log.success.shift();
 				resolve(true);
-			},5000);
+			},2000);
 		});
 	}
 		
@@ -25,7 +25,7 @@ function LogService($rootScope, $timeout, $q){
 			$timeout(function(){
 				$rootScope.log.error.shift();
 				resolve(true);
-			},5000);
+			},2000);
 		});
 	}
 	

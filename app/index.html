@@ -25,7 +25,6 @@
 	overflow: hidden;
 }
 .animate-repeat {
-  /* line-height:30px; */
   list-style:none;
   box-sizing:border-box;
 }
@@ -33,21 +32,23 @@
 .animate-repeat.ng-move,
 .animate-repeat.ng-enter,
 .animate-repeat.ng-leave {
-  transition:all linear 0.5s;
+  transition:all linear 1s;
 }
 
 .animate-repeat.ng-leave.ng-leave-active,
 .animate-repeat.ng-move,
 .animate-repeat.ng-enter {
   right:-600px;
-  max-height:0;
 }
 
 .animate-repeat.ng-leave,
 .animate-repeat.ng-move.ng-move-active,
 .animate-repeat.ng-enter.ng-enter-active {
   right:0;
-  /* max-height:30px; */
+}
+
+.alert{
+	min-width:250px;
 }
 </style>
   </head>
