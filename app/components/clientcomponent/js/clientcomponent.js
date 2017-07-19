@@ -1,6 +1,6 @@
 angular.module('GreenApp').config(function($stateProvider) {
 	$stateProvider
-		.state('client', {
+		.state('home.client', {
 			url: '/client',
 			component: 'clientComponent'
 	});

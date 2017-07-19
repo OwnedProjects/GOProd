@@ -20,7 +20,7 @@ function LoginController(LoginService, $state, LogService){
 	function signin(){
 		LoginService.checkLogin(vm.usernm, vm.passwd)
 			.then(function(response){
-				 $state.go('dashboard')
+				 $state.go('home')
 			})
 			.catch(function(err){
 				LogService.setError("Login failed.").then(function(){});

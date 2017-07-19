@@ -1,6 +1,6 @@
-angular.module('GreenApp').config(function($stateProvider, $urlRouterProvider) {
+angular.module('GreenApp').config(function($stateProvider) {
 	$stateProvider
-		.state('dashboard', {
+		.state('home.dashboard', {
       url: '/dashboard',
       component: 'dashboardComponent'
 	});
