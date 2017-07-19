@@ -6,3 +6,17 @@ $red: #f44336;
 $white: #fff;
 $black: #000;
 $grey: #333;
+
+//padding 
+@mixin pad ($pads...) {
+  padding: $pads;
+}
+//border radius 
+@mixin rad ($rads...){
+    border-radius: $rads;
+}
+
+//margin
+@mixin marg ($margins...){
+    margin: $margins;
+}

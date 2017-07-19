@@ -8578,6 +8578,55 @@ body {
   padding-right: 20px;
 }
 
+.form-group {
+  position: relative;
+}
+
+.form-group label {
+  font-size: 11px;
+  line-height: 1.07143;
+  color: #AAAAAA;
+  font-weight: 400;
+  margin: 0;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  z-index: 1;
+  transition: all 0.1s linear 0.02s;
+}
+
+.form-group .form-control {
+  height: 40px;
+  border: none;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  border-bottom: solid 1px #d7d7d7;
+  padding-left: 0;
+  font-size: 16px;
+  line-height: normal;
+  transition: all 0.1s linear 0.02s;
+  outline: none;
+}
+
+.form-group .form-control:focus {
+  outline: none;
+  border-bottom: solid 2px #f44336;
+}
+
+.form-group .form-control:focus ~ label {
+  top: -4px;
+  font-size: 14px;
+  color: #333;
+  font-family: "brandon_grotesquemedium";
+}
+
+.form-group textarea.form-control {
+  height: 100px;
+  resize: none;
+  padding: 15px 0 0 0;
+}
+
 .login-wrapper {
   width: 100%;
   height: 100%;
@@ -8970,6 +9019,22 @@ body {
   padding: 5px 5px 5px 35px;
   margin: 0 1px;
   background: #2c3b41;
+}
+
+.client-component .panel-card {
+  margin: 10px 0 10px;
+}
+
+.client-component .panel-card .card-header {
+  padding: 5px 20px;
+  margin: 0;
+  display: block;
+  border-radius: 3px 3px 0 0;
+}
+
+.client-component .panel-card .card-content {
+  padding: 20px 20px 15px;
+  margin-top: 0;
 }
 @font-face {
   font-family: 'simple-line-icons';

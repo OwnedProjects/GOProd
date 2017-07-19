@@ -63,3 +63,49 @@ body {
         padding-right: 20px;
     }
 }
+
+// form controls
+.form-group{
+    position: relative;
+    label{
+        font-size: 11px;
+        line-height: 1.07143;
+        color: #AAAAAA;
+        font-weight: 400;
+        @include marg(0);
+        position: absolute;
+        top: 20px;
+        left: 0;
+        z-index: 1;
+        transition: all 0.1s linear 0.02s;
+    }
+    .form-control{
+        height: 40px;
+        border: none;
+        background: none;
+        box-shadow: none;
+        border-radius: 0;
+        border-bottom: solid 1px #d7d7d7;
+        padding-left: 0;
+        font-size: 16px;
+        line-height: normal;
+        transition: all 0.1s linear 0.02s;
+        outline: none;
+        &:focus{
+            outline: none;
+            border-bottom:solid 2px $red;
+            ~ label{
+                top: -4px;
+                font-size: 14px;
+                color: #333;
+                font-family: "brandon_grotesquemedium";
+                
+            }
+        }
+    }
+    textarea.form-control{
+        height: 100px;
+        resize: none;
+        @include pad(15px 0 0 0);
+    }
+}
