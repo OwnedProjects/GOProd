@@ -8489,7 +8489,7 @@ button.close {
   box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2);
 }
 body {
-  font-family: "amble", sans-serif;
+  font-family: 'brandon_grotesque_regularRg';
   color: #000;
   font-size: 14px;
   background: #ecf0f5;
@@ -8648,23 +8648,23 @@ body {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 }
 
-.logo-cnt {
+.login-cnt .logo-cnt {
   padding: 13px;
   text-align: center;
   background: #333;
   border-radius: 5px 5px 0 0;
 }
 
-.login-middle {
+.login-cnt .login-middle {
   padding: 15px 15px 0;
 }
 
-.login-middle .form-control,
-.login-middle .input-group {
+.login-cnt .login-middle .form-control,
+.login-cnt .login-middle .input-group {
   border: none;
 }
 
-.login-middle .input-group-addon {
+.login-cnt .login-middle .input-group-addon {
   border: none;
   text-align: left;
   padding: 0;
@@ -8673,24 +8673,24 @@ body {
   border-right: solid 1px #e5e5e5;
 }
 
-.login-middle .input-group-addon i.icons {
+.login-cnt .login-middle .input-group-addon i.icons {
   margin-right: 10px;
   font-size: 16px;
 }
 
-.login-middle .form-control {
+.login-cnt .login-middle .form-control {
   box-shadow: none;
   outline: none;
 }
 
-.login-middle .input-group {
+.login-cnt .login-middle .input-group {
   width: 100%;
   margin-bottom: 15px;
   padding-bottom: 10px;
   border-bottom: solid 1px #e5e5e5;
 }
 
-.btn-login {
+.login-cnt .btn-login {
   padding: 6px 40px;
   border: solid 2px #f44336;
   border-radius: 30px;
@@ -8700,19 +8700,19 @@ body {
   outline: none;
 }
 
-.btn-login.btn {
+.login-cnt .btn-login.btn {
   outline: none;
 }
 
-.btn-login.btn:hover,
-.btn-login.btn:focus,
-.btn-login.btn:active {
+.login-cnt .btn-login.btn:hover,
+.login-cnt .btn-login.btn:focus,
+.login-cnt .btn-login.btn:active {
   background: none;
   color: #f44336;
   outline: none;
 }
 
-.btn-forgot {
+.login-cnt .btn-forgot {
   border: none;
   color: #333;
   background: none;
@@ -8721,7 +8721,7 @@ body {
   transition: all 0.2s ease-in-out 0s;
 }
 
-.btn-forgot:hover {
+.login-cnt .btn-forgot:hover {
   color: #f44336;
 }
 
@@ -8938,6 +8938,7 @@ body {
   min-height: calc(100vh - 50px);
   width: 230px;
   background: #fff;
+  font-weight: normal;
 }
 
 .main-sidebar .user-panel {
@@ -8950,6 +8951,10 @@ body {
   margin-bottom: 20px;
   overflow: hidden;
   border-bottom: solid 1px #e5e5e5;
+}
+
+.main-sidebar .user-panel .info p {
+  margin: 8px 0 0;
 }
 
 .main-sidebar .user-panel .menu-btn {
@@ -8986,6 +8991,7 @@ body {
   padding: 12px 5px 12px 15px;
   display: block;
   border-radius: 5px;
+  text-transform: uppercase;
 }
 
 .main-sidebar .sidebar-menu li a:hover {

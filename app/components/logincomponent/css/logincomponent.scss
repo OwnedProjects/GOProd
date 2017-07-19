@@ -19,69 +19,68 @@
   top: 50%;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
-}
-
-.logo-cnt {
-  padding: 13px;
-  text-align: center;
-  background: $grey;
-  border-radius: 5px 5px 0 0;
-}
-
-.login-middle {
-  padding: 15px 15px 0;
-  .form-control, .input-group {
-    border: none;
+  .logo-cnt {
+    padding: 13px;
+    text-align: center;
+    background: $grey;
+    border-radius: 5px 5px 0 0;
   }
-  .input-group-addon {
-    border: none;
-    i.icons {
-      margin-right: 10px;
-      font-size: 16px;
+
+  .login-middle {
+    padding: 15px 15px 0;
+    .form-control, .input-group {
+      border: none;
     }
-    text-align: left;
-    padding: 0;
-    width: 120px;
-    background: none;
-    border-right: solid 1px $lgrey;
-  }
-  .form-control {
-    box-shadow: none;
-    outline: none;
-  }
-  .input-group {
-    width: 100%;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: solid 1px $lgrey;
-  }
-}
-.btn-login {
-  padding: 6px 40px;
-  border: solid 2px $red;
-  border-radius: 30px;
-  color: $white;
-  transition: all 0.2s ease-in-out 0s;
-  background: $red;
-  outline: none;
-  &.btn{
-    outline: none ;
-    &:hover, &:focus, &:active {
+    .input-group-addon {
+      border: none;
+      i.icons {
+        margin-right: 10px;
+        font-size: 16px;
+      }
+      text-align: left;
+      padding: 0;
+      width: 120px;
       background: none;
-      color: $red;
+      border-right: solid 1px $lgrey;
+    }
+    .form-control {
+      box-shadow: none;
       outline: none;
     }
+    .input-group {
+      width: 100%;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: solid 1px $lgrey;
+    }
   }
-}
+  .btn-login {
+    padding: 6px 40px;
+    border: solid 2px $red;
+    border-radius: 30px;
+    color: $white;
+    transition: all 0.2s ease-in-out 0s;
+    background: $red;
+    outline: none;
+    &.btn{
+      outline: none ;
+      &:hover, &:focus, &:active {
+        background: none;
+        color: $red;
+        outline: none;
+      }
+    }
+  }
 
-.btn-forgot {
-  border: none;
-  color: $grey;
-  background: none;
-  font-size: 11px;
-  text-transform: uppercase;
-  transition: all 0.2s ease-in-out 0s;
-  &:hover {
-    color: $red;
+  .btn-forgot {
+    border: none;
+    color: $grey;
+    background: none;
+    font-size: 11px;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out 0s;
+    &:hover {
+      color: $red;
+    }
   }
 }

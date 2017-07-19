@@ -68,6 +68,7 @@
     min-height: calc(100vh - 50px);
     width: 230px;
     background: $white;
+    font-weight: normal;
     .user-panel {
       color: $grey;
       font-size: 18px;
@@ -78,6 +79,11 @@
       margin-bottom: 20px;
       overflow: hidden;
       border-bottom: solid 1px $lgrey;
+      .info{
+        p {
+          @include marg(8px 0 0);
+        }
+      }
       .menu-btn{
         background: none;
         border: none;
@@ -106,6 +112,7 @@
               padding: 12px 5px 12px 15px;
               display: block;
               border-radius: 5px;
+              text-transform: uppercase;
               &:hover{
                 text-decoration: none;
               }
