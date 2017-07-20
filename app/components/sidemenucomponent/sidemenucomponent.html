@@ -10,7 +10,7 @@
       </div>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu tree list-unstyled" data-widget="tree">
+      <ul class="sidebar-menu tree list-unstyled hide" data-widget="tree">
         <li class="active treeview menu-open">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
@@ -96,31 +96,34 @@
 		<uib-accordion close-others="true">
       <div class="sidebar-menu">
         <div uib-accordion-group class="panel-default treeview">
-          <uib-accordion-heading ng-init="clientFlag=true" >
+          <uib-accordion-heading ng-init="clientFlag=true">
             <span ng-click="clientFlag=!clientFlag">
               <i class="fa fa-users"></i> 
               <span class="menu-txt">Client</span>
-              <i class="pull-right fa" ng-class="{'fa-angle-left': clientFlag == true, 'fa-angle-down': clientFlag== false}"></i>
+              <i class="pull-right fa " ng-class="{'fa-angle-left': clientFlag == true, 'fa-angle-down': clientFlag== false}"></i>
             </span>
           </uib-accordion-heading>
-          <a ui-sref="home.client">Add Client</a>
+          <ul class="treeview-menu">
+            <li>
+              <a ui-sref="home.addclient">
+                  <i class="fa fa-circle-o"></i> Add Client
+              </a>
+            </li>
+            <li ng-init="clientlistFlag=false">
+              <a ui-sref="home.clientlist">
+                  <i class="fa fa-circle-o"></i> Client List
+              </a>
+            </li>
+          </ul>
         </div>
         <div uib-accordion-group class="panel-default">
           <uib-accordion-heading  ng-init="supplierFlag=true" >
             <span  ng-click="supplierFlag=!supplierFlag">
               <i class="fa fa-user-secret"></i> 
               <span class="menu-txt">Supplier</span>
-              <i class="pull-right fa" ng-class="{'fa-angle-left': supplierFlag == true, 'fa-angle-down': supplierFlag== false}"></i>
+              <i class="pull-right fa " ng-class="{'fa-angle-left': supplierFlag == true, 'fa-angle-down': supplierFlag== false}"></i>
             </span>
           </uib-accordion-heading>
-            <ol>
-              <li>
-                <a ui-sref="home.client">Add Supplier</a>
-              </li>
-              <li>
-                <a ui-sref="home.allclient">All Client</a>
-              </li>
-            </ol>
         </div>
       </div>
 		</uib-accordion>

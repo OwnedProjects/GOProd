@@ -139,9 +139,9 @@
             a{
               display: block;
               font-size: 14px;
-              padding: 5px 5px 5px 35px;
+              @include pad(5px 5px 5px 35px);
               margin: 0 1px;
-              background: #2c3b41;
+              // background: #2c3b41;
             }
           }
       }
@@ -167,6 +167,36 @@
             margin-left: 15px;
           }
         }
+        h4{
+          a.accordion-toggle{
+            display: block;
+            text-decoration: none;
+          }
+        }
+      }
+      &.panel-open{
+        .panel-heading{
+          color: $white;
+          background: #f44336;
+          box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -10px rgba(244, 67, 54, 0.2);
+          @include rad(3px);
+        }
+      }
+    }
+    .panel-collapse{
+      .panel-body{
+        @include pad(10px);
+        a{
+          @include pad(5px 10px 5px 15px);
+        }
+        .treeview-menu {
+          display: block;
+          li{
+            a{
+              @include pad(5px 5px 5px 15px);
+            }
+          }
+      }
       }
     }
 }

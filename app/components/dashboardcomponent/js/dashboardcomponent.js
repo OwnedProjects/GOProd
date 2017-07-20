@@ -1,9 +1,9 @@
 angular.module('GreenApp').config(function($stateProvider) {
-	$stateProvider
-		.state('home.dashboard', {
-      url: '/dashboard',
-      component: 'dashboardComponent'
-	});
+    $stateProvider
+      .state('home.dashboard', {
+        url: '/dashboard',
+        component: 'dashboardComponent'
+    });
 })
 .component('dashboardComponent', {
   templateUrl: 'components/dashboardComponent/dashboard.html',

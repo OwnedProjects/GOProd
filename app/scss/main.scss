@@ -2,4 +2,5 @@
 @import '../components/logincomponent/css/logincomponent.scss';
 @import '../components/dashboardcomponent/css/dashboardcomponent.scss';
 @import '../components/sidemenucomponent/css/SidemenuComponent.scss';
-@import '../components/clientcomponent/css/clientcomponent.scss';
+// client contains(clientlist, addclient, activateclient) styles
+@import '../components/client/css/clientcomponent.scss';

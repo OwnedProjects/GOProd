@@ -10,7 +10,7 @@ gulp.task('sass', function(){
 	return gulp.src(['scss/main.scss', '../components/*.scss'])
 	.pipe(sass()) //Convert SASS to CSS
 	//.pipe(minify()) //Minify master.css
-	.pipe(gulp.dest('css')) //Place Converted CSS file in �CSS� folder
+	.pipe(gulp.dest('css')) //Place Converted CSS file in -CSS- folder
 });
 
 gulp.task('cssStream', function(){
@@ -27,13 +27,6 @@ return gulp.src(['images/*.jpg','images/*.png', 'images/*.gif'])
 });
 
 
-gulp.task('dash', function(){
-	return gulp.src('components/dashboardcomponent/css/dashboardcomponent.scss')
-	.pipe(sass()) //Convert SASS to CSS
-	.pipe(gulp.dest('css')) //Place Converted CSS file in �CSS� folder
-});
-
-
 gulp.task('watch', function(){
 	//gulp.watch('components/dashboardcomponent/css/dashboardcomponent.scss',['dash']);
 	gulp.watch([
@@ -41,7 +34,7 @@ gulp.task('watch', function(){
 		'components/dashboardcomponent/css/dashboardcomponent.scss', 
 		'components/logincomponent/css/logincomponent.scss', 
 		'components/sidemenucomponent/css/SidemenuComponent.scss',
-		'components/clientcomponent/css/clientcomponent.scss'
+		'components/client/css/clientcomponent.scss'
 	],['sass']);
 	gulp.watch('css/*.css',['cssStream']);
 });
