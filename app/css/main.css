@@ -8589,7 +8589,7 @@ body {
   font-weight: 400;
   margin: 0;
   position: absolute;
-  top: 22px;
+  top: 20px;
   left: 0;
   z-index: 1;
   transition: all 0.1s linear 0.02s;
@@ -8607,7 +8607,7 @@ body {
   font-size: 16px;
   padding: 0;
   line-height: normal;
-  transition: all 0.6s linear 0.3s;
+  transition: all 0.1s linear 0.2s;
   outline: none;
 }
 
