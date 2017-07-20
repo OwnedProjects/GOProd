@@ -13,3 +13,38 @@
         }
     }
 }
+.search-cnt{
+    .form-group{
+        @include marg(0);
+        input.form-control{
+            display: inline;
+            width: auto;
+            height: 35px;
+            padding: 0;
+            &:focus{
+                border-bottom: solid 1px rgba(0,0,0,0.5);
+                ~ label{
+                    opacity: 0;
+                }
+            }
+        }
+        label{
+            font-size: 14px;
+            color: $white;
+            text-transform: uppercase;
+        }
+        button.search-btn{
+            display: inline;
+            padding: 0;
+            background: transparent;
+            @include rad(50%);
+            i.fa{
+                color: $white;
+                font-size: 14px;
+                height: 30px;
+                width: auto;
+                line-height: 30px;
+            }
+        }
+    }
+}

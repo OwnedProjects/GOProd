@@ -2,6 +2,7 @@
 
 .content-wrapper{
   margin-left: 230px;
+}
   .breadcrumb{
     margin-top: 20px;
     background: none;
@@ -22,23 +23,16 @@
     border-radius: 3px;
     background: $white;
     &.table-card{
-        .card-header{
-          border-radius: 3px 3px 0 0;
-          margin: 0;
-          padding: 5px 20px;
-          display: block;
-        }
-        .card-content{
-          margin-top: 0;
-          table.table th{
-            font-family: 'brandon_grotesque_regularRg';
-            text-transform: capitalize;
-            font-size: 17px;
-            font-weight: 300;
-            border-bottom-width: 1px;
-          }
-        }
+      .card-header{
+        border-radius: 3px 3px 0 0;
+        margin: 0;
+        padding: 5px 20px;
+        display: block;
       }
+      .card-content{
+        margin-top: 0;
+      }
+    }
     .card-header {
         display: inline-block;
         text-align: center;
@@ -60,6 +54,28 @@
         padding: 5px 20px 15px;
         font-family: 'brandon_grotesque_regularRg';
         text-transform: uppercase;
+        table.table{
+          thead{
+            tr{
+              th{
+                font-family: 'brandon_grotesque_regularRg';
+                text-transform: capitalize;
+                font-size: 17px;
+                font-weight: 100;
+                border-bottom-width: 1px;
+              }
+            }
+          }
+          tbody{
+            tr{
+              td{
+                .table-btn{
+                  @include pad(0 7px);
+                }
+              }
+            }
+          }
+        }
         .text-primary{
           color: #9c27b0;
         }
@@ -122,4 +138,3 @@
     background: linear-gradient(60deg, #ab47bc, #8e24aa);
     box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2);
   }
-}

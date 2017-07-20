@@ -103,6 +103,7 @@
         list-style: none;
         margin: 0 15px;
         padding: 0;
+        display: block; 
         li {
             position: relative;
             margin: 0 0 5px;
@@ -143,6 +144,29 @@
               background: #2c3b41;
             }
           }
+      }
+    }
+}
+
+//accordian left menu
+.sidebar-menu {
+    list-style: none;
+    margin: 0 15px;
+    padding: 0;
+    display: block; 
+    .panel-default {
+      border: none;
+      box-shadow: none;
+      .panel-heading{
+        color: #a4aeb3;
+        @include pad(12px 20px 12px 15px);
+        background: none;
+        border: none;
+        span{
+          .menu-txt{
+            margin-left: 15px;
+          }
+        }
       }
     }
 }

@@ -78,9 +78,10 @@ body {
         left: 0;
         z-index: 1;
         transition: all 0.1s linear 0.02s;
+        pointer-events: none;
     }
     .form-control{
-        height: 40px;
+        height: 50px;
         border: none;
         background: none;
         box-shadow: none;
@@ -107,5 +108,23 @@ body {
         height: 100px;
         resize: none;
         @include pad(15px 0 0 0);
+    }
+}
+
+.btn{
+    @include pad(10px);
+    @include rad(0px);
+    border-color: transparent;
+    &.btn-primary, &.btn-success, &.btn-info, &.btn-warning, &.btn-danger{
+        &:disabled{
+            border: none;
+            opacity: .4;
+            &:hover, &:focus{
+                border-color: transparent;
+            }
+        }
+        &:hover, &:focus{
+            border-color: transparent;
+        }
     }
 }
