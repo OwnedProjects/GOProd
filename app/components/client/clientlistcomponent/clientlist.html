@@ -39,21 +39,8 @@
                             <td>987654321</td>
                             <td>V65478</td>
                             <td>
-                                <a href="#" class="table-btn text-info"><i class="icon-pencil icon fa-lg"></i></a>
-                                <a href="#" class="table-btn text-danger"><i class="icon-trash icon fa-lg"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>DELHI AGROS</td>
-                            <td>ATPADI</td>
-                            <td>ATPADI</td>
-                            <td>ATPADI</td>
-                            <td>Samarth</td>
-                            <td>987654321</td>
-                            <td>V65478</td>
-                            <td>
-                                <a href="#" class="table-btn text-info"><i class="icon-pencil icon fa-lg"></i></a>
-                                <a href="#" class="table-btn text-danger"><i class="icon-trash icon fa-lg"></i></a>
+                                <a href="javascript:void(0);" class="table-btn text-info" ng-click="clientlistCtrl.openEditDialog('lg')"><i class="icon-pencil icon fa-lg"></i></a>
+                                <a href="javascript:void(0);" class="table-btn text-danger" ng-click="clientlistCtrl.open('lg')"><i class="icon-trash icon fa-lg"></i></a>
                             </td>
                         </tr>
                     </tbody>
@@ -62,3 +49,19 @@
         </div>
     </div>
 </div>
+<script type="text/ng-template" id="myModalContent.html" >
+		<div class="modal-header">
+            <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <ul>
+                <li ng-repeat="item in modctrl.items">
+                    <a href="#">{{ item }}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="modctrl.ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="modctrl.cancel()">Cancel</button>
+        </div>
+</script>
