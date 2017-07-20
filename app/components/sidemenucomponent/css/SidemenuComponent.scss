@@ -92,10 +92,11 @@
         padding: 20px;
         margin-top: -10px;
         margin-bottom: -10px;
-        transition: all 0.3s ease-in-out 0.2s;
+        transition: all 0.3s linear 0.2s;
         &:hover, &:focus{
-          background: $grey;
-          color: $white;
+          background: $white;
+          color: $red;
+          font-size: 18px;
         }
       }
     }

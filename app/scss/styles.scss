@@ -68,20 +68,20 @@ body {
 .form-group{
     position: relative;
     label{
-        font-size: 11px;
+        font-size: 16px;
         line-height: 1.07143;
-        color: #AAAAAA;
+        color: #c5c5c5;
         font-weight: 400;
         @include marg(0);
         position: absolute;
-        top: 20px;
+        top: 22px;
         left: 0;
         z-index: 1;
         transition: all 0.1s linear 0.02s;
         pointer-events: none;
     }
     .form-control{
-        height: 50px;
+        height: 40px;
         border: none;
         background: none;
         box-shadow: none;
@@ -89,15 +89,16 @@ body {
         border-bottom: solid 1px #d7d7d7;
         padding-left: 0;
         font-size: 16px;
+        @include pad(0);
         line-height: normal;
-        transition: all 0.1s linear 0.02s;
+        transition: all 0.6s linear 0.3s;
         outline: none;
         &:focus{
             outline: none;
             border-bottom:solid 2px $red;
             ~ label{
-                top: -4px;
-                font-size: 14px;
+                top: -5px;
+                font-size: 11px;
                 color: #333;
                 font-family: "brandon_grotesquemedium";
                 
