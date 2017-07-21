@@ -8585,42 +8585,35 @@ body {
 .form-group label {
   font-size: 16px;
   line-height: 1.07143;
-  color: #c5c5c5;
+  color: #616161;
   font-weight: 400;
   margin: 0;
   position: absolute;
-  top: 20px;
+  top: -14px;
   left: 0;
-  z-index: 1;
+  text-transform: capitalize;
   transition: all 0.1s linear 0.02s;
   pointer-events: none;
 }
 
 .form-group .form-control {
-  height: 40px;
+  line-height: 36px;
   border: none;
-  background: none;
+  background: transparent;
   box-shadow: none;
   border-radius: 0;
   border-bottom: solid 1px #d7d7d7;
   padding-left: 0;
+  margin-top: 10px;
   font-size: 16px;
   padding: 0;
-  line-height: normal;
   transition: all 0.1s linear 0.2s;
   outline: none;
 }
 
 .form-group .form-control:focus {
   outline: none;
-  border-bottom: solid 2px #f44336;
-}
-
-.form-group .form-control:focus ~ label {
-  top: -5px;
-  font-size: 11px;
-  color: #333;
-  font-family: "brandon_grotesquemedium";
+  border-bottom: solid 1px #f44336;
 }
 
 .form-group textarea.form-control {
@@ -9151,6 +9144,8 @@ body {
   width: auto;
   height: 35px;
   padding: 0;
+  background: transparent;
+  margin-top: -10px;
 }
 
 .search-cnt .form-group input.form-control:focus {
@@ -9158,12 +9153,15 @@ body {
 }
 
 .search-cnt .form-group input.form-control:focus ~ label {
+  top: -10px;
   opacity: 0;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .search-cnt .form-group label {
   font-size: 14px;
   color: #fff;
+  opacity: 0;
   text-transform: uppercase;
 }
 
@@ -9180,6 +9178,10 @@ body {
   height: 30px;
   width: auto;
   line-height: 30px;
+}
+
+.add-supplier .card .card-header[data-background-color="purple"] ~ .card-content .form-control:focus {
+  border-bottom-color: #8e24aa;
 }
 @font-face {
   font-family: 'simple-line-icons';

@@ -118,14 +118,26 @@
             </li>
           </ul>
         </div>
-        <div uib-accordion-group class="panel-default">
-          <uib-accordion-heading  ng-init="supplierFlag=true" >
+        <div uib-accordion-group class="panel-default treeview">
+          <uib-accordion-heading ng-init="supplierFlag=true" >
             <span  ng-click="supplierFlag=!supplierFlag">
               <i class="fa fa-user-secret"></i> 
               <span class="menu-txt">Supplier</span>
               <i class="pull-right fa " ng-class="{'fa-angle-left': supplierFlag == true, 'fa-angle-down': supplierFlag== false}"></i>
             </span>
           </uib-accordion-heading>
+          <ul class="treeview-menu">
+            <li>
+              <a ui-sref="home.addsupplier">
+                  <i class="fa fa-circle-o"></i> Add Supplier
+              </a>
+            </li>
+            <li>
+              <a ui-sref="home.supplierlist">
+                  <i class="fa fa-circle-o"></i> Supplier List
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
 		</uib-accordion>

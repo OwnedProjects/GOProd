@@ -1,0 +1,52 @@
+<div class="client-component content-wrapper">  
+    <div class="col-md-12">
+        <h1>Activate Supplier</h1>  
+        <div class="card panel-card">
+            <div class="card-header" data-background-color="red">
+                <h4 class="title text-left pull-left">Deactive Supplier Details</h4>
+                <form class="search-cnt pull-right">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="" />
+                        <label>Seach</label>
+                        <button type="submit" class="btn search-btn">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="clearfix"></div>
+            </div>
+            <div class="card-content table-responsive">
+                <table class="table">
+                    <thead class="text-danger text-left">
+                        <tr>
+                            <th>Supplier Name</th>
+                            <th>Supplier Contact No.</th>
+                            <th>Supplier Contact Person</th>
+                            <th>Supplier Address</th>
+                            <th>Supplier City</th>
+                            <th>Product Name</th>
+                            <th>VAT No.</th>
+                            <th>Activate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="fullData ng-scope">		
+                            <td class="ng-binding">ABC FIRM</td>
+                            <td class="ng-binding">9090909090</td>
+                            <td class="ng-binding">Mr. ABC</td>
+                            <td class="ng-binding">nagar</td>
+                            <td class="ng-binding">Nagar</td>
+                            <td class="ng-binding">Filler Powder</td>
+                            <td class="ng-binding">112312313</td>		
+                            <td>
+                                <button type="button" class="table-btn text-success" ng-click="activatesuppliers(data.supplier_id);">
+                                    <i class="fa fa-lg fa-unlock"></i>
+                                </button> 			
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

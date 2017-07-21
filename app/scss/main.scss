@@ -4,3 +4,8 @@
 @import '../components/sidemenucomponent/css/SidemenuComponent.scss';
 // client contains(clientlist, addclient, activateclient) styles
 @import '../components/client/css/clientcomponent.scss';
+
+//supplier components stylesheet
+@import '../components/supplier/addsuppliercomponent/css/addsupplier.scss';
+@import '../components/supplier/activatesuppliercomponent/css/activatesupplier.scss';
+@import '../components/supplier/supplierlistcomponent/css/supplierlist.scss';
