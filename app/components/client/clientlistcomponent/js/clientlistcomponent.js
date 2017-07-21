@@ -7,54 +7,24 @@ angular.module('GreenApp').config(function($stateProvider){
 })
 .component('clientlistComponent', {
     templateUrl: 'components/client/clientlistcomponent/clientlist.html',
-    controller: ClientlistComponent,
+    controller: ClientlistController,
     controllerAs: 'clientlistCtrl',
 })
-.controller('EditModalInstanceCtrl', EditModalInstanceCtrl);
 
-ClientlistComponent.$inject = ["$uibModal", "$timeout"];
+function ClientlistController(){
+	var vm = this;
+	vm.ele = null;
+	vm.editClientDetails = false;
+	vm.showModal = showModal;
+	vm.hideModal = hideModal;
 
-function ClientlistComponent($uibModal, $timeout){
-    var vm = this;
-	vm.items = [1,2,3,4,5];
-	vm.testData = "Hello Message";
-	vm.openEditDialog = openEditDialog;
-	
-	function openEditDialog(size){
-		var modalInstance = $uibModal.open({
-			animation: true,
-			templateUrl: 'myModalContent.html',
-			size: size,
-			controller: 'EditModalInstanceCtrl',
-			controllerAs: 'modctrl',
-			resolve: {
-				items: function () {
-				return vm.items;
-			}
-      }
-		});
-		
-		
-		modalInstance.result.then(function (selectedItem) {
-			console.log("dismissed", selectedItem);
-		}, function () {
-			console.log('Modal dismissed at: ' + new Date());
-		});
-	};	
-};
 
-function EditModalInstanceCtrl($uibModalInstance, items) {
-	var modctrl = this;
-	modctrl.items = items;
-	modctrl.selected = {
-		item: modctrl.items[0]
-	};
+	function showModal(){
+		vm.editClientDetails = true;
+		ele = document.getElementById('editClientDetails');
+	}
 
-	modctrl.ok = function () {
-		$uibModalInstance.close(modctrl.selected.item);
-	};
-
-	modctrl.cancel = function () {
-		$uibModalInstance.dismiss('cancel');
-	};
+	function hideModal(){
+		vm.editClientDetails = false;
+	}
 };

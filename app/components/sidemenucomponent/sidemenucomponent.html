@@ -116,6 +116,11 @@
                   <i class="fa fa-circle-o"></i> Client List
               </a>
             </li>
+            <li>
+              <a ui-sref="home.activateclient">
+                  <i class="fa fa-circle-o"></i> Activate Client
+              </a>
+            </li>
           </ul>
         </div>
         <div uib-accordion-group class="panel-default treeview">
@@ -135,6 +140,32 @@
             <li>
               <a ui-sref="home.supplierlist">
                   <i class="fa fa-circle-o"></i> Supplier List
+              </a>
+            </li>
+            <li>
+              <a ui-sref="home.activatesupplier">
+                  <i class="fa fa-circle-o"></i> Activate Supplier
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div uib-accordion-group class="panel-default treeview">
+          <uib-accordion-heading ng-init="supplierFlag=true" >
+            <span  ng-click="supplierFlag=!supplierFlag">
+              <i class="fa fa-cubes"></i> 
+              <span class="menu-txt">Production</span>
+              <i class="pull-right fa " ng-class="{'fa-angle-left': supplierFlag == true, 'fa-angle-down': supplierFlag== false}"></i>
+            </span>
+          </uib-accordion-heading>
+          <ul class="treeview-menu">
+            <li>
+              <a ui-sref="home.addproductionbatch">
+                  <i class="fa fa-circle-o"></i> Add Batch
+              </a>
+            </li>
+            <li>
+              <a ui-sref="home.addproductionprofile">
+                  <i class="fa fa-circle-o"></i> Add Profile
               </a>
             </li>
           </ul>

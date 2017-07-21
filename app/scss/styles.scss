@@ -74,7 +74,7 @@ body {
         font-weight: 400;
         @include marg(0);
         position: absolute;
-        top: -14px;
+        top: -12px;
         left: 0;
         // z-index: -1;
         text-transform: capitalize;
@@ -131,3 +131,42 @@ body {
         }
     }
 }
+
+.popup-cnt {
+  display: block;
+  overflow: hidden;
+}
+
+//Error Messages
+.animate-repeat {
+  list-style: none;
+  box-sizing: border-box;
+  &.ng-move, &.ng-enter {
+    transition: all linear 1s;
+  }
+  &.ng-leave {
+    transition: all linear 1s;
+    &.ng-leave-active {
+      right: -600px;
+    }
+  }
+  &.ng-move, &.ng-enter {
+    right: -600px;
+  }
+  &.ng-leave, &.ng-move.ng-move-active, &.ng-enter.ng-enter-active {
+    right: 0;
+  }
+}
+
+.alert {
+  min-width: 250px;
+}
+
+.content-wrapper {
+  margin-left: 0px;
+  &.home {
+    margin-left: 230px;
+  }
+}
+
+.modal-backdrop{z-index: -1;}

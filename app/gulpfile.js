@@ -28,16 +28,14 @@ return gulp.src(['images/*.jpg','images/*.png', 'images/*.gif'])
 
 
 gulp.task('watch', function(){
-	//gulp.watch('components/dashboardcomponent/css/dashboardcomponent.scss',['dash']);
 	gulp.watch([
 		'scss/*.scss', 
 		'components/dashboardcomponent/css/dashboardcomponent.scss', 
 		'components/logincomponent/css/logincomponent.scss', 
 		'components/sidemenucomponent/css/SidemenuComponent.scss',
 		'components/client/css/clientcomponent.scss',
-		'components/supplier/addsuppliercomponent/css/addsupplier.scss',
-		'components/supplier/activatesuppliercomponent/css/activatesupplier.scss',
-		'components/supplier/supplierlistcomponent/css/supplierlist.scss'
+		'components/supplier/css/suppliercomponent.scss',
+		'components/production/css/productioncomponent.scss',
 	],['sass']);
 	gulp.watch('css/*.css',['cssStream']);
 });

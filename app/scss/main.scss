@@ -6,6 +6,7 @@
 @import '../components/client/css/clientcomponent.scss';
 
 //supplier components stylesheet
-@import '../components/supplier/addsuppliercomponent/css/addsupplier.scss';
-@import '../components/supplier/activatesuppliercomponent/css/activatesupplier.scss';
-@import '../components/supplier/supplierlistcomponent/css/supplierlist.scss';
+@import '../components/supplier/css/suppliercomponent.scss';
+
+//Production components stylesheet
+@import '../components/production/css/productioncomponent.scss';

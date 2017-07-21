@@ -8589,7 +8589,7 @@ body {
   font-weight: 400;
   margin: 0;
   position: absolute;
-  top: -14px;
+  top: -12px;
   left: 0;
   text-transform: capitalize;
   transition: all 0.1s linear 0.02s;
@@ -8661,6 +8661,56 @@ body {
 .btn.btn-danger:hover,
 .btn.btn-danger:focus {
   border-color: transparent;
+}
+
+.popup-cnt {
+  display: block;
+  overflow: hidden;
+}
+
+.animate-repeat {
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+  transition: all linear 1s;
+}
+
+.animate-repeat.ng-leave {
+  transition: all linear 1s;
+}
+
+.animate-repeat.ng-leave.ng-leave-active {
+  right: -600px;
+}
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+  right: -600px;
+}
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+  right: 0;
+}
+
+.alert {
+  min-width: 250px;
+}
+
+.content-wrapper {
+  margin-left: 0px;
+}
+
+.content-wrapper.home {
+  margin-left: 230px;
+}
+
+.modal-backdrop {
+  z-index: -1;
 }
 
 .login-wrapper {
@@ -8761,10 +8811,6 @@ body {
   color: #f44336;
 }
 
-.content-wrapper {
-  margin-left: 230px;
-}
-
 .breadcrumb {
   margin-top: 20px;
   background: none;
@@ -8832,6 +8878,8 @@ body {
 
 .card .card-content table.table tbody tr td .table-btn {
   padding: 0 7px;
+  background: none;
+  border: none;
 }
 
 .card .card-content .text-primary {
@@ -8960,7 +9008,7 @@ body {
   border-right: solid 1px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-cnt .navbar-right > li.active.avatar-cnt > a {
+.navbar-cnt .navbar-right > li.active.avatar-cnt a {
   color: #fff;
   padding: 0;
   background-color: transparent;
@@ -9002,10 +9050,11 @@ body {
   border: none;
   border-left: solid 1px #e5e5e5;
   margin-right: -30px;
-  padding: 20px;
+  padding: 15px 20px;
   margin-top: -10px;
   margin-bottom: -10px;
   transition: all 0.3s linear 0.2s;
+  font-size: 22px;
 }
 
 .main-sidebar .user-panel .menu-btn:hover,
@@ -9116,7 +9165,7 @@ body {
 }
 
 .sidebar-menu .panel-collapse .panel-body .treeview-menu li a {
-  padding: 5px 5px 5px 15px;
+  padding: 5px;
 }
 
 .client-component .panel-card {
@@ -9180,8 +9229,12 @@ body {
   line-height: 30px;
 }
 
-.add-supplier .card .card-header[data-background-color="purple"] ~ .card-content .form-control:focus {
+.card-header[data-background-color="purple"] ~ .card-content .form-control:focus {
   border-bottom-color: #8e24aa;
+}
+
+.productionCnt {
+  color: #f44336;
 }
 @font-face {
   font-family: 'simple-line-icons';
