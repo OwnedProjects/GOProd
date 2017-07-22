@@ -6,22 +6,16 @@
                 <h4 class="title text-left">Add Client</h4>
             </div>
             <div class="card-content table-responsive">
-                <form>
-                        <div class="col-md-4">
+                <form ng-submit="addclientctrl.addClient()">
+                        <div class="col-md-8">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="name" />
+                                <input type="text" class="form-control" id="name" ng-model="addclientctrl.name" required/>
                                 <label  id="forname">Name</label>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" class="form-control" />
-                                <label >Lastname</label>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <input type="email" class="form-control" />
+                                <input type="text" class="form-control" ng-model="addclientctrl.vat" required />
                                 <label>VAT Number</label>
                             </div>
                         </div>
@@ -30,27 +24,27 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" />
+                                <input type="text" class="form-control" ng-model="addclientctrl.city" required/>
                                 <label>City</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" />
-                                <label>District</label>
+                                <input type="text" class="form-control" ng-model="addclientctrl.state" required/>
+                                <label>State</label>
                             </div>
                         </div>
                         <div class="clearfix"></div>         
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" />
+                                <input type="text" class="form-control" ng-model="addclientctrl.contactperson" required/>
                                 <label>Contact Person</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" />
+                                <input type="text" class="form-control" ng-model="addclientctrl.contactno" required/>
                                 <label>Contact Number</label>
                             </div>
                         </div>
@@ -58,12 +52,12 @@
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <textarea type="text" class="form-control"></textarea>
+                                <textarea type="text" class="form-control" ng-model="addclientctrl.address" required></textarea>
                                 <label>Address</label>
                             </div>
                         </div>
                         <div class="clearfix"></div>
-                        <button type="submit" class="btn btn-primary pull-right" data-background-color="purple" disabled>Add Client</button>
+                        <button type="submit" class="btn btn-primary pull-right" data-background-color="purple">Add Client</button>
                 </form>
             </div>
         </div>

@@ -22,6 +22,7 @@
     <script src="components/logincomponent/js/LoginService.js"></script>
     <script src="components/dashboardcomponent/js/dashboardcomponent.js"></script>
     <!--client components js start-->
+    <script src="components/client/js/clientservice.js"></script>
     <script src="components/client/addclientcomponent/js/addclientcomponent.js"></script>
     <script src="components/client/activateclientcomponent/js/activateclientcomponent.js"></script>
     <script src="components/client/clientlistcomponent/js/clientlistcomponent.js"></script>
@@ -42,6 +43,7 @@
   <body>
         <div class="popup-cnt">
             <!--Alert Popups  -->
+            <div class="modal-backdrop fade" ng-if="log.success.length>0 || log.info.length>0 || log.error.length>0 || log.warning.length>0"></div>
             <div class="alert alert-info animate-repeat" ng-repeat="info in log.info">
                 <button type="button" aria-hidden="true" class="close"><!--<i class="fa fa-close">--></i></button>
                 <span><b> {{info.label}}</b></span>
