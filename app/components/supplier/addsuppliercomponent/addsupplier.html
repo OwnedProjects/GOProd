@@ -6,73 +6,64 @@
                 <h4 class="title text-left">Add Suppliler</h4>
             </div>
             <div class="card-content table-responsive">
-                <form class="ng-pristine ng-valid">
-                        <div class="col-md-4">
+                <form ng-submit="addsupplierCtrl.addSupplier()">
+                        <div class="col-md-8">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="name">
                                 <label id="forname">Name</label>
+                                <input type="text" class="form-control" id="name" ng-model="addsupplierCtrl.name" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" class="form-control">
-                                <label>Lastname</label>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <input type="email" class="form-control">
                                 <label>VAT Number</label>
+                                <input type="text" class="form-control" ng-model="addsupplierCtrl.vat" required>
                             </div>
                         </div>
                         <div class="clearfix"></div>
                         
-
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control">
-                                <label>City</label>
-                            </div>
-                        </div>  
-                        
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control">
-                                <label>Contact Person</label>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div> 
-                             
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <select class="form-control">
-                                    <option>Select</option>
+                                <label>Select Product</label>
+                                <select class="form-control" ng-model="addsupplierCtrl.product" required>
                                     <option>Filler Powder</option>
                                     <option>Raw Organic Manure</option>
                                     <option>Slaughter House Waste</option>
                                     <option>Animal Waste Filler</option>
                                     <option>HDPE Bags</option>
                                 </select>
-                                <label>Contact Number</label>
                             </div>
                         </div>
-                             
+                        
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control">
+                                <label>Contact Person</label>
+                                <input type="text" class="form-control" ng-model="addsupplierCtrl.contactperson" required>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div> 
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" class="form-control" ng-model="addsupplierCtrl.city" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label>Contact Number</label>
+                                <input type="text" class="form-control" ng-model="addsupplierCtrl.contactno" required>
                             </div>
                         </div>
                         <div class="clearfix"></div>
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <textarea type="text" class="form-control" ></textarea>
                                 <label>Address</label>
+                                <textarea type="text" class="form-control"  ng-model="addsupplierCtrl.address" required></textarea>
                             </div>
                         </div>
                         <div class="clearfix"></div>
-                        <button type="submit" class="btn btn-primary pull-right" data-background-color="purple" disabled="">Add Supplier</button>
+                        <button type="submit" class="btn btn-primary pull-right" data-background-color="purple">Add Supplier</button>
                 </form>
             </div>
         </div>
