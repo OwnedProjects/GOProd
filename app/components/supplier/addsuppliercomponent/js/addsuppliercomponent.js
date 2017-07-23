@@ -11,9 +11,9 @@ angular.module('GreenApp').config(function($stateProvider){
     controllerAs: 'addsupplierCtrl'
 });
 
-AddsupplierController.$inject = ["SupplierServie", "LogService"]
+AddsupplierController.$inject = ["SupplierService", "LogService"]
 
-function AddsupplierController(SupplierServie, LogService){
+function AddsupplierController(SupplierService, LogService){
     var vm = this;
     vm.addSupplier = addSupplier;
 
@@ -28,9 +28,9 @@ function AddsupplierController(SupplierServie, LogService){
             state: vm.state,
             contactno: vm.contactno,
             address: vm.address
-        }
+        };
         
-        SupplierServie.addSupplier(tmpObj)
+        SupplierService.addSupplier(tmpObj)
             .then(function(response){
                 console.log(response);
             })

@@ -1,9 +1,9 @@
 angular.module('GreenApp')
-    .service("SupplierServie", SupplierServie);
+    .service("SupplierService", SupplierService);
 
-SupplierServie.$inject = ["$q", "$http"];
+SupplierService.$inject = ["$q", "$http"];
 
-function SupplierServie($q, $http){
+function SupplierService($q, $http){
     var vm = this;
     vm.addSupplier = addSupplier;
 
