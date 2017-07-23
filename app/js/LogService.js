@@ -1,21 +1,48 @@
 angular.module('GreenApp')
 	.service("LogService", LogService);
 
-LogService.$inject = ["$rootScope", "$timeout", "$q"];
+LogService.$inject = ["$rootScope", "$timeout", "$q", "$http"];
 	
-function LogService($rootScope, $timeout, $q){
+function LogService($rootScope, $timeout, $q, $http){
 	var vm = this;
 	vm.setSuccess = setSuccess;
 	vm.setError = setError;
 	vm.init = init;
 		
-	function setSuccess(msg){
+	function setSuccess(msg, data){
 		return $q(function(resolve, reject) {
 			$rootScope.log.success.push({label: msg});
-			$timeout(function(){
-				$rootScope.log.success.shift();
-				resolve(true);
-			},3000);
+			var dt = new Date();
+			var filedata;
+			if(data != undefined){
+				filedata = {
+					filenm: "log_success_"+dt.getDate()+"_"+(dt.getMonth()+1)+"_"+dt.getFullYear()+".txt",
+					fdata: "(" + dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ") - " + msg + " - " + data
+				};
+			}
+			else{
+				filedata = {
+					filenm: "log_success_"+dt.getDate()+"_"+(dt.getMonth()+1)+"_"+dt.getFullYear()+".txt",
+					fdata: "(" + dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ") - " + msg
+				};
+			}
+			console.log(filedata);
+			$http({
+                method: 'POST',
+                url: 'db/create-logs.php?action=successlog',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+				data: filedata
+            }).then(function successCallback(response) {
+				$timeout(function(){
+					$rootScope.log.success.shift();
+					resolve(true);
+				},3000);
+            }, function errorCallback(error) {
+				$timeout(function(){
+					console.log(error)
+					reject (error)
+				},3000);
+            });
 		});
 	}
 		
