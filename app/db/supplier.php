@@ -11,9 +11,11 @@ $action=$_GET['action'];
         exit;
         if($resSupplier){
             $obj->status=true;
+			var_dump(http_response_code(200));
         }
         else{
             $obj->status=false;
+			var_dump(http_response_code(500));
         }
         echo json_encode($obj);
     }

@@ -32,14 +32,14 @@ function AddclientController(ClientService, LogService){
 
         ClientService.addClient(tmpObj)
             .then(function(response){
-                console.log(response);
-                LogService.setSuccess("Client added successfully").then(function(){
+                //console.log(response);
+                LogService.setSuccess("Client added successfully!").then(function(){
                     vm.reset();
                 });
             })
             .catch(function(err){
-                console.log(err);
-                LogService.setError("Client cannot be added, try again later");
+                //console.log(err);
+                LogService.setError("Client cannot be added, try again later.");
             });
     };
 
