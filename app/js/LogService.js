@@ -29,7 +29,7 @@ function LogService($rootScope, $timeout, $q, $http){
 			console.log(filedata);
 			$http({
                 method: 'POST',
-                url: 'db/create-logs.php?action=successlog',
+                url: 'db/create-logs.php?action=filelog',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 				data: filedata
             }).then(function successCallback(response) {
@@ -46,13 +46,40 @@ function LogService($rootScope, $timeout, $q, $http){
 		});
 	}
 		
-	function setError(msg){
+	function setError(msg, data){
 		return $q(function(resolve, reject) {
 			$rootScope.log.error.push({label: msg});
-			$timeout(function(){
-				$rootScope.log.error.shift();
-				resolve(true);
-			},3000);
+			var dt = new Date();
+			var filedata;
+			if(data != undefined){
+				filedata = {
+					filenm: "log_error_"+dt.getDate()+"_"+(dt.getMonth()+1)+"_"+dt.getFullYear()+".txt",
+					fdata: "(" + dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ") - " + msg + " - " + data
+				};
+			}
+			else{
+				filedata = {
+					filenm: "log_error_"+dt.getDate()+"_"+(dt.getMonth()+1)+"_"+dt.getFullYear()+".txt",
+					fdata: "(" + dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ") - " + msg
+				};
+			}
+			console.log(filedata);
+			$http({
+                method: 'POST',
+                url: 'db/create-logs.php?action=filelog',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+				data: filedata
+            }).then(function successCallback(response) {
+				$timeout(function(){
+					$rootScope.log.error.shift();
+					resolve(true);
+				},3000);
+            }, function errorCallback(error) {
+				$timeout(function(){
+					console.log(error)
+					reject (error)
+				},3000);
+            })
 		});
 	}
 	

@@ -3,7 +3,7 @@ ini_set('error_reporting', E_STRICT);
 $action=$_GET['action'];
 
 
-if($action=='successlog'){
+if($action=='filelog'){
 	$data = json_decode(file_get_contents("php://input"));
 	$filename = "../logs/".$data->filenm;
 	//$filename = "../logs/test.txt";
