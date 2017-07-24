@@ -19,7 +19,7 @@ function AddsupplierController(SupplierService, LogService){
     vm.reset = reset;
 
     function addSupplier(){
-        console.log(vm.name,vm.vat,vm.product,vm.contactperson, vm.city, vm.contactno,vm.address )
+        //console.log(vm.name,vm.vat,vm.product,vm.contactperson, vm.city, vm.contactno,vm.address )
         var tmpObj = {
             name: vm.name,
             vat: vm.vat,

@@ -1,1 +1,52 @@
-<h1>Add Production Profile</h1>
+<div class="client-component content-wrapper">
+    <div class="col-md-12">
+        <h1>Add Production Profile</h1>
+        <div class="card panel-card">
+            <div class="card-header" data-background-color="green">
+                <h4 class="title text-left">Add Profile</h4>
+            </div>
+            <div class="card-content table-responsive">
+                <form ng-submit="addclientctrl.addClient()">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label  for="">Raw Organic Manure</label>
+                                <input type="text" class="form-control" id="" ng-model="addproductionCtrl.raworganicmenure" required/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Production Date</label>
+                                <input type="text" class="form-control" ng-model="addproductionCtrl.productiondate" required />
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Filler Powder</label>
+                                <input type="text" class="form-control" ng-model="addproductionCtrl.fillerpowder" required/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Animal Waste Filler</label>
+                                <input type="text" class="form-control" ng-model="addproductionCtrl.animalwastefill" required/>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>         
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Total Product</label>
+                                <input type="text" class="form-control" ng-model="addproductionCtrl.totalProduct" disabled required/>
+                            </div>
+                        </div>
+                        
+                        <div class="clearfix"></div>
+
+                        <button type="submit" class="btn btn-primary pull-right" data-background-color="green">Create Profile</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

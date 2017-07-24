@@ -97,7 +97,39 @@
       </ul> 
 		<uib-accordion close-others="true">
       <div class="sidebar-menu">
-        <div uib-accordion-group class="panel-default treeview">
+        
+        <div class="panel-default treeview panel" is-open="true" data-background-color="blue">
+          <div class="panel-heading" role="tab">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" ui-sref="home.dashboard" >
+                    <i class="fa fa-dashboard"></i> 
+                    <span class="menu-txt">Dashboard</span>
+                </a>
+              </h4>
+          </div>
+        </div>
+        <div uib-accordion-group class="panel-default treeview" data-background-color="green">
+          <uib-accordion-heading ng-init="supplierFlag=true" >
+            <span  ng-click="supplierFlag=!supplierFlag">
+              <i class="fa fa-cubes"></i> 
+              <span class="menu-txt">Production</span>
+              <i class="pull-right fa " ng-class="{'fa-angle-left': supplierFlag == true, 'fa-angle-down': supplierFlag== false}"></i>
+            </span>
+          </uib-accordion-heading>
+          <ul class="treeview-menu">
+            <li>
+              <a ui-sref="home.addproductionbatch">
+                  <i class="fa fa-circle-o"></i> Add Batch
+              </a>
+            </li>
+            <li>
+              <a ui-sref="home.addproductionprofile">
+                  <i class="fa fa-circle-o"></i> Add Profile
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div uib-accordion-group class="panel-default treeview" data-background-color="red">
           <uib-accordion-heading ng-init="clientFlag=true">
             <span ng-click="clientFlag=!clientFlag">
               <i class="fa fa-users"></i> 
@@ -123,7 +155,7 @@
             </li>
           </ul>
         </div>
-        <div uib-accordion-group class="panel-default treeview">
+        <div uib-accordion-group class="panel-default treeview" data-background-color="purple">
           <uib-accordion-heading ng-init="supplierFlag=true" >
             <span  ng-click="supplierFlag=!supplierFlag">
               <i class="fa fa-user-secret"></i> 
@@ -145,27 +177,6 @@
             <li>
               <a ui-sref="home.activatesupplier">
                   <i class="fa fa-circle-o"></i> Activate Supplier
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div uib-accordion-group class="panel-default treeview">
-          <uib-accordion-heading ng-init="supplierFlag=true" >
-            <span  ng-click="supplierFlag=!supplierFlag">
-              <i class="fa fa-cubes"></i> 
-              <span class="menu-txt">Production</span>
-              <i class="pull-right fa " ng-class="{'fa-angle-left': supplierFlag == true, 'fa-angle-down': supplierFlag== false}"></i>
-            </span>
-          </uib-accordion-heading>
-          <ul class="treeview-menu">
-            <li>
-              <a ui-sref="home.addproductionbatch">
-                  <i class="fa fa-circle-o"></i> Add Batch
-              </a>
-            </li>
-            <li>
-              <a ui-sref="home.addproductionprofile">
-                  <i class="fa fa-circle-o"></i> Add Profile
               </a>
             </li>
           </ul>

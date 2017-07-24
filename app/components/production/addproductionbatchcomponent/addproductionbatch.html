@@ -1,1 +1,72 @@
-<h1>Add Production Batch</h1>
+<div class="client-component content-wrapper">
+    <div class="col-md-12">
+        <h1>Add Production Batch</h1>
+        <div class="card panel-card">
+            <div class="card-header" data-background-color="green">
+                <h4 class="title text-left">Add Batch</h4>
+            </div>
+            <div class="card-content table-responsive">
+                <form ng-submit="addclientctrl.addClient()">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label  id="forname">Batch Number</label>
+                                <input type="text" class="form-control" id="name" ng-model="addclientctrl.name" required/>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Production Date</label>
+                                <input type="text" class="form-control" ng-model="addclientctrl.vat" required />
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Raw Organic Manure:</label>
+                                <input type="text" class="form-control" ng-model="addclientctrl.city" required/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Slaughter House Waste:</label>
+                                <input type="text" class="form-control" ng-model="addclientctrl.state" required/>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>         
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Filler Powder: </label>
+                                <input type="text" class="form-control" ng-model="addclientctrl.contactperson" required/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Animal Waste Filler</label>
+                                <input type="text" class="form-control" ng-model="addclientctrl.contactno" required/>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>HDPE Bags Used</label>
+                                <input type="text" class="form-control" ng-model="addclientctrl.contactperson" required/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>ECHOMEAL</label>
+                                <input type="text" class="form-control" ng-model="addclientctrl.contactno" required/>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <button type="submit" class="btn btn-primary pull-right" data-background-color="green">Create Batch</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -12,5 +12,7 @@ angular.module('GreenApp').config(function($stateProvider){
 });
 
 function AddproductionprofileController(){
+    var vm = this;
+    vm.totalProduct = null;
 
 }

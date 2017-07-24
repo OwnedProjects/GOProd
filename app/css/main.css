@@ -11658,6 +11658,11 @@ body {
   border-bottom: solid 1px #f44336;
 }
 
+.form-group .form-control[disabled] {
+  background: rgba(0, 0, 0, 0.05);
+  border-bottom-color: transparent;
+}
+
 .form-group textarea.form-control {
   height: 100px;
   resize: none;
@@ -11975,27 +11980,72 @@ body {
   text-decoration: none;
 }
 
-.card [data-background-color="orange"] {
+.card-header[data-background-color="orange"] {
+  color: #fff;
   background: linear-gradient(60deg, #ffa726, #fb8c00);
   box-shadow: 0 12px 20px -10px rgba(255, 152, 0, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(255, 152, 0, 0.2);
 }
 
-.card [data-background-color="green"] {
+.card-header[data-background-color="orange"] form input.form-control:focus {
+  border-bottom-color: #fb8c00;
+}
+
+.card-header[data-background-color="green"] {
+  color: #fff;
   background: linear-gradient(60deg, #66bb6a, #43a047);
   box-shadow: 0 12px 20px -10px rgba(76, 175, 80, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(76, 175, 80, 0.2);
 }
 
-.card [data-background-color="red"] {
+.card-header[data-background-color="green"] form input.form-control:focus {
+  border-bottom-color: #fb8c00;
+}
+
+.card-header[data-background-color="green"] .panel-heading {
+  background: linear-gradient(60deg, #66bb6a, #43a047);
+  box-shadow: 0 12px 20px -10px rgba(76, 175, 80, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(76, 175, 80, 0.2);
+}
+
+.card-header[data-background-color="red"] {
+  color: #fff;
   background: linear-gradient(60deg, #ef5350, #e53935);
   box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2);
 }
 
-.card [data-background-color="blue"] {
+.card-header[data-background-color="red"] form input.form-control:focus {
+  border-bottom-color: #e53935;
+}
+
+.card-header[data-background-color="red"] .panel-heading {
+  background: linear-gradient(60deg, #ef5350, #e53935);
+  box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2);
+}
+
+.card-header[data-background-color="blue"] {
+  color: #fff;
   background: linear-gradient(60deg, #26c6da, #00acc1);
   box-shadow: 0 12px 20px -10px rgba(0, 188, 212, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(0, 188, 212, 0.2);
 }
 
-.card [data-background-color="purple"] {
+.card-header[data-background-color="blue"] form input.form-control:focus {
+  border-bottom-color: #00acc1;
+}
+
+.card-header[data-background-color="blue"] .panel-heading {
+  background: linear-gradient(60deg, #26c6da, #00acc1);
+  box-shadow: 0 12px 20px -10px rgba(0, 188, 212, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(0, 188, 212, 0.2);
+}
+
+.card-header[data-background-color="purple"] {
+  color: #fff;
+  background: linear-gradient(60deg, #ab47bc, #8e24aa);
+  box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2);
+}
+
+.card-header[data-background-color="purple"] form input.form-control:focus {
+  border-bottom-color: #8e24aa;
+}
+
+.card-header[data-background-color="purple"] .panel-heading {
   background: linear-gradient(60deg, #ab47bc, #8e24aa);
   box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2);
 }
@@ -12103,7 +12153,6 @@ body {
 .main-sidebar .user-panel .menu-btn:focus {
   background: #fff;
   color: #f44336;
-  font-size: 18px;
 }
 
 .main-sidebar .sidebar-menu {
@@ -12171,27 +12220,47 @@ body {
   box-shadow: none;
 }
 
+.sidebar-menu .panel-default[data-background-color="orange"] {
+  background: none;
+  box-shadow: none;
+}
+
+.sidebar-menu .panel-default[data-background-color="purple"] {
+  background: none;
+  box-shadow: none;
+}
+
+.sidebar-menu .panel-default[data-background-color="blue"] {
+  background: none;
+  box-shadow: none;
+}
+
+.sidebar-menu .panel-default[data-background-color="green"] {
+  background: none;
+  box-shadow: none;
+}
+
+.sidebar-menu .panel-default[data-background-color="red"] {
+  background: none;
+  box-shadow: none;
+}
+
 .sidebar-menu .panel-default .panel-heading {
   color: #a4aeb3;
   padding: 12px 20px 12px 15px;
   background: none;
   border: none;
+  border-radius: 3px;
+  box-shadow: none;
 }
 
-.sidebar-menu .panel-default .panel-heading span .menu-txt {
-  margin-left: 15px;
-}
-
-.sidebar-menu .panel-default .panel-heading h4 a.accordion-toggle {
+.sidebar-menu .panel-default .panel-heading h4.panel-title a {
   display: block;
   text-decoration: none;
 }
 
-.sidebar-menu .panel-default.panel-open .panel-heading {
-  color: #fff;
-  background: #f44336;
-  box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -10px rgba(244, 67, 54, 0.2);
-  border-radius: 3px;
+.sidebar-menu .panel-default .panel-heading h4.panel-title a .menu-txt {
+  margin-left: 15px;
 }
 
 .sidebar-menu .panel-collapse .panel-body {
@@ -12208,6 +12277,36 @@ body {
 
 .sidebar-menu .panel-collapse .panel-body .treeview-menu li a {
   padding: 5px;
+}
+
+.sidebar-menu .panel-open[data-background-color="orange"] .panel-heading {
+  color: #fff;
+  background: linear-gradient(60deg, #ffa726, #fb8c00);
+  box-shadow: 0 12px 20px -10px rgba(255, 152, 0, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(255, 152, 0, 0.2);
+}
+
+.sidebar-menu .panel-open[data-background-color="purple"] .panel-heading {
+  color: #fff;
+  background: linear-gradient(60deg, #ab47bc, #8e24aa);
+  box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2);
+}
+
+.sidebar-menu .panel-open[data-background-color="blue"] .panel-heading {
+  color: #fff;
+  background: linear-gradient(60deg, #26c6da, #00acc1);
+  box-shadow: 0 12px 20px -10px rgba(0, 188, 212, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(0, 188, 212, 0.2);
+}
+
+.sidebar-menu .panel-open[data-background-color="green"] .panel-heading {
+  color: #fff;
+  background: linear-gradient(60deg, #66bb6a, #43a047);
+  box-shadow: 0 12px 20px -10px rgba(76, 175, 80, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(76, 175, 80, 0.2);
+}
+
+.sidebar-menu .panel-open[data-background-color="red"] .panel-heading {
+  color: #fff;
+  background: linear-gradient(60deg, #ef5350, #e53935);
+  box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2);
 }
 
 .client-component .panel-card {

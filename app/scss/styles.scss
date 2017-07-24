@@ -105,6 +105,10 @@ body {
             //     z-index: 0;
             // }
         }
+        &[disabled]{
+            background: rgba(0,0,0,0.05);
+            border-bottom-color: transparent;
+        }
     }
     textarea.form-control{
         height: 100px;
