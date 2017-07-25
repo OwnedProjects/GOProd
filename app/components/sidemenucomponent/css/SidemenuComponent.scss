@@ -249,4 +249,18 @@
             box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2);
           }
         }
+      .panel-open[data-background-color="grey"]{
+          .panel-heading{
+            color: $white;
+            background: linear-gradient(60deg, #8a8a8a, #797979);
+            box-shadow: 0 12px 20px -10px rgba(167, 167, 167, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(193, 193, 193, 0.2);
+          }
+        }
+      .panel-open[data-background-color="lgrey"]{
+          .panel-heading{
+            color: $white;
+            background: linear-gradient(60deg, #ef5350, #e53935);
+            box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2);
+          }
+        }
       }

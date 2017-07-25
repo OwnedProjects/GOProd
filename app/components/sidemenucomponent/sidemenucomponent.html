@@ -108,10 +108,37 @@
               </h4>
           </div>
         </div>
+        <div uib-accordion-group class="panel-default treeview" data-background-color="orange">
+          <uib-accordion-heading ng-init="productFlag=true" >
+            <span  ng-click="productFlag=!productFlag">
+              <i class="fa fa-cube"></i> 
+              <span class="menu-txt">Products</span>
+              <i class="pull-right fa " ng-class="{'fa-angle-left': productFlag == true, 'fa-angle-down': productFlag== false}"></i>
+            </span>
+          </uib-accordion-heading>
+          <ul class="treeview-menu">
+            <li>
+              <a ui-sref="home.productlist">
+                  <i class="fa fa-circle-o"></i> Products List
+              </a>
+            </li>
+            <li>
+              <a ui-sref="home.purchase">
+                  <i class="fa fa-circle-o"></i> Purchase
+              </a>
+            </li>
+            <li>
+              <a ui-sref="home.purchasebag">
+                  <i class="fa fa-circle-o"></i> Purchase Bags
+              </a>
+            </li>
+          </ul>
+        </div>
         <div uib-accordion-group class="panel-default treeview" data-background-color="green">
           <uib-accordion-heading ng-init="supplierFlag=true" >
             <span  ng-click="supplierFlag=!supplierFlag">
-              <i class="fa fa-cubes"></i> 
+              <!-- <i class="icon-settings icon"></i>  -->
+              <i class="fa fa-industry"></i> 
               <span class="menu-txt">Production</span>
               <i class="pull-right fa " ng-class="{'fa-angle-left': supplierFlag == true, 'fa-angle-down': supplierFlag== false}"></i>
             </span>

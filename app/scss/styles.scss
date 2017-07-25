@@ -133,7 +133,7 @@ body {
         box-shadow: none;
         border-radius: 0;
         border-bottom: solid 1px #d7d7d7;
-        padding-left: 0;
+        padding-left: 10px !important;
         font-size: 16px;
         @include pad(0);
         transition: all 0.1s linear 0.2s;
@@ -141,6 +141,7 @@ body {
         // z-index: 1;
         &:focus{
             outline: none;
+            background: rgba(0,0,0,0.05);
             border-bottom:solid 1px $red;
             // ~ label{
             //     // top: -9px;
@@ -155,6 +156,12 @@ body {
             border-bottom-color: transparent;
         }
     }
+    .btn-addon{
+        position: absolute;
+        right: 0;
+        top: 20px;
+        padding: 6px 10px;
+    }
     textarea.form-control{
         height: 100px;
         resize: none;
@@ -166,6 +173,7 @@ body {
     @include pad(10px);
     @include rad(0px);
     border-color: transparent;
+    outline: none;
     &.btn-primary, &.btn-success, &.btn-info, &.btn-warning, &.btn-danger{
         &:disabled{
             border: none;
