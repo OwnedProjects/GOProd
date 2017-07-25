@@ -17,6 +17,11 @@ $grey: #333;
 }
 
 //margin
-@mixin marg ($margins...){
-    margin: $margins;
-}
+@mixin marg ($margins...){margin: $margins;}
+@mixin mt ($mt){margin-top: $mt;}
+@mixin mb ($mb){margin-bottom: $mb;}
+@mixin ml ($ml){margin-left: $ml;}
+@mixin mr ($mr){margin-right: $mr;}
+
+//background
+@mixin background($color){background: $color;}

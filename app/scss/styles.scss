@@ -12,12 +12,57 @@ body {
 .fontMedium{font-family: 'brandon_grotesquemedium'};
 .fontbold{font-family: 'brandon_grotesquebold'};
 .fontblack{font-family: 'brandon_grotesqueblack'};
+
+.mt5{margin-top:5px;}.mt10{margin-top:10px;}.mt20{margin-top:20px;}.mt30{margin-top:30px;}.mt15{margin-top:15px;}.mt16{margin-top:16px;}
+.mt17{margin-top:17px;}.mt18{margin-top:18px;}.mt19{margin-top:19px;}.mt25{margin-top:25px;}.mt35{margin-top:35px;}
+
+.mb5{margin-bottom:5px;}.mb10{margin-bottom:10px;}.mb20{margin-bottom:20px;}.mb30{margin-bottom:30px;}.mb15{margin-bottom:15px;}
+.mb16{margin-bottom:16px;}
+.mb17{margin-bottom:17px;}.mb18{margin-bottom:18px;}.mb19{margin-bottom:19px;}.mb25{margin-bottom:25px;}.mb35{margin-bottom:35px;}
+
+.ml5 {margin-left:5px;}.ml10{margin-left:10px;}.ml15{margin-left:15px;}.ml16{margin-left:16px;}
+.ml17{margin-left:17px;}.ml18{margin-left:18px;}.ml19{margin-left:19px;}.ml20{margin-left:10px;}
+
+.mr5 {margin-right:5px;}.mr10{margin-right:10px;}.mr15{margin-right:15px;}.mr16{margin-right:16px;}
+.mr17{margin-right:17px;}.mr18{margin-right:18px;}.mr19{margin-right:19px;}.mr20{margin-right:10px;}
+
 .popup-cnt{
     position: absolute;
     right: 20px;
     top: 60px;
     z-index: 1;
     display: none;
+}
+.btn{
+    @include rad(3px);
+    &.btn-red{
+        color: $white;
+        background: #f55a4e;
+    }
+    &.btn-blue{
+        color: $white;
+        background: #00d3ee;
+    }
+    &.btn-green{
+        color: $white;
+        background: #5cb860;
+    }
+    &.btn-orange{
+        color: $white;
+        background: #ffa21a;
+    }
+    &.btn-purple{
+        color: $white;
+        background: #af2cc5;
+    }
+    &.btn-grey{
+        color: $white;
+        background: $grey;
+    }
+    &.btn-lgrey{
+        color: $black;
+        background: $lgrey;
+    }
 }
 .alert {
     border: 0;
@@ -171,5 +216,31 @@ body {
     margin-left: 230px;
   }
 }
-
+.modal {
+    .modal-content{
+        .card{
+            @include marg(0);
+            &.card{
+                table{
+                    tr{
+                        td{
+                            .btn{@include pad(5px 10px);}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 .modal-backdrop{z-index: -1;}
+
+
+.card-content{
+    .table{
+        tr{
+            td{
+                vertical-align: middle;
+            }
+        }
+    }
+}

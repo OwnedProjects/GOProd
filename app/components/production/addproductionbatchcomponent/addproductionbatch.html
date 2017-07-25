@@ -64,9 +64,65 @@
                         </div>
                         <div class="clearfix"></div>
 
+                        <button type="button" class="btn btn-grey pull-right ml15" ng-click="addproductionCtrl.showProfileModal()">Select Profile</button>
                         <button type="submit" class="btn btn-primary pull-right" data-background-color="green">Create Batch</button>
                 </form>
             </div>
         </div>
     </div>
+</div>
+
+
+<!-- Modal -->
+<div id="selectProfileModal" class="modal show fade" ng-class="{'in': addproductionCtrl.selectProfile == true, '': addproductionCtrl.selectProfile == false}" ng-show="addproductionCtrl.selectProfile">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="card table-card">
+        <div class="card-header" data-background-color="green">
+            <h4 class="title text-left">Select Profile
+                <button type="button" class="close" ng-click="addproductionCtrl.hideProfileModal()">
+                    x
+                </button>
+            </h4>
+        </div>
+      <div class="modal-body">
+        <div class="card-content table-responsive">
+            <table class="table table-responsive">
+                <thead class="text-primary">
+                    <tr>
+                        <td>Filler Powder</td>
+                        <td>Organic Manure</td>
+                        <td>Slaughter House Waste</td>
+                        <td>Animal Waste Filler</td>
+                        <td>Select</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>4.400</td>
+                        <td>3.100</td>
+                        <td>3.100</td>
+                        <td>0.800</td>
+                        <td>
+                            <button type="button" class="btn btn-green text-white" ng-click="addproductionCtrl.setprofileDetails();">Select</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>
+                            <button type="button" class="btn btn-green text-white" ng-click="addproductionCtrl.setprofileDetails();">Select</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+       </div> 
+    </div>
+  </div>
+  <div class="modal-backdrop fade" ng-class="{'in': addproductionCtrl.selectProfile == true, '': addproductionCtrl.selectProfile == false}" ng-click="addproductionCtrl.hideProfileModal()"></div>
 </div>
