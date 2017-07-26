@@ -1,6 +1,6 @@
 @import '../../../scss/_variables.scss';
 
-.client-component{
+// .client-component{
     .panel-card{
         @include marg(10px 0 10px);
         .card-header{
@@ -14,7 +14,7 @@
             margin-top: 0;
         }
     }
-}
+// }
 .search-cnt{
     .form-group{
         @include marg(0);

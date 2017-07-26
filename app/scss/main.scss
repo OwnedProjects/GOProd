@@ -10,3 +10,14 @@
 
 //Production components stylesheet
 @import '../components/production/css/productioncomponent.scss';
+
+//product component scss
+@import '../components/products/productlistcomponet/css/productlist.scss';
+@import '../components/products/purchasebagcomponent/css/purchasebag.scss';
+@import '../components/products/purchasecomponent/css/purchase.scss';
+
+//Sales component scss
+@import '../components/sales/newordercomponent/css/neworder.scss';
+@import '../components/sales/despatchescomponent/css/despatches.scss';
+@import '../components/sales/generatebillcomponent/css/gerneratebill.scss';
+

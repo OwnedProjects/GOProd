@@ -6,7 +6,7 @@ angular.module('GreenApp').config(function($stateProvider){
     })
 })
 .component('productlistComponent', {
-    templateUrl: 'components/product/productlistcomponent/productlist.html',
+    templateUrl: 'components/products/productlistcomponent/productlist.html',
     controller: ProductlistComponent,
     controllerAs: 'productlistCtrl'
 })

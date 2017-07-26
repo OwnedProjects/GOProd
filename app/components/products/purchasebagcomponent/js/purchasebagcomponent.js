@@ -6,7 +6,7 @@ angular.module('GreenApp').config(function($stateProvider){
     })
 })
 .component('purchasebagComponent', {
-    templateUrl: 'components/product/purchasebagcomponent/purchasebag.html',
+    templateUrl: 'components/products/purchasebagcomponent/purchasebag.html',
     controller: PurchasebagController,
     controllerAs: 'purchasebagCtrl'
 });

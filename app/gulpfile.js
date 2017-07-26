@@ -35,7 +35,16 @@ gulp.task('watch', function(){
 		'components/sidemenucomponent/css/SidemenuComponent.scss',
 		'components/client/css/clientcomponent.scss',
 		'components/supplier/css/suppliercomponent.scss',
-		'components/production/css/productioncomponent.scss',
+		//production styles
+		'components/production/css/productioncomponent.scss',		
+		//product styles
+		'components/products/productlistcomponet/css/productlist.scss',		
+		'components/products/purchasebagcomponent/css/purchasebag.scss',		
+		'components/products/purchasecomponent/css/purchase.scss',
+		//sales styles
+		'components/sales/newordercomponent/css/neworder.scss',		
+		'components/sales/despatchescomponent/css/despatches.scss',		
+		'components/sales/generatebillcomponent/css/gerneratebill.scss'
 	],['sass']);
 	gulp.watch('css/*.css',['cssStream']);
 });
