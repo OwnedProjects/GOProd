@@ -1,15 +1,6 @@
 @import '../../../scss/_variables.scss';
 
-  .breadcrumb{
-    margin-top: 20px;
-    background: none;
-    border-radius: 0;
-    li{
-      a{
-        color: $grey;
-      }
-    }
-  }
+.dasboardcomp{
   .card {
     color: rgba(0,0,0, 0.87);
     display: inline-block;
@@ -119,103 +110,105 @@
         }
     }
   }
-  .card-header[data-background-color="orange"] {
-    color: $white;
-    background: linear-gradient(60deg, #ffa726, #fb8c00);
-    box-shadow: 0 12px 20px -10px rgba(255, 152, 0, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(255, 152, 0, 0.2);
-    ~ .card-content {
-      form{
-        input.form-control{
-          &:focus{
-            border-bottom-color: #ffa726;
-          }
+}
+
+.card-header[data-background-color="orange"] {
+  color: $white;
+  background: linear-gradient(60deg, #ffa726, #fb8c00);
+  box-shadow: 0 12px 20px -10px rgba(255, 152, 0, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(255, 152, 0, 0.2);
+  ~ .card-content {
+    form{
+      input.form-control{
+        &:focus{
+          border-bottom-color: #ffa726;
         }
       }
     }
-    table.table{
-      .text-primary{color: #fb8c00}
+  }
+  table.table{
+    .text-primary{color: #fb8c00}
+  }
+}
+.card-header[data-background-color="green"] {
+  color: $white;
+  background: linear-gradient(60deg, #66bb6a, #43a047);
+  box-shadow: 0 12px 20px -10px rgba(76, 175, 80, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(76, 175, 80, 0.2);
+  + .card-content.table-responsive {
+    form{
+      input.form-control{
+        &:focus{
+          @include background(rgba(0,0,0,0.02));
+          border-bottom-color: #66bb6a;
+        }
+      }
     }
   }
-  .card-header[data-background-color="green"] {
-    color: $white;
+  .panel-heading{
     background: linear-gradient(60deg, #66bb6a, #43a047);
     box-shadow: 0 12px 20px -10px rgba(76, 175, 80, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(76, 175, 80, 0.2);
-    + .card-content.table-responsive {
-      form{
-        input.form-control{
-          &:focus{
-            @include background(rgba(0,0,0,0.02));
-            border-bottom-color: #66bb6a;
-          }
+  }
+  table.table{
+    .text-primary{color: #43a047}
+  }
+}
+.card-header[data-background-color="red"] {
+  color: $white;
+  background: linear-gradient(60deg, #ef5350, #e53935);
+  box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2);
+  ~ .card-content {
+    form{
+      input.form-control{
+        &:focus{
+          border-bottom-color: #ef5350;
         }
       }
     }
-    .panel-heading{
-      background: linear-gradient(60deg, #66bb6a, #43a047);
-      box-shadow: 0 12px 20px -10px rgba(76, 175, 80, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(76, 175, 80, 0.2);
-    }
-    table.table{
-      .text-primary{color: #43a047}
-    }
   }
-  .card-header[data-background-color="red"] {
-    color: $white;
+  .panel-heading{
     background: linear-gradient(60deg, #ef5350, #e53935);
     box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2);
+  }
+  
+  table.table{
+    .text-primary{color: #e53935}
+  }
+}
+.card-header[data-background-color="blue"] {
+  color: $white;
+  background: linear-gradient(60deg, #26c6da, #00acc1);
+  box-shadow: 0 12px 20px -10px rgba(0, 188, 212, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(0, 188, 212, 0.2);
+    ~ .card-content {
+    form{
+      input.form-control{
+        &:focus{
+          border-bottom-color: #26c6da;
+        }
+      }
+    }
+  }
+  .panel-heading{
+    background: linear-gradient(60deg, #26c6da, #00acc1);
+    box-shadow: 0 12px 20px -10px rgba(0, 188, 212, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(0, 188, 212, 0.2);
+  }
+  table.table{
+    .text-primary{color: #00acc1}
+  }
+}
+.card-header[data-background-color="purple"] {
+  color: $white;
+  background: linear-gradient(60deg, #ab47bc, #8e24aa);
+  box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2);
     ~ .card-content {
       form{
         input.form-control{
           &:focus{
-            border-bottom-color: #ef5350;
+            border-bottom-color: #ab47bc;
           }
         }
       }
     }
-    .panel-heading{
-      background: linear-gradient(60deg, #ef5350, #e53935);
-      box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2);
-    }
-    
-    table.table{
-      .text-primary{color: #e53935}
-    }
-  }
-  .card-header[data-background-color="blue"] {
-    color: $white;
-    background: linear-gradient(60deg, #26c6da, #00acc1);
-    box-shadow: 0 12px 20px -10px rgba(0, 188, 212, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(0, 188, 212, 0.2);
-      ~ .card-content {
-      form{
-        input.form-control{
-          &:focus{
-            border-bottom-color: #26c6da;
-          }
-        }
-      }
-    }
-    .panel-heading{
-      background: linear-gradient(60deg, #26c6da, #00acc1);
-      box-shadow: 0 12px 20px -10px rgba(0, 188, 212, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(0, 188, 212, 0.2);
-    }
-    table.table{
-      .text-primary{color: #00acc1}
-    }
-  }
-  .card-header[data-background-color="purple"] {
-    color: $white;
+  .panel-heading{
     background: linear-gradient(60deg, #ab47bc, #8e24aa);
     box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2);
-      ~ .card-content {
-        form{
-          input.form-control{
-            &:focus{
-              border-bottom-color: #ab47bc;
-            }
-          }
-        }
-      }
-    .panel-heading{
-      background: linear-gradient(60deg, #ab47bc, #8e24aa);
-      box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2);
-    }
   }
+}

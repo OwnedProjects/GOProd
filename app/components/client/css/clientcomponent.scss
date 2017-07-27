@@ -1,20 +1,19 @@
 @import '../../../scss/_variables.scss';
 
-// .client-component{
-    .panel-card{
-        @include marg(10px 0 10px);
-        .card-header{
-            @include pad(5px 20px);
-            @include marg(0);
-            display: block;
-            @include rad(3px 3px 0 0);
-        }
-        .card-content{
-            @include pad(20px 20px 15px);
-            margin-top: 0;
-        }
+
+.panel-card{
+    @include marg(10px 0 10px);
+    .card-header{
+        @include pad(5px 20px);
+        @include marg(0);
+        display: block;
+        @include rad(3px 3px 0 0);
     }
-// }
+    .card-content{
+        @include pad(20px 20px 15px);
+        margin-top: 0;
+    }
+}
 .search-cnt{
     .form-group{
         @include marg(0);

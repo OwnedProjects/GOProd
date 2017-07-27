@@ -14,5 +14,5 @@ angular.module('GreenApp').config(function($stateProvider) {
 HomeController.$inject = ["$state"];
 
 function HomeController($state){
-    $state.go('home.dashboard');
+    $state.go('home.despatches');
 };

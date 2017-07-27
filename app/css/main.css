@@ -11725,6 +11725,16 @@ body {
   display: none;
 }
 
+.breadcrumb {
+  margin-top: 20px;
+  background: none;
+  border-radius: 0;
+}
+
+.breadcrumb li a {
+  color: #333;
+}
+
 .btn {
   border-radius: 3px;
 }
@@ -11833,6 +11843,7 @@ body {
 .form-group .form-control {
   line-height: 36px;
   border: none;
+  outline: none;
   background: transparent;
   box-shadow: none;
   border-radius: 0;
@@ -11851,11 +11862,13 @@ body {
 }
 
 .form-group .form-control[disabled] {
+  outline: none;
   background: rgba(0, 0, 0, 0.05);
   border-bottom-color: transparent;
 }
 
 .form-group .btn-addon {
+  outline: none;
   position: absolute;
   right: 0;
   top: 20px;
@@ -11972,6 +11985,16 @@ body {
   vertical-align: middle;
 }
 
+.inner-component .card .card-header {
+  margin: 0;
+  border-radius: 3px 3px 0 0;
+  width: 100%;
+}
+
+.inner-component .card .card-content {
+  margin-top: 20px;
+}
+
 .login-wrapper {
   width: 100%;
   height: 100%;
@@ -12070,17 +12093,7 @@ body {
   color: #f44336;
 }
 
-.breadcrumb {
-  margin-top: 20px;
-  background: none;
-  border-radius: 0;
-}
-
-.breadcrumb li a {
-  color: #333;
-}
-
-.card {
+.dasboardcomp .card {
   color: rgba(0, 0, 0, 0.87);
   display: inline-block;
   position: relative;
@@ -12091,18 +12104,18 @@ body {
   background: #fff;
 }
 
-.card.table-card .card-header {
+.dasboardcomp .card.table-card .card-header {
   border-radius: 3px 3px 0 0;
   margin: 0;
   padding: 5px 20px;
   display: block;
 }
 
-.card.table-card .card-content {
+.dasboardcomp .card.table-card .card-content {
   margin-top: 0;
 }
 
-.card .card-header {
+.dasboardcomp .card .card-header {
   display: inline-block;
   text-align: center;
   color: #fff;
@@ -12113,21 +12126,21 @@ body {
   box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
-.card .card-header i {
+.dasboardcomp .card .card-header i {
   font-size: 36px;
   line-height: 56px;
   width: 56px;
   height: 56px;
 }
 
-.card .card-content {
+.dasboardcomp .card .card-content {
   margin-top: -50px;
   padding: 5px 20px 15px;
   font-family: 'brandon_grotesque_regularRg';
   text-transform: uppercase;
 }
 
-.card .card-content table.table thead tr th {
+.dasboardcomp .card .card-content table.table thead tr th {
   font-family: 'brandon_grotesque_regularRg';
   text-transform: capitalize;
   font-size: 17px;
@@ -12136,63 +12149,63 @@ body {
   vertical-align: middle;
 }
 
-.card .card-content table.table tbody tr td {
+.dasboardcomp .card .card-content table.table tbody tr td {
   vertical-align: middle;
 }
 
-.card .card-content table.table tbody tr td .table-btn {
+.dasboardcomp .card .card-content table.table tbody tr td .table-btn {
   padding: 0 7px;
   background: none;
   border: none;
 }
 
-.card .card-content .text-primary {
+.dasboardcomp .card .card-content .text-primary {
   color: #9c27b0;
 }
 
-.card .card-content .text-warning {
+.dasboardcomp .card .card-content .text-warning {
   color: #ff9800;
 }
 
-.card .card-content .text-success {
+.dasboardcomp .card .card-content .text-success {
   color: #43a047;
 }
 
-.card .card-content .text-info {
+.dasboardcomp .card .card-content .text-info {
   color: #00acc1;
 }
 
-.card .card-content .text-danger {
+.dasboardcomp .card .card-content .text-danger {
   color: #f55a4e;
 }
 
-.card .card-content .category {
+.dasboardcomp .card .card-content .category {
   color: #999999;
   margin-bottom: 0;
 }
 
-.card .card-content .title {
+.dasboardcomp .card .card-content .title {
   font-size: 30px;
   margin: 0;
 }
 
-.card .card-footer {
+.dasboardcomp .card .card-footer {
   margin: 0 20px 10px;
   padding-top: 10px;
   border-top: 1px solid #eeeeee;
 }
 
-.card .card-footer .stats {
+.dasboardcomp .card .card-footer .stats {
   line-height: 22px;
   font-size: 12px;
 }
 
-.card .card-footer .stats a {
+.dasboardcomp .card .card-footer .stats a {
   color: #999999;
   transition: all 0.5 ease-in-out 0.5s;
 }
 
-.card .card-footer .stats a:hover {
+.dasboardcomp .card .card-footer .stats a:hover {
   color: #333;
   text-decoration: none;
 }
@@ -12555,18 +12568,18 @@ body {
   box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2);
 }
 
-.client-component .panel-card {
+.panel-card {
   margin: 10px 0 10px;
 }
 
-.client-component .panel-card .card-header {
+.panel-card .card-header {
   padding: 5px 20px;
   margin: 0;
   display: block;
   border-radius: 3px 3px 0 0;
 }
 
-.client-component .panel-card .card-content {
+.panel-card .card-content {
   padding: 20px 20px 15px;
   margin-top: 0;
 }
@@ -12622,6 +12635,48 @@ body {
 
 .productionCnt {
   color: #f44336;
+}
+
+.lorry-cnt {
+  width: 100%;
+  display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  text-align: center;
+  align-content: flex-end;
+}
+
+.lorry-cnt input.form-control {
+  -webkit-flex: 6;
+  flex: 6;
+  width: 100%;
+  display: inherit;
+  position: static;
+  margin-bottom: 0;
+  z-index: 2;
+}
+
+.lorry-cnt .btn-lorry {
+  padding: 5px;
+  -webkit-flex: 0.6;
+  flex: 0.6;
+  display: table-cell;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.lorry-cnt .btn-lorry:last-child {
+  border-left: solid 1px #19bdd1;
+}
+
+.btn-batch {
+  padding: 5px 11px;
+  margin-top: -5px;
 }
 @font-face {
   font-family: 'simple-line-icons';

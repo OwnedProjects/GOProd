@@ -1,1 +1,59 @@
-<h1>New Order Component</h1>
+
+<div class="inner-component content-wrapper">
+    <div class="col-md-12">
+        <h1>New Order</h1>
+        <div class="card panel-card">
+            <div class="card-header" data-background-color="blue">
+                <h4 class="title text-left">Create new Order</h4>
+            </div>
+            <div class="card-content table-responsive">
+                <form ng-submit="addclientctrl.addClient()">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Order Number</label>
+                                <input type="text" class="form-control" ng-model="addclientctrl.name" required/>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="purchaseDate">Date of Order</label>
+                                <input type="text" placeholder="Purchase Date" class="form-control" id="purchaseDate" disabled="">
+                                <button class="btn btn-blue btn-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </button>
+                            </div>
+                        </div>
+                        
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Client</label>
+                                <input type="text" class="form-control" ng-model="addclientctrl.client" placeholder="Client" disabled required/>
+                                <button class="btn btn-blue btn-addon">
+                                    <span class="fa fa-search"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Destination</label>
+                                <input type="text" class="form-control" ng-model="addclientctrl.state" placeholder="Destination" disabled required/>
+                            </div>
+                        </div>     
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Quantity</label>
+                                <input type="text" class="form-control" ng-model="addclientctrl.contactperson" placeholder="Quantity" required/>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>    
+
+                        <button type="submit" class="btn btn-primary pull-right" data-background-color="blue">Create Batch</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
