@@ -69,23 +69,61 @@
     width: 230px;
     background: $white;
     font-weight: normal;
+    z-index: 1;
+    transition: width 0.2s linear 0.2s;
+    &.compact{
+      width: 63px;
+      overflow: hidden;
+      .user-info{
+        p{
+          display: none;
+          transition: all 0.2s ease-in-out 1s;
+        }
+      }
+      .sidebar-menu{
+        @include marg(0 8px);
+        .panel-default{
+          .panel-heading{
+            h4.panel-title{
+              a{
+                .menu-txt{
+                  opacity: 0;
+                  display: none;
+                  transition: display 2s;
+                  -webkit-transition: display 2s;
+                  ~ i.fa{
+                    display: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     .user-panel {
       color: $grey;
+      height: 61px;
       font-size: 18px;
       font-family: 'brandon_grotesque_regularRg';
       position: relative;
-      width: 100%;
       padding: 10px 30px;
       margin-bottom: 20px;
       overflow: hidden;
       border-bottom: solid 1px $lgrey;
+      transition: all 0.2s ease-in-out 1s;
+      box-sizing: border-box;
       .info{
+        position: absolute;
+        top: 10px;
+        transition: all 0.3 ease-in-out 0.5s;
+          z-index: -1;
         p {
           @include marg(8px 0 0);
         }
       }
       .menu-btn{
-        background: none;
+        background: #fff;
         border: none;
         border-left:solid 1px #e5e5e5;
         margin-right: -30px;
@@ -94,6 +132,7 @@
         margin-bottom: -10px;
         transition: all 0.3s linear 0.2s;
         font-size: 22px;
+          z-index: 9;
         &:hover, &:focus{
           background: $white;
           color: $red;
@@ -152,6 +191,7 @@
 
 //accordian left menu
 .sidebar-menu {
+    width:210px;
     list-style: none;
     margin: 0 15px;
     padding: 0;
@@ -191,7 +231,14 @@
             display: block;
             text-decoration: none;
             .menu-txt{
+              opacity: 1;
+              display: inline;
               margin-left: 15px;
+              transition: all 5s;
+              -webkit-transition: all 5s;
+              ~ i.fa{
+                display: inline;
+              }
             }
           }
         }

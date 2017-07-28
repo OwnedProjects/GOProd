@@ -11,7 +11,7 @@ angular.module('GreenApp').config(function($stateProvider){
     controllerAs: 'despatchesCtrl'
 });
 
-function DespatchesController(){
+function DespatchesController($timeout){
     var vm = this;
     vm.selectLorryFlag = false;
     vm.selectLorryModal = selectLorryModal;
@@ -24,10 +24,13 @@ function DespatchesController(){
     }
 
     function addLorryModal(){
-        vm.addLorryFlage = !vm.addLorryFlage;
+        $timeout( function(){
+            vm.addLorryFlage = !vm.addLorryFlage;
+        }, 100 );
     }
 
     function selectLorryModal(){
         vm.selectLorryFlag = !vm.selectLorryFlag;
     }
+
 }

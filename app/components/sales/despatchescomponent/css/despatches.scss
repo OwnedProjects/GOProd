@@ -34,3 +34,23 @@
     }
 }
 .btn-batch{@include pad(5px 11px); margin-top: -5px;}
+
+#addLorryModal{
+    .addlorry-comp{
+        .lorry-heading{display: none;}
+        .lorry-card{
+            @include shadow(0,0,0,0,255,255,255,0);
+            @include background(none);
+            .heading, .lorry-header{display: none;}
+            .card-content{
+                @include pad(0);
+                @include marg(0);
+                .lorry-row{@include marg(25px 0 0);}
+                .lorry-btn{
+                    color: $white;
+                    background: #00d3ee;
+                }
+            }
+        }
+    }
+}

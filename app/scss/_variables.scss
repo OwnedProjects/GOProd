@@ -16,6 +16,15 @@ $grey: #333;
     border-radius: $rads;
 }
 
+//box shadow
+@mixin shadow($t, $l, $s, $ss, $r,$g,$b,$a){
+  box-shadow: $t $l $s $ss rgba($r,$g,$b,$a);
+  -webkit-box-shadow: $t $l $s $ss rgba($r,$g,$b,$a);
+  -ms-box-shadow: $t $l $s $ss rgba($r,$g,$b,$a);
+  -o-box-shadow: $t $l $s $ss rgba($r,$g,$b,$a);
+  -moz-box-shadow: $t $l $s $ss rgba($r,$g,$b,$a);
+}
+
 //margin
 @mixin marg ($margins...){margin: $margins;}
 @mixin mt ($mt){margin-top: $mt;}

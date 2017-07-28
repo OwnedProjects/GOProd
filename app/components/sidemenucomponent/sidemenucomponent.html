@@ -1,17 +1,17 @@
-<aside class="main-sidebar">
+<aside class="main-sidebar" id="sideMenu">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar" style="height: auto;">
       <!-- Sidebar user panel -->
       <div class="user-panel">
-        <div class="pull-left info">
+        <div class="pull-left info user-info">
           <p>Alexander Pierce</p>
         </div>
-        <button class="pull-right menu-btn" alt="Toggle Menu">
+        <button class="pull-right menu-btn" alt="Toggle Menu" ng-click="sidemenuCtrl.toggleMenu()">
           <i class="icon-menu icons"></i>
         </button>
       </div>
       <!-- /.search form -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <!-- sidebar menu: : style can be found in sidebar.less
       <ul class="sidebar-menu tree list-unstyled hide" data-widget="tree">
         <li class="active treeview menu-open">
           <a href="#">
@@ -23,7 +23,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-cube"></i><span>Products</span>
+            <i class="fa fa-cube"></i> <span>Products</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -35,7 +35,7 @@
         </li>
         <li>
           <a ui-sref="home.client">
-            <i class="fa fa-users"></i> <span>Customer</span>
+            <i class="fa fa-users"></i>  <span>Customer</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -48,7 +48,7 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-user-secret"></i>
-            <span>Supplier</span>
+             <span>Supplier</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -60,7 +60,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-database"></i> <span>Stock</span>
+            <i class="fa fa-database"></i>  <span>Stock</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -72,7 +72,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-rupee"></i> <span>Account</span>
+            <i class="fa fa-rupee"></i>  <span>Account</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -84,7 +84,7 @@
         </li>
         <li>
           <a href="pages/calendar.html">
-            <i class="fa fa-pie-chart"></i> <span>Reports</span>
+            <i class="fa fa-pie-chart"></i>  <span>Reports</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -94,10 +94,9 @@
             <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
           </ul>
         </li>
-      </ul> 
+      </ul>  -->
 		<uib-accordion close-others="true">
       <div class="sidebar-menu">
-        
         <div class="panel-default treeview panel" is-open="true" data-background-color="blue">
           <div class="panel-heading" role="tab">
               <h4 class="panel-title">
@@ -230,6 +229,27 @@
             <li>
               <a ui-sref="home.activatesupplier">
                   <i class="fa fa-circle-o"></i> Activate Supplier
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div uib-accordion-group class="panel-default treeview" data-background-color="orange">
+          <uib-accordion-heading ng-init="productFlag=true" >
+            <span  ng-click="productFlag=!productFlag">
+              <i class="fa fa-cube"></i> 
+              <span class="menu-txt">Lorry</span>
+              <i class="pull-right fa " ng-class="{'fa-angle-left': productFlag == true, 'fa-angle-down': productFlag== false}"></i>
+            </span>
+          </uib-accordion-heading>
+          <ul class="treeview-menu">
+            <li>
+              <a ui-sref="home.addlorry">
+                  <i class="fa fa-circle-o"></i> Add Lorry
+              </a>
+            </li>
+            <li>
+              <a ui-sref="home.listlorries">
+                  <i class="fa fa-circle-o"></i> List Lorries
               </a>
             </li>
           </ul>

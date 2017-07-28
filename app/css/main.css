@@ -11963,10 +11963,15 @@ body {
 
 .content-wrapper {
   margin-left: 0px;
+  transition: margin-left 0.2s linear 0.2s;
 }
 
 .content-wrapper.home {
   margin-left: 230px;
+}
+
+.content-wrapper.toggle {
+  margin-left: 100px;
 }
 
 .modal .modal-content .card {
@@ -11981,8 +11986,12 @@ body {
   z-index: -1;
 }
 
+.card-content .table tr th,
 .card-content .table tr td {
+  font-weight: normal;
   vertical-align: middle;
+  border-bottom-width: 1px;
+  border-color: #e4e4e4;
 }
 
 .inner-component .card {
@@ -12370,18 +12379,54 @@ body {
   width: 230px;
   background: #fff;
   font-weight: normal;
+  z-index: 1;
+  transition: width 0.2s linear 0.2s;
+}
+
+.main-sidebar.compact {
+  width: 63px;
+  overflow: hidden;
+}
+
+.main-sidebar.compact .user-info p {
+  display: none;
+  transition: all 0.2s ease-in-out 1s;
+}
+
+.main-sidebar.compact .sidebar-menu {
+  margin: 0 8px;
+}
+
+.main-sidebar.compact .sidebar-menu .panel-default .panel-heading h4.panel-title a .menu-txt {
+  opacity: 0;
+  display: none;
+  transition: display 2s;
+  -webkit-transition: display 2s;
+}
+
+.main-sidebar.compact .sidebar-menu .panel-default .panel-heading h4.panel-title a .menu-txt ~ i.fa {
+  display: none;
 }
 
 .main-sidebar .user-panel {
   color: #333;
+  height: 61px;
   font-size: 18px;
   font-family: 'brandon_grotesque_regularRg';
   position: relative;
-  width: 100%;
   padding: 10px 30px;
   margin-bottom: 20px;
   overflow: hidden;
   border-bottom: solid 1px #e5e5e5;
+  transition: all 0.2s ease-in-out 1s;
+  box-sizing: border-box;
+}
+
+.main-sidebar .user-panel .info {
+  position: absolute;
+  top: 10px;
+  transition: all 0.3 ease-in-out 0.5s;
+  z-index: -1;
 }
 
 .main-sidebar .user-panel .info p {
@@ -12389,7 +12434,7 @@ body {
 }
 
 .main-sidebar .user-panel .menu-btn {
-  background: none;
+  background: #fff;
   border: none;
   border-left: solid 1px #e5e5e5;
   margin-right: -30px;
@@ -12398,6 +12443,7 @@ body {
   margin-bottom: -10px;
   transition: all 0.3s linear 0.2s;
   font-size: 22px;
+  z-index: 9;
 }
 
 .main-sidebar .user-panel .menu-btn:hover,
@@ -12460,6 +12506,7 @@ body {
 }
 
 .sidebar-menu {
+  width: 210px;
   list-style: none;
   margin: 0 15px;
   padding: 0;
@@ -12511,7 +12558,15 @@ body {
 }
 
 .sidebar-menu .panel-default .panel-heading h4.panel-title a .menu-txt {
+  opacity: 1;
+  display: inline;
   margin-left: 15px;
+  transition: all 5s;
+  -webkit-transition: all 5s;
+}
+
+.sidebar-menu .panel-default .panel-heading h4.panel-title a .menu-txt ~ i.fa {
+  display: inline;
 }
 
 .sidebar-menu .panel-collapse .panel-body {
@@ -12681,6 +12736,38 @@ body {
 .btn-batch {
   padding: 5px 11px;
   margin-top: -5px;
+}
+
+#addLorryModal .addlorry-comp .lorry-heading {
+  display: none;
+}
+
+#addLorryModal .addlorry-comp .lorry-card {
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  -ms-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  -o-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  -moz-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  background: none;
+}
+
+#addLorryModal .addlorry-comp .lorry-card .heading,
+#addLorryModal .addlorry-comp .lorry-card .lorry-header {
+  display: none;
+}
+
+#addLorryModal .addlorry-comp .lorry-card .card-content {
+  padding: 0;
+  margin: 0;
+}
+
+#addLorryModal .addlorry-comp .lorry-card .card-content .lorry-row {
+  margin: 25px 0 0;
+}
+
+#addLorryModal .addlorry-comp .lorry-card .card-content .lorry-btn {
+  color: #fff;
+  background: #00d3ee;
 }
 
 .generatebills-cnt .iconmiddle {
