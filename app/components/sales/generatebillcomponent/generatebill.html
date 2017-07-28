@@ -1,1 +1,128 @@
-<h1>Generate Bills</h1>
+<div class="inner-component generatebills-cnt">
+    <div class="col-md-12">
+        <h1>Generate Bills</h1>
+        <div class="card panel-card">
+            <div class="card-header" data-background-color="blue">
+                <h4 class="title text-left pull-left">Create Bill</h4>
+                <form class="search-cnt pull-right">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="" />
+                        <button type="submit" class="btn search-btn">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="clearfix"></div>
+            </div>
+            <div class="card-content table-responsive">
+                <form ng-submit="generatebillCtrl.addClient()">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Order No.</label>
+                                <input type="text" class="form-control" ng-model="addclientctrl.name" disabled/>
+                                <button class="btn btn-blue btn-addon" type="button" ng-click="generatebillCtrl.selectOrder()">
+                                    <span class="icon-magnifier icon iconmiddle"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Quantity</label>
+                                <input type="text" class="form-control" placeholder="Quantity" disabled/>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Bill No</label>
+                                <input type="text" placeholder="Bill No." class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Bill Amount</label>
+                                <input type="text" class="form-control" placeholder="Bill Amount" required/>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Bill Date</label>
+                                <input type="text" class="form-control" placeholder="" required/>
+                                <button class="btn btn-blue btn-addon" type="button">
+                                    <span class="icon-calendar icon"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Discount</label>
+                                <input type="text" class="form-control" ng-model="addclientctrl.name" placeholder="Discount"/>
+                            </div>
+                        </div>     
+                        <div class="clearfix"></div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>VAT Amount</label>
+                                <input type="text" class="form-control" ng-model="addclientctrl.name" placeholder="VAT Amount"/>
+                            </div>
+                        </div>     
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Net Amount</label>
+                                <input type="text" class="form-control" ng-model="addclientctrl.name" placeholder="Net Amount"/>
+                            </div>
+                        </div>   
+                        <div class="clearfix"></div>    
+
+                        <button type="submit" class="btn btn-blue pull-right" data-background-color="blue">Create Batch</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal show fade" ng-class="{'in': generatebillCtrl.orderFlag == true, '': generatebillCtrl.orderFlag == false}" ng-show="generatebillCtrl.orderFlag">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="card table-card">
+        <div class="card-header" data-background-color="blue">
+            <h4 class="title text-left">Select Lorry
+                <button type="button" class="close" ng-click="generatebillCtrl.selectOrder()">
+                    x
+                </button>
+            </h4>
+        </div>
+      <div class="modal-body card-content">
+            <table class="table table-responsive">
+                <thead class="text-info">
+                    <tr>
+                        <th>sr. No.</th>
+                        <th>Order Number</th>
+                        <th>select</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>1294834</td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-blue" ng-click="setLorryDetails(data.lorry_id, data.lorry_no);">
+                            <i class="fa fa-outdent"></i> SET
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+       </div> 
+    </div>
+  </div>
+  <div class="modal-backdrop fade" ng-class="{'in': generatebillCtrl.orderFlag == true, '': generatebillCtrl.orderFlag == false}" ng-click="generatebillCtrl.selectOrder()"></div>
+</div>

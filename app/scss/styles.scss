@@ -250,6 +250,7 @@ li{
 //inner component page style 
 .inner-component{
     .card{
+        margin-top: 10px;
         .card-header{
             @include marg(0);
             @include rad(3px 3px 0 0);

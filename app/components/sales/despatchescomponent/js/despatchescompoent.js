@@ -13,9 +13,10 @@ angular.module('GreenApp').config(function($stateProvider){
 
 function DespatchesController(){
     var vm = this;
-    vm.selectLorryFlag, vm.addLorryFlage = false;
+    vm.selectLorryFlag = false;
     vm.selectLorryModal = selectLorryModal;
     vm.addLorryModal = addLorryModal;
+    vm.addLorryFlage = false;
     vm.addLorry = addLorry;
 
     function addLorry(){
@@ -23,20 +24,10 @@ function DespatchesController(){
     }
 
     function addLorryModal(){
-        if(vm.addLorryFlage){
-            vm.addLorryFlage = false;
-        }
-        else{
-            vm.addLorryFlage = true;
-        }
+        vm.addLorryFlage = !vm.addLorryFlage;
     }
 
     function selectLorryModal(){
-        if(vm.selectLorryModal){
-            vm.selectLorryModal = false;
-        }
-        else{
-            vm.selectLorryModal = true;
-        }
+        vm.selectLorryFlag = !vm.selectLorryFlag;
     }
 }

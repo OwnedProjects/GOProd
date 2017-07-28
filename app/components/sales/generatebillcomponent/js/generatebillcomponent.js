@@ -13,4 +13,12 @@ angular.module('GreenApp').config(function($stateProvider){
 
 function GeneratebillController(){
     var vm = this;
+    vm.orderFlag = false;
+    vm.selectOrder = selectOrder;
+
+    function selectOrder(){
+        vm.orderFlag = !vm.orderFlag;
+    }
+
+
 }
