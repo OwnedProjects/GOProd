@@ -11,8 +11,12 @@ angular.module('GreenApp').config(function($stateProvider){
     controllerAs: 'productlistCtrl'
 })
 
-function ProductlistComponent(){
+ProductlistComponent.$inject= ["ProductService", "LogService"];
+
+function ProductlistComponent(ProductService, LogService){
     var vm = this;
+	vm.products = null;
+	vm.init = init;
     vm.selectLorry = selectLorry;
     vm.supplierlist = supplierlist;
     
@@ -22,5 +26,19 @@ function ProductlistComponent(){
     
     function supplierlist(){
         alert('Supplier List');
-    }
+    };
+	
+	function init(){
+		ProductService.getProducts()
+			.then(function(response){
+				vm.products = response.data.Products;
+				LogService.setSuccess("Products pulled", response.data.Products).then(function(){});
+			})
+			.catch(function(err){
+				console.log(err);
+				LogService.setError("Products cannot be pulled").then(function(){});
+			});
+	};
+	
+	vm.init();
 }

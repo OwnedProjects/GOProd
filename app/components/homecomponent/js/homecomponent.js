@@ -16,5 +16,5 @@ HomeController.$inject = ["$state"];
 function HomeController($state){
     var vm = this;
     vm.isToggle = false;
-    $state.go('home.listlorries');
+    $state.go('home.productlist');
 };
