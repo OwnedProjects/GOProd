@@ -19,7 +19,7 @@
                             <td>{{product.prod_id}}</td>
                             <td>{{product.prod_name}}</td>
                             <td>
-                                <button type="button" class="btn btn-orange">
+                                <button type="button" class="btn btn-orange" ng-click="productlistCtrl.editmodal()">
                                     <i class="icon-pencil icon"></i> Edit
                                 </button>
                             </td>
@@ -29,4 +29,85 @@
             </div>
         </div>
     </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal show fade" ng-class="{'in': productlistCtrl.showEditModal == true, '': productlistCtrl.showEditModal == false}" ng-show="productlistCtrl.showEditModal">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="productlistCtrl.editmodal()">
+            x
+        </button>
+        <h4 class="modal-title">Edit Client Details</h4>
+      </div>
+      <div class="modal-body">
+        <div class="card-content table-responsive">
+            <form>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label  id="forname">Name</label>
+                        <input type="text" class="form-control" id="name" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label >Lastname</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>VAT Number</label>
+                        <input type="email" class="form-control" />
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>District</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="clearfix"></div>         
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control" />
+                        <label>Contact Person</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Contact Number</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea type="text" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <button type="submit" class="btn btn-primary pull-right" data-background-color="purple" disabled>Add Client</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade" ng-class="{'in': productlistCtrl.showEditModal == true, '': productlistCtrl.showEditModal == false}" ng-click="productlistCtrl.editmodal()"></div>
 </div>

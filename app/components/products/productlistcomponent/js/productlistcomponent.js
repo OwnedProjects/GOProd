@@ -16,9 +16,11 @@ ProductlistComponent.$inject= ["ProductService", "LogService"];
 function ProductlistComponent(ProductService, LogService){
     var vm = this;
 	vm.products = null;
-	vm.init = init;
+    vm.init = init;
+    vm.showEditModal = false;
     vm.selectLorry = selectLorry;
     vm.supplierlist = supplierlist;
+    vm.editmodal = editmodal;
     
     function selectLorry(){
         alert('select Lorry');
@@ -27,6 +29,10 @@ function ProductlistComponent(ProductService, LogService){
     function supplierlist(){
         alert('Supplier List');
     };
+
+    function editmodal(){
+        vm.showEditModal = !vm.showEditModal;
+    }
 	
 	function init(){
 		ProductService.getProducts()
