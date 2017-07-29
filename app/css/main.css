@@ -12561,8 +12561,8 @@ body {
   opacity: 1;
   display: inline;
   margin-left: 15px;
-  transition: all 5s;
-  -webkit-transition: all 5s;
+  transition: all 0.3s;
+  -webkit-transition: all .3s;
 }
 
 .sidebar-menu .panel-default .panel-heading h4.panel-title a .menu-txt ~ i.fa {

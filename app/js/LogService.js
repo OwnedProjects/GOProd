@@ -17,7 +17,7 @@ function LogService($rootScope, $timeout, $q, $http){
 			if(data != undefined){
 				filedata = {
 					filenm: "log_success_"+dt.getDate()+"_"+(dt.getMonth()+1)+"_"+dt.getFullYear()+".txt",
-					fdata: "(" + dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ") - " + msg + " - " + data
+					fdata: "(" + dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ") - " + msg + " - " + JSON.stringify(data)
 				};
 			}
 			else{
@@ -54,7 +54,7 @@ function LogService($rootScope, $timeout, $q, $http){
 			if(data != undefined){
 				filedata = {
 					filenm: "log_error_"+dt.getDate()+"_"+(dt.getMonth()+1)+"_"+dt.getFullYear()+".txt",
-					fdata: "(" + dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ") - " + msg + " - " + data
+					fdata: "(" + dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + ") - " + msg + " - " + JSON.stringify(data)
 				};
 			}
 			else{
