@@ -6,7 +6,7 @@
                 <h4 class="title text-left pull-left">All Client</h4>
                 <form class="search-cnt pull-right">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="" />
+                        <input type="text" class="form-control" placeholder="" ng-model="clientlistCtrl.search" />
                         <button type="submit" class="btn search-btn">
                             <i class="fa fa-search"></i>
                         </button>
@@ -29,16 +29,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>SAMARTH TRADING CO.</td>
-                            <td>ATPADI</td>
-                            <td>ATPADI</td>
-                            <td>ATPADI</td>
-                            <td>Samarth</td>
-                            <td>987654321</td>
-                            <td>V65478</td>
+                        <tr ng-repeat="client in clientlistCtrl.clients | filter: clientlistCtrl.search">
+                            <td>{{client.client_name}}</td>
+                            <td>{{client.address}}</td>
+                            <td>{{client.city}}</td>
+                            <td>{{client.state}}</td>
+                            <td>{{client.contact_no}}</td>
+                            <td>{{client.contact_person}}</td>
+                            <td>{{client.vat_no}}</td>
                             <td>
-                                <a href="javascript:void(0);" class="table-btn text-info" ng-click="clientlistCtrl.showModal()"><i class="icon-pencil icon fa-lg"></i></a> 
+                                <a href="javascript:void(0);" class="table-btn text-info" ng-click="clientlistCtrl.editModal()"><i class="icon-pencil icon fa-lg"></i></a> 
                                 <a href="javascript:void(0);" class="table-btn text-danger" ng-click=""><i class="icon-trash icon fa-lg"></i></a>
                             </td>
                         </tr>
@@ -49,12 +49,12 @@
     </div>
 </div>
 <!-- Modal -->
-<div id="editClientDetails" class="modal show fade" ng-class="{'in': clientlistCtrl.editClientDetails == true, '': clientlistCtrl.editClientDetails == false}" ng-show="clientlistCtrl.editClientDetails">
+<div class="modal show fade" ng-class="{'in': clientlistCtrl.editmodalFlag == true, '': clientlistCtrl.editmodalFlag == false}" ng-show="clientlistCtrl.editmodalFlag">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" ng-click="clientlistCtrl.hideModal()">
+        <button type="button" class="close" ng-click="clientlistCtrl.editModal()">
             x
         </button>
         <h4 class="modal-title">Edit Client Details</h4>
@@ -124,5 +124,5 @@
       </div>
     </div>
   </div>
-  <div class="modal-backdrop fade" ng-class="{'in': clientlistCtrl.editClientDetails == true, '': clientlistCtrl.editClientDetails == false}" ng-click="clientlistCtrl.hideModal()"></div>
+  <div class="modal-backdrop fade" ng-class="{'in': clientlistCtrl.editmodalFlag == true, '': clientlistCtrl.editmodalFlag == false}" ng-click="clientlistCtrl.editModal()"></div>
 </div>

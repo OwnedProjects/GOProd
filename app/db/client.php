@@ -10,12 +10,41 @@ if($action=='addClient'){
 		$resClients=mysql_query($insClients);
 		if($resClients){
 			$obj->status=true;
-			var_dump(http_response_code(200));
+			header(' ', true, 200);
 		}
 		else{
 			$obj->status=false;
-			var_dump(http_response_code(500));
+			header(' ', true, 500);
 		}
 		echo json_encode($obj);
 	}
+	
+
+if($action=='getClients'){
+		$getClients="SELECT * FROM `Client_master` WHERE `client_status` = 'active'";
+		$resClients=mysql_query($getClients);
+		$count = mysql_num_rows($resClients);
+		if($count>0){
+			$cnt=0;
+			while($row = mysql_fetch_array( $resClients )) {
+				$tmpRes[$cnt]->client_id=$row['client_id'];
+				$tmpRes[$cnt]->client_name=$row['client_name'];
+				$tmpRes[$cnt]->address=$row['address'];
+				$tmpRes[$cnt]->city=$row['city'];
+				$tmpRes[$cnt]->state=$row['state'];
+				$tmpRes[$cnt]->contact_no=$row['contact_no'];
+				$tmpRes[$cnt]->contact_person=$row['contact_person'];
+				$tmpRes[$cnt]->vat_no=$row['vat_no'];
+				$cnt++;
+			}
+			$obj->Clients = $tmpRes;
+			header(' ', true, 200);
+		}
+		else{
+			header(' ', true, 500);
+		}
+		echo json_encode($obj);
+	}
+
 ?>
+

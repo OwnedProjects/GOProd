@@ -11,20 +11,34 @@ angular.module('GreenApp').config(function($stateProvider){
     controllerAs: 'clientlistCtrl',
 })
 
-function ClientlistController(){
+ClientlistController.$inject = ["ClientService", "LogService"];
+
+function ClientlistController(ClientService, LogService){
 	var vm = this;
-	vm.ele = null;
-	vm.editClientDetails = false;
-	vm.showModal = showModal;
-	vm.hideModal = hideModal;
+	vm.clients = null;
+	vm.editmodalFlag = false;
+	vm.deletemodalFlag = false;
+	vm.editModal = editModal;
+	vm.init = init;
 
-
-	function showModal(){
-		vm.editClientDetails = true;
-		ele = document.getElementById('editClientDetails');
+	function editModal(){
+		vm.editmodalFlag = !vm.editmodalFlag;
 	}
 
-	function hideModal(){
-		vm.editClientDetails = false;
+	function deleteModal(){
+		vm.deletemodalFlag = !vm.deletemodalFlag;
 	}
+
+	function init(){
+		ClientService.getClients()
+			.then(function(response){
+				vm.clients = response.Clients;
+				console.log(vm.clients);
+			})
+			.catch(function(err){
+				LogService.setError(err.data);
+			})
+	}
+
+	vm.init();
 };
