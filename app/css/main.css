@@ -11565,6 +11565,30 @@ body {
   font-family: 'brandon_grotesqueblack';
 }
 
+.txt-red {
+  color: #f44336;
+}
+
+.txt-orange {
+  color: #fb8c00;
+}
+
+.txt-blue {
+  color: #0280c8;
+}
+
+.txt-lblue {
+  color: #00acc1;
+}
+
+.txt-green {
+  color: #43a047;
+}
+
+.txt-purple {
+  color: #8e24aa;
+}
+
 .mt5 {
   margin-top: 5px;
 }

@@ -16,10 +16,8 @@
                     </thead>
                     <tbody>
 						<tr ng-if="!productlistCtrl.products">
-							<td colspan="3">
-								<span style="color:orange">
-									<i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i> Please wait ...
-								</span>
+							<td colspan="3" class="txt-blue">
+                                <i class="fa fa-spinner fa-pulse fa-fw"></i> Please wait ...
 							</td>
 						</tr>
                         <tr ng-repeat="product in productlistCtrl.products" ng-if="productlistCtrl.products">
