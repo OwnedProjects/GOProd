@@ -29,11 +29,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-if="clientlistCtrl.clients.length == 0">
-                            <td colspan="8" class="txt-red text-center">
-                                <i class="fa fa-exclamation-triangle"></i> Currently there are no clients!
-                            </td>
-                        </tr>
                         <tr ng-repeat="client in clientlistCtrl.clients | filter: clientlistCtrl.search">
                             <td>{{client.client_name}}</td>
                             <td>{{client.address}}</td>

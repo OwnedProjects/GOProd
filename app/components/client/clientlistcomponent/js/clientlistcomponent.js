@@ -34,9 +34,10 @@ function ClientlistController(ClientService, LogService){
 			.then(function(response){
 				vm.clients = response.Clients;
 				console.log(vm.clients);
+				LogService.setSuccess('Clients pulled!');
 			})
 			.catch(function(err){
-				LogService.setError(err.data);
+				LogService.setError('Currently there are no clients!');
 			})
 	}
 
