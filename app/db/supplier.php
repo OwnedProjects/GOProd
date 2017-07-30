@@ -6,7 +6,7 @@ $action=$_GET['action'];
 /* Supplier Master */
     if($action =='addSupplier'){
         $data = json_decode(file_get_contents("php://input"));
-        $insSupplier = "INSERT INTO `supplier_master`(`supplier_name`,`vat`, `product`, `contact_person`, `city`, `contactno`, `address`, `supplier_status`) VALUES ('".$data->name."','".$data->vat."','01','".$data->contactperson."','".$data->city."','".$data->contactno."','".$data->address."','active')";
+        $insSupplier = "INSERT INTO `supplier_master`(`supplier_name`,`vat`, `prod_id`, `contact_person`, `city`, `contactno`, `address`, `supplier_status`) VALUES ('".$data->name."','".$data->vat."','".$data->prodid."','".$data->contactperson."','".$data->city."','".$data->contactno."','".$data->address."','active')";
         $resSupplier = mysql_query($insSupplier);
         exit;
         if($resSupplier){

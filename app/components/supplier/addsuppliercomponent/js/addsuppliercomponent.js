@@ -11,19 +11,21 @@ angular.module('GreenApp').config(function($stateProvider){
     controllerAs: 'addsupplierCtrl'
 });
 
-AddsupplierController.$inject = ["SupplierService", "LogService"]
+AddsupplierController.$inject = ["SupplierService", "LogService", "ProductService"]
 
-function AddsupplierController(SupplierService, LogService){
+function AddsupplierController(SupplierService, LogService, ProductService){
     var vm = this;
+    vm.Products = null;
     vm.addSupplier = addSupplier;
+    vm.init = init; 
     vm.reset = reset;
 
     function addSupplier(){
-        //console.log(vm.name,vm.vat,vm.product,vm.contactperson, vm.city, vm.contactno,vm.address )
+        //console.log(vm.name,vm.vat,vm.product,vm.contactperson, vm.city, vm.contactno,vm.address )'
         var tmpObj = {
             name: vm.name,
             vat: vm.vat,
-            product: vm.product,
+            prodid: vm.product.prod_id,
             contactperson: vm.contactperson,
             city: vm.city,
             contactno: vm.contactno,
@@ -41,16 +43,30 @@ function AddsupplierController(SupplierService, LogService){
                 //console.log(err);
                 LogService.setError("Supplier cannot be added, try again later");
             })
+    };
+
+    function init(){
+        ProductService.getProducts()
+            .then(function(response) {
+                vm.Products = response.data.Products;
+                vm.Products.splice((vm.Products.length-2), 2);
+                vm.product = vm.Products[0];
+                LogService.setSuccess("Products pulled", response.data.Products);
+            })
+            .catch(function(error) {
+                LogService.setError("Cannot find products, Please check.");
+            });
     }
 
     function reset(){
-        name = null,
-        vat = null,
-        product = null,
-        contactperson = null,
-        city = null,
-        contactno = null,
-        address = null
+        vm.name = null,
+        vm.vat = null,
+        vm.product = null,
+        vm.contactperson = null,
+        vm.city = null,
+        vm.contactno = null,
+        vm.address = null
     };
 
+    vm.init();
 }
