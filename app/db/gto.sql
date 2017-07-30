@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 29, 2017 at 04:23 PM
+-- Generation Time: Jul 30, 2017 at 03:33 PM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -73,25 +73,22 @@ CREATE TABLE IF NOT EXISTS `supplier_master` (
   `supplier_id` int(10) NOT NULL AUTO_INCREMENT,
   `supplier_name` varchar(50) DEFAULT NULL,
   `vat` varchar(20) DEFAULT NULL,
-  `product` varchar(50) DEFAULT NULL,
+  `prod_id` varchar(50) DEFAULT NULL,
   `contact_person` varchar(50) DEFAULT NULL,
   `city` varchar(50) DEFAULT NULL,
   `contactno` varchar(20) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
   `supplier_status` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`supplier_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `supplier_master`
 --
 
-INSERT INTO `supplier_master` (`supplier_id`, `supplier_name`, `vat`, `product`, `contact_person`, `city`, `contactno`, `address`, `supplier_status`) VALUES
-(1, 'NAIMUDDIN', '12312', 'Slaughter House Waste', 'wasim', 'pune', '+919028775269', 'H.No.794/1, 1st floor sadik building, adarsh nagar,\npune', 'active'),
-(2, 'sufiyan n panchbhai', '12312', 'Raw Organic Manure', 'wsaim', 'Pune', '+919028775269', 'teset', 'active'),
-(3, 'avees', '12312', 'slaughter', 'wasim', 'pune', '9821211212', 'Katraj', 'active'),
-(4, 'avees', '12312', 'slaughter', 'wasim', 'pune', '9821211212', 'Katraj', 'active'),
-(5, 'avees', '12312', 'slaughter', 'wasim', 'pune', '9821211212', 'Katraj', 'active');
+INSERT INTO `supplier_master` (`supplier_id`, `supplier_name`, `vat`, `prod_id`, `contact_person`, `city`, `contactno`, `address`, `supplier_status`) VALUES
+(8, 'aaaa', 'asdasd', '3', 'adasd', 'adad', 'adad', 'asdasdad', 'active'),
+(9, 'asdad', 'asdsda', '2', 'adad', 'asdasd', 'asdasd', 'adasda', 'active');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
