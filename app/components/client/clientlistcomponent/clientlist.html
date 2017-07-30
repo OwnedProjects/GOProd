@@ -21,7 +21,7 @@
                             <th>Name</th>
                             <th>Address</th>
                             <th>City</th>
-                            <th>District</th>
+                            <th>State</th>
                             <th>Contact Person.</th>
                             <th>Contact No.</th>
                             <th>VAT No.</th>
@@ -29,7 +29,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="client in clientlistCtrl.clients | filter: clientlistCtrl.search">
+                        <tr ng-repeat="client in clientlistCtrl.clients | filter: clientlistCtrl.search track by $index">
                             <td>{{client.client_name}}</td>
                             <td>{{client.address}}</td>
                             <td>{{client.city}}</td>
@@ -38,8 +38,8 @@
                             <td>{{client.contact_person}}</td>
                             <td>{{client.vat_no}}</td>
                             <td>
-                                <a href="javascript:void(0);" class="table-btn text-info" ng-click="clientlistCtrl.editModal()"><i class="icon-pencil icon fa-lg"></i></a> 
-                                <a href="javascript:void(0);" class="table-btn text-danger" ng-click=""><i class="icon-trash icon fa-lg"></i></a>
+                                <a href="javascript:void(0);" class="table-btn text-info" ng-click="clientlistCtrl.editModal(client)"><i class="icon-pencil icon fa-lg"></i></a> 
+                                <a href="javascript:void(0);" class="table-btn text-danger" ng-click="clientlistCtrl.deleteModal(client)"><i class="icon-trash icon fa-lg"></i></a>
                             </td>
                         </tr>
                     </tbody>
@@ -54,7 +54,7 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" ng-click="clientlistCtrl.editModal()">
+        <button type="button" class="close" ng-click="clientlistCtrl.hideModal()">
             x
         </button>
         <h4 class="modal-title">Edit Client Details</h4>
@@ -73,50 +73,78 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>VAT Number</label>
-                        <input type="email" class="form-control" />
+                        <input type="email" class="form-control" ng-model="clientlistCtrl.modVat" />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>City</label>
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" ng-model="clientlistCtrl.modCity" />
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>State</label>
+                        <input type="text" class="form-control" ng-model="clientlistCtrl.modState" />
                     </div>
                 </div>
                 <div class="clearfix"></div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>District</label>
-                        <input type="text" class="form-control" />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <input type="text" class="form-control" />
                         <label>Contact Person</label>
+                        <input type="text" class="form-control" ng-model="clientlistCtrl.modContactPerson" />
                     </div>
                 </div>
-                <div class="clearfix"></div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Contact Number</label>
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" ng-model="clientlistCtrl.modContactNo" />
                     </div>
                 </div>
+                <div class="clearfix"></div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Address</label>
-                        <textarea type="text" class="form-control"></textarea>
+                        <textarea type="text" class="form-control" ng-model="clientlistCtrl.modAddress" /></textarea>
                     </div>
                 </div>
                 <div class="clearfix"></div>
 
-                <button type="submit" class="btn btn-primary pull-right" data-background-color="purple" disabled>Add Client</button>
+                <button type="button" class="btn btn-primary pull-right" data-background-color="orange" ng-click="clientlistCtrl.updateClient()">Update Client</button>
             </form>
         </div>
       </div>
     </div>
   </div>
-  <div class="modal-backdrop fade" ng-class="{'in': clientlistCtrl.editmodalFlag == true, '': clientlistCtrl.editmodalFlag == false}" ng-click="clientlistCtrl.editModal()"></div>
+  <div class="modal-backdrop fade" ng-class="{'in': clientlistCtrl.editmodalFlag == true, '': clientlistCtrl.editmodalFlag == false}" ng-click="clientlistCtrl.hideModal()"></div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal show fade" ng-class="{'in': clientlistCtrl.deletemodalFlag == true, '': clientlistCtrl.deletemodalFlag == false}" ng-show="clientlistCtrl.deletemodalFlag">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="clientlistCtrl.hideModal()">
+            x
+        </button>
+        <h4 class="modal-title">Deactivate Client</h4>
+      </div>
+      <div class="modal-body">
+        <div class="card-content table-responsive">
+            <h3 class="text-danger">Are you sure you want to deactivate <strong class="txt-blue">{{clientlistCtrl.selectedClient.client_name}}</strong>?</h3>
+            <div class="col-md-12">
+                
+            </div>
+            <button class="btn btn-orange pull-right" ng-click="clientlistCtrl.deleteClient()">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade" ng-class="{'in': clientlistCtrl.deletemodalFlag == true, '': clientlistCtrl.deletemodalFlag == false}" ng-click="clientlistCtrl.hideModal()"></div>
 </div>

@@ -46,5 +46,36 @@ if($action=='getClients'){
 		echo json_encode($obj);
 	}
 
+	//UPDATE `Client_master` SET `client_status`='active' WHERE `client_id` = 2
+
+if($action=='updateClient'){
+		$data = json_decode(file_get_contents("php://input"));
+		$insClients="UPDATE `Client_master` SET `client_name`='".$data->client_name."',`address`='".$data->address."',`city`='".$data->city."',`state`='".$data->state."',`contact_no`='".$data->contact_no."',`contact_person`='".$data->contact_person."',`vat_no`='".$data->vat_no."' WHERE `client_id`=".$data->client_id;
+		$resClients=mysql_query($insClients);
+		if($resClients){
+			$obj->status=true;
+			header(' ', true, 200);
+		}
+		else{
+			$obj->status=false;
+			header(' ', true, 500);
+		}
+		echo json_encode($obj);
+	}
+
+if($action=='deactivateClient'){
+		$data = json_decode(file_get_contents("php://input"));
+		$insClients="UPDATE `Client_master` SET `client_status`='deactive' WHERE `client_id`=".$data->client_id;
+		$resClients=mysql_query($insClients);
+		if($resClients){
+			$obj->status=true;
+			header(' ', true, 200);
+		}
+		else{
+			$obj->status=false;
+			header(' ', true, 500);
+		}
+		echo json_encode($obj);
+	}
 ?>
 
