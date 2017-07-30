@@ -18,6 +18,8 @@
     .form-group{
         @include marg(0);
         input.form-control{
+            color: $white;
+            text-transform: capitalize;
             display: inline;
             width: auto;
             height: 35px;

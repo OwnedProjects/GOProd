@@ -77,5 +77,50 @@ if($action=='deactivateClient'){
 		}
 		echo json_encode($obj);
 	}
+	
+
+if($action=='getDeactiveClient'){
+	$getDClients = "SELECT * FROM `Client_master` WHERE `client_status` = 'deactive'";
+	$resDClients= mysql_query($getDClients);
+	$count = mysql_num_rows($resDClients);
+	if($count>0){
+		$cnt=0;
+		while($row = mysql_fetch_array( $resDClients )) {
+			$tmpRes[$cnt]->client_id=$row['client_id'];
+			$tmpRes[$cnt]->client_name=$row['client_name'];
+			$tmpRes[$cnt]->address=$row['address'];
+			$tmpRes[$cnt]->city=$row['city'];
+			$tmpRes[$cnt]->state=$row['state'];
+			$tmpRes[$cnt]->contact_no=$row['contact_no'];
+			$tmpRes[$cnt]->contact_person=$row['contact_person'];
+			$tmpRes[$cnt]->vat_no=$row['vat_no'];
+			$cnt++;
+		}
+		$obj->deactiveClients = $tmpRes;
+		header(' ', true, 200);
+	}
+	else{
+		header(' ', true, 500);
+	}
+	echo json_encode($obj);
+}
+
+
+
+if($action=='activateClients'){
+	$data = json_decode(file_get_contents("php://input"));
+	$insClients="UPDATE `Client_master` SET `client_status`='active' WHERE `client_id`=".$data->client_id;
+	$resClients=mysql_query($insClients);
+	if($resClients){
+		$obj->status=true;
+		header(' ', true, 200);
+	}
+	else{
+		$obj->status=false;
+		header(' ', true, 500);
+	}
+	echo json_encode($obj);
+}
+
 ?>
 
