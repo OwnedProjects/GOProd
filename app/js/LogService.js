@@ -27,7 +27,7 @@ function LogService($rootScope, $timeout, $q, $http){
 				};
 			}
 			console.log(filedata);
-			$http({
+			/*$http({
                 method: 'POST',
                 url: 'db/create-logs.php?action=filelog',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -42,7 +42,11 @@ function LogService($rootScope, $timeout, $q, $http){
 					console.log(error)
 					reject (error)
 				},3000);
-            });
+            });*/
+			$timeout(function(){
+				$rootScope.log.success.shift();
+				resolve(true);
+			},3000);
 		});
 	}
 		
@@ -64,7 +68,7 @@ function LogService($rootScope, $timeout, $q, $http){
 				};
 			}
 			console.log(filedata);
-			$http({
+			/*$http({
                 method: 'POST',
                 url: 'db/create-logs.php?action=filelog',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -79,7 +83,11 @@ function LogService($rootScope, $timeout, $q, $http){
 					console.log(error)
 					reject (error)
 				},3000);
-            })
+            })*/
+			$timeout(function(){
+				$rootScope.log.error.shift();
+				resolve(true);
+			},3000);
 		});
 	}
 	

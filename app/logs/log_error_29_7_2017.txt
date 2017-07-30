@@ -1,6 +1,0 @@
-(19:45:42) - Products cannot be pulled
-(22:1:56) - Products cannot be pulled
-(22:2:2) - Products cannot be pulled
-(22:2:15) - Products cannot be pulled
-(22:23:57) - Products cannot be pulled
-(23:23:35) - Products cannot be pulled
