@@ -18,27 +18,27 @@
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="selLorry">Enter Lorry Number</label>
-                    <input type="text" placeholder="Lorry Number" class="form-control" id="selLorry" disabled />
-                    <button class="btn btn-orange btn-addon" ng-click="productlistCtrl.selectLorry()">
-                        <span class="fa fa-truck"></span>
-                    </button>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
                     <label for="">Supplier</label>
-                    <input type="text" class="form-control" disabled placeholder="Supplier">
-                    <button class="btn btn-orange btn-addon" ng-click="productlistCtrl.supplierlist()">
-                        <span class="fa fa-list"></span>
+                    <input type="text" class="form-control" placeholder="Supplier" list="suppliers" ng-model="purchaseCtrl.supplier_name" ng-change="purchaseCtrl.selectSupplierProd();">
+                    <button class="btn btn-orange btn-addon" ng-click="purchaseCtrl.supplierlist()">
+                        <span class="fa fa-user-plus"></span>
                     </button>
+                    <datalist id="suppliers">
+                        <option ng-repeat="supplier in purchaseCtrl.suppliers" ng-value="supplier.supplier_name">
+                    </datalist>
                 </div>
             </div>
-            <div class="clearfix"></div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="">Product</label>
-                    <input type="text" class="form-control" disabled placeholder="Product">
+                    <input type="text" class="form-control" disabled placeholder="Product" ng-model="purchaseCtrl.sup_product">
+                </div>
+            </div>
+            <div class="clearfix"></div>            
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="selLorry">Enter Lorry Number</label>
+                    <input type="text" placeholder="Lorry Number" class="form-control" id="selLorry" disabled />
                 </div>
             </div>
             <div class="col-md-4">

@@ -38,4 +38,27 @@ if($action=='updateProduct'){
 	}
 	echo json_encode($obj);
 }
+
+if($action=='getSupplierWithProducts'){
+	$data = json_decode(file_get_contents("php://input"));
+	$getSupProds="SELECT * FROM `supplier_master` s, `product_master` p WHERE s.prod_id=p.prod_id AND s.supplier_status='active'";
+	$resSupProds=mysql_query($getSupProds);
+	$count = mysql_num_rows($resSupProds);
+	if($count>0){
+		$cnt=0;
+		while($row = mysql_fetch_array( $resSupProds )) {
+			$tmpRes[$cnt]->supplier_id=$row['supplier_id'];
+			$tmpRes[$cnt]->supplier_name=$row['supplier_name'];
+			$tmpRes[$cnt]->prod_id=$row['prod_id'];
+			$tmpRes[$cnt]->prod_name=$row['prod_name'];
+			$cnt++;
+		}
+		$obj->SupProd=$tmpRes;
+		header(' ', true, 200);
+	}
+	else{
+		header(' ', true, 500);
+	}
+	echo json_encode($obj);
+}
 ?>
