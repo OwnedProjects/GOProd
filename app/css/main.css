@@ -12724,6 +12724,14 @@ body {
   border-bottom-color: #8e24aa;
 }
 
+table.table tr td.address {
+  width: 250px;
+}
+
+.address {
+  width: 250px;
+}
+
 .productionCnt {
   color: #f44336;
 }

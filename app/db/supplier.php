@@ -11,12 +11,43 @@ $action=$_GET['action'];
         exit;
         if($resSupplier){
             $obj->status=true;
-			var_dump(http_response_code(200));
+            header(' ', true, 200);
         }
         else{
             $obj->status=false;
-			var_dump(http_response_code(500));
+            header(' ', true, 500);
         }
         echo json_encode($obj);
     }
+
+
+    if($action =='getSupplier'){
+        $data = json_decode(file_get_contents("php://input"));
+		$getSupplier="SELECT * FROM `supplier_master` WHERE `supplier_status` = 'active'";
+		$resSupplier=mysql_query($getSupplier);
+		$count = mysql_num_rows($resSupplier);
+		if($count>0){
+			$cnt=0;
+			while($row = mysql_fetch_array( $resSupplier )) {
+				$tmpRes[$cnt]->client_id=$row['supplier_id'];
+				$tmpRes[$cnt]->supplier_name=$row['supplier_name'];
+				$tmpRes[$cnt]->vat=$row['vat'];
+				$tmpRes[$cnt]->prod_id=$row['prod_id'];
+				$tmpRes[$cnt]->contact_person=$row['contact_person'];
+				$tmpRes[$cnt]->city=$row['city'];
+				$tmpRes[$cnt]->contactno=$row['contactno'];
+				$tmpRes[$cnt]->address=$row['address'];
+				$cnt++;
+			}
+			$obj->Supplier = $tmpRes;
+			header(' ', true, 200);
+        }
+        else{
+            $obj->status=false;
+            header(' ', true, 500);
+        }
+        echo json_encode($obj);
+    }
+
+
 ?>
