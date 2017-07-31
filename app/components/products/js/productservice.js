@@ -7,6 +7,7 @@ function ProductService($q, $http){
     var vm = this;
     vm.getProducts = getProducts;
     vm.updateProduct = updateProduct;
+    vm.getSupplierWithProducts = getSupplierWithProducts;
 
     function getProducts(){
         return $q(function(resolve, reject) {
@@ -31,6 +32,20 @@ function ProductService($q, $http){
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).then(function successCallback(response) {        
                 resolve(response);
+            }, function errorCallback(error) {
+                reject (error);
+            });
+        });
+    };
+	
+    function getSupplierWithProducts(){
+        return $q(function(resolve, reject) {
+            $http({
+                method: 'GET',
+                url: 'db/products.php?action=getSupplierWithProducts',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).then(function successCallback(response) {        
+                resolve(response.data);
             }, function errorCallback(error) {
                 reject (error);
             });
