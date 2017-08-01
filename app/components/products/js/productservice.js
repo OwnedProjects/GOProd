@@ -53,11 +53,13 @@ function ProductService($q, $http){
         });
     };
 	
-    function addNewProduct(){
+    function addNewProduct(prodinfo){
+        console.log(prodinfo);
         return $q(function(resolve, reject) {
             $http({
-                method: 'GET',
+                method: 'POST',
                 url: 'db/products.php?action=addNewProduct',
+                data: prodinfo,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).then(function successCallback(response) {        
                 resolve(response.data);

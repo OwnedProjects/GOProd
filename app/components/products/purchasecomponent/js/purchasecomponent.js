@@ -28,14 +28,14 @@ function PurchaseController(ProductService, LogService){
         ProductService.getSupplierWithProducts()
             .then(function(response){
                 vm.suppliers=response.SupProd;
-                //LogService.setSuccess("Suppliers fetched.").then(function(){});
+                LogService.setSuccess("Suppliers fetched.").then(function(){});
             })
             .catch(function(err){
                 console.log(err)
             });
 
             vm.dateOptions = {
-                startingDay: new Date()
+                showWeeks: false
             };
             vm.purDate = {
                 opened : false
@@ -47,7 +47,18 @@ function PurchaseController(ProductService, LogService){
 
 	function purchaseProduct(){
 		if(vm.purchaseDate != undefined && vm.sup_product != undefined && vm.billDate != undefined && vm.supplier_name != undefined && vm.billNo != undefined && vm.lorryNo != undefined && vm.weight != undefined && vm.rate != undefined){
-			ProductService.addNewProduct()
+            var lorryfreight = (vm.lorryfreight==undefined)?0:(vm.lorryfreight==null)?0:(vm.lorryfreight=="")?0:(vm.lorryfreight==" ")?0:vm.lorryfreight;
+            var prodinfo = {
+                supplier_id: vm.sup_product.supplier_id,
+                purchase_date: JSON.stringify(vm.purchaseDate.getTime()),
+                bill_date: JSON.stringify(vm.billDate.getTime()),
+                billno: vm.billNo,
+                lorryNo: vm.lorryNo,
+                weight: vm.weight,
+                rate: vm.rate,
+                lorryfreight: lorryfreight
+            };
+			ProductService.addNewProduct(prodinfo)
 				.then(function(response){
 					LogService.setSuccess("Successfully added the product to the database");
 				})
@@ -63,11 +74,13 @@ function PurchaseController(ProductService, LogService){
     function selectSupplierProd(){
         var flag = false;
         var index = -1;
-        for(var i=0; i<vm.suppliers.length; i++){
-            if(vm.supplier_name == vm.suppliers[i].supplier_name){
-                flag = true;
-                index = i;
-                break;
+        if(vm.suppliers){
+            for(var i=0; i<vm.suppliers.length; i++){
+                if(vm.supplier_name == vm.suppliers[i].supplier_name){
+                    flag = true;
+                    index = i;
+                    break;
+                }
             }
         }
 
@@ -75,7 +88,7 @@ function PurchaseController(ProductService, LogService){
             vm.sup_product = null;
         }
         else{
-            vm.sup_product = vm.suppliers[index].prod_name;
+            vm.sup_product = vm.suppliers[index];
         }
     };
 

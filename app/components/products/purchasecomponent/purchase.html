@@ -10,7 +10,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="purchaseDate">Enter Purchase Date*</label>
-                    <input type="text" placeholder="Purchase Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="purchaseCtrl.purchaseDate" is-open="purchaseCtrl.purDate.opened" datepicker-options="purchaseCtrl.dateOptions" readonly required />
+                    <input type="text" placeholder="Purchase Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="purchaseCtrl.purchaseDate" is-open="purchaseCtrl.purDate.opened" datepicker-options="purchaseCtrl.dateOptions" show-button-bar="false" readonly required />
                     <button class="btn btn-orange btn-addon" ng-click="purchaseCtrl.openPurchaseDate()">
                         <span class="fa fa-calendar"></span>
                     </button>
@@ -31,14 +31,14 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="">Product*</label>
-                    <input type="text" class="form-control" disabled placeholder="Product" ng-model="purchaseCtrl.sup_product" required />
+                    <input type="text" class="form-control" disabled placeholder="Product" ng-model="purchaseCtrl.sup_product.prod_name" required />
                 </div>
             </div>
             <div class="clearfix"></div>
             <div class="col-md-4">                
                 <div class="form-group">
                     <label for="billDate">Bill Date*</label>
-                    <input type="text" placeholder="Bill Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="purchaseCtrl.billDate" is-open="purchaseCtrl.billDateMod.opened" datepicker-options="purchaseCtrl.dateOptions" readonly required />
+                    <input type="text" placeholder="Bill Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="purchaseCtrl.billDate" is-open="purchaseCtrl.billDateMod.opened" datepicker-options="purchaseCtrl.dateOptions" show-button-bar="false" readonly required />
                     <button class="btn btn-orange btn-addon" ng-click="purchaseCtrl.openBillDate()">
                         <span class="fa fa-calendar"></span>
                     </button>
