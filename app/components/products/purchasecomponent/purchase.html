@@ -10,8 +10,8 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="purchaseDate">Enter Purchase Date</label>
-                    <input type="text" placeholder="Purchase Date" class="form-control" id="purchaseDate" disabled />
-                    <button class="btn btn-orange btn-addon">
+                    <input type="text" placeholder="Purchase Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="purchaseCtrl.purchaseDate" is-open="purchaseCtrl.purDate.opened" datepicker-options="purchaseCtrl.dateOptions" readonly/>
+                    <button class="btn btn-orange btn-addon" ng-click="purchaseCtrl.openPurchaseDate()">
                         <span class="fa fa-calendar"></span>
                     </button>
                 </div>
@@ -34,17 +34,14 @@
                     <input type="text" class="form-control" disabled placeholder="Product" ng-model="purchaseCtrl.sup_product">
                 </div>
             </div>
-            <div class="clearfix"></div>            
-            <div class="col-md-4">
+            <div class="clearfix"></div>
+            <div class="col-md-4">                
                 <div class="form-group">
-                    <label for="selLorry">Enter Lorry Number</label>
-                    <input type="text" placeholder="Lorry Number" class="form-control" id="selLorry" disabled />
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="">No. Of Bags</label>
-                    <input type="text" class="form-control" placeholder="No. of bags">
+                    <label for="billDate">Bill Date</label>
+                    <input type="text" placeholder="Bill Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="purchaseCtrl.billDate" is-open="purchaseCtrl.billDateMod.opened" datepicker-options="purchaseCtrl.dateOptions" readonly />
+                    <button class="btn btn-orange btn-addon" ng-click="purchaseCtrl.openBillDate()">
+                        <span class="fa fa-calendar"></span>
+                    </button>
                 </div>
             </div>
             <div class="col-md-4">
@@ -53,23 +50,36 @@
                     <input type="text" class="form-control" placeholder="Bill / Invoice No.">
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="selLorry">Enter Lorry Number</label>
+                    <input type="text" placeholder="E.g. MH 12 AA 1234" class="form-control" id="selLorry" />
+                </div>
+            </div>
             <div class="clearfix"></div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="">Bill Amount</label>
-                    <input type="text" class="form-control" placeholder="Bill Amount">
+                    <label for="">Weight (M.T)</label>
+                    <input type="text" class="form-control" placeholder="Weight in M.T">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="">Discount</label>
-                    <input type="text" class="form-control" placeholder="Discount">
+                    <label for="">Rate</label>
+                    <input type="text" class="form-control" placeholder="Rate">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="">Net Amount</label>
-                    <input type="text" class="form-control" placeholder="Net Amount">
+                    <label for="">Lorry Freight</label>
+                    <input type="text" class="form-control" placeholder="Lorry Freight">
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="">Total Amount</label>
+                    <input type="text" class="form-control" placeholder="Total Amount">
                 </div>
             </div>
             <div class="clearfix"></div>

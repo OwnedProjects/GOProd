@@ -16,8 +16,11 @@ PurchaseController.$inject = ["ProductService", "LogService"];
 function PurchaseController(ProductService, LogService){
     var vm = this;
     vm.suppliers = null;
+    vm.dateOptions = null;
     vm.init = init;
     vm.selectSupplierProd = selectSupplierProd;
+    vm.openPurchaseDate = openPurchaseDate;
+    vm.openBillDate = openBillDate;
 
     function init() {
         ProductService.getSupplierWithProducts()
@@ -28,6 +31,19 @@ function PurchaseController(ProductService, LogService){
             .catch(function(err){
                 console.log(err)
             });
+
+            vm.dateOptions = {
+                formatYear: 'yy',
+                maxDate: new Date(2020, 5, 22),
+                minDate: new Date(),
+                startingDay: 1
+            };
+            vm.purDate = {
+                opened : false
+            };
+            vm.billDateMod = {
+                opened : false
+            };
     };
 
     function selectSupplierProd(){
@@ -48,6 +64,14 @@ function PurchaseController(ProductService, LogService){
             vm.sup_product = vm.suppliers[index].prod_name;
         }
     };
+
+    function openBillDate(){
+        vm.billDateMod.opened = true;
+    };
+
+    function openPurchaseDate(){
+        vm.purDate.opened = true;
+    }
 
     vm.init();
 }
