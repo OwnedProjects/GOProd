@@ -9,8 +9,8 @@
         <form>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="purchaseDate">Enter Purchase Date</label>
-                    <input type="text" placeholder="Purchase Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="purchaseCtrl.purchaseDate" is-open="purchaseCtrl.purDate.opened" datepicker-options="purchaseCtrl.dateOptions" readonly/>
+                    <label for="purchaseDate">Enter Purchase Date*</label>
+                    <input type="text" placeholder="Purchase Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="purchaseCtrl.purchaseDate" is-open="purchaseCtrl.purDate.opened" datepicker-options="purchaseCtrl.dateOptions" readonly required />
                     <button class="btn btn-orange btn-addon" ng-click="purchaseCtrl.openPurchaseDate()">
                         <span class="fa fa-calendar"></span>
                     </button>
@@ -18,8 +18,8 @@
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="">Supplier</label>
-                    <input type="text" class="form-control" placeholder="Supplier" list="suppliers" ng-model="purchaseCtrl.supplier_name" ng-change="purchaseCtrl.selectSupplierProd();">
+                    <label for="">Supplier*</label>
+                    <input type="text" class="form-control" placeholder="Supplier" list="suppliers" ng-model="purchaseCtrl.supplier_name" ng-change="purchaseCtrl.selectSupplierProd();" required />
                     <button class="btn btn-orange btn-addon" ng-click="purchaseCtrl.supplierlist()">
                         <span class="fa fa-user-plus"></span>
                     </button>
@@ -30,15 +30,15 @@
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="">Product</label>
-                    <input type="text" class="form-control" disabled placeholder="Product" ng-model="purchaseCtrl.sup_product">
+                    <label for="">Product*</label>
+                    <input type="text" class="form-control" disabled placeholder="Product" ng-model="purchaseCtrl.sup_product" required />
                 </div>
             </div>
             <div class="clearfix"></div>
             <div class="col-md-4">                
                 <div class="form-group">
-                    <label for="billDate">Bill Date</label>
-                    <input type="text" placeholder="Bill Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="purchaseCtrl.billDate" is-open="purchaseCtrl.billDateMod.opened" datepicker-options="purchaseCtrl.dateOptions" readonly />
+                    <label for="billDate">Bill Date*</label>
+                    <input type="text" placeholder="Bill Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="purchaseCtrl.billDate" is-open="purchaseCtrl.billDateMod.opened" datepicker-options="purchaseCtrl.dateOptions" readonly required />
                     <button class="btn btn-orange btn-addon" ng-click="purchaseCtrl.openBillDate()">
                         <span class="fa fa-calendar"></span>
                     </button>
@@ -46,45 +46,45 @@
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="">Bill / Invoice No.</label>
-                    <input type="text" class="form-control" placeholder="Bill / Invoice No.">
+                    <label for="">Bill / Invoice No.*</label>
+                    <input type="text" class="form-control" placeholder="Bill / Invoice No." ng-model="purchaseCtrl.billNo" required />
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="selLorry">Enter Lorry Number</label>
-                    <input type="text" placeholder="E.g. MH 12 AA 1234" class="form-control" id="selLorry" />
+                    <label for="selLorry">Enter Lorry Number*</label>
+                    <input type="text" placeholder="E.g. MH 12 AA 1234" class="form-control" ng-model="purchaseCtrl.lorryNo" required />
                 </div>
             </div>
             <div class="clearfix"></div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="">Weight (M.T)</label>
-                    <input type="text" class="form-control" placeholder="Weight in M.T">
+                    <label for="">Weight (M.T)*</label>
+                    <input type="text" class="form-control" ng-model="purchaseCtrl.weight" ng-change="purchaseCtrl.calcTotalAmt()" placeholder="Weight in M.T" required />
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="">Rate</label>
-                    <input type="text" class="form-control" placeholder="Rate">
+                    <label for="">Rate*</label>
+                    <input type="text" class="form-control" ng-model="purchaseCtrl.rate" ng-change="purchaseCtrl.calcTotalAmt()" placeholder="Rate" required />
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="">Lorry Freight</label>
-                    <input type="text" class="form-control" placeholder="Lorry Freight">
+                    <input type="text" class="form-control" ng-model="purchaseCtrl.lorryfreight" ng-change="purchaseCtrl.calcTotalAmt()" placeholder="Lorry Freight">
                 </div>
             </div>
             <div class="clearfix"></div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="">Total Amount</label>
-                    <input type="text" class="form-control" placeholder="Total Amount">
+                    <label for=""><strong>Total Amount</strong></label>
+                    <input type="text" class="form-control" ng-model="purchaseCtrl.totalamt" placeholder="Total Amount" readonly />
                 </div>
             </div>
             <div class="clearfix"></div>
             <div class="col-md-12">
-                <button class="btn btn-orange pull-right" id="payment" ><i class="fa fa-rupee"></i> Payment</button>
+                <button type="button" class="btn btn-orange pull-right" ng-click="purchaseCtrl.purchaseProduct()"><i class="fa fa-cart-arrow-down"></i> Purchase</button>
             </div>
         </form>
     </div>
