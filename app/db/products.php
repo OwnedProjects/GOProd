@@ -81,4 +81,24 @@ if($action=='addNewProduct'){
 	}
 	echo json_encode($obj);
 }
+
+if($action=='getLorries'){
+	$getLorries="SELECT DISTINCT(`lorry_no`) FROM `purchase_master`";
+	$reslorry=mysql_query($getLorries);
+	$count = mysql_num_rows($reslorry);
+	if($count>0){
+		$cnt=0;
+		while($row = mysql_fetch_array( $reslorry )) {
+			$tmpRes[$cnt]->lorry_no=$row['lorry_no'];
+			$cnt++;
+		}
+		$obj->Lorries=$tmpRes;
+		header(' ', true, 200);
+	}
+	else{
+		$obj->status=false;
+		header(' ', true, 500);
+	}
+	echo json_encode($obj);
+}
 ?>

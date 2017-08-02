@@ -11,7 +11,7 @@
                 <div class="form-group">
                     <label for="purchaseDate">Enter Purchase Date*</label>
                     <input type="text" placeholder="Purchase Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="purchaseCtrl.purchaseDate" is-open="purchaseCtrl.purDate.opened" datepicker-options="purchaseCtrl.dateOptions" show-button-bar="false" readonly required />
-                    <button class="btn btn-orange btn-addon" ng-click="purchaseCtrl.openPurchaseDate()">
+                    <button class="btn btn-orange btn-addon" ng-click="purchaseCtrl.openPurchaseDate()" type="button">
                         <span class="fa fa-calendar"></span>
                     </button>
                 </div>
@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <label for="">Supplier*</label>
                     <input type="text" class="form-control" placeholder="Supplier" list="suppliers" ng-model="purchaseCtrl.supplier_name" ng-change="purchaseCtrl.selectSupplierProd();" required />
-                    <button class="btn btn-orange btn-addon" ng-click="purchaseCtrl.supplierlist()">
+                    <button type="button" class="btn btn-orange btn-addon" ng-click="purchaseCtrl.addSupplierModal()">
                         <span class="fa fa-user-plus"></span>
                     </button>
                     <datalist id="suppliers">
@@ -39,7 +39,7 @@
                 <div class="form-group">
                     <label for="billDate">Bill Date*</label>
                     <input type="text" placeholder="Bill Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="purchaseCtrl.billDate" is-open="purchaseCtrl.billDateMod.opened" datepicker-options="purchaseCtrl.dateOptions" show-button-bar="false" readonly required />
-                    <button class="btn btn-orange btn-addon" ng-click="purchaseCtrl.openBillDate()">
+                    <button type="button" class="btn btn-orange btn-addon" ng-click="purchaseCtrl.openBillDate()">
                         <span class="fa fa-calendar"></span>
                     </button>
                 </div>
@@ -53,7 +53,10 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="selLorry">Enter Lorry Number*</label>
-                    <input type="text" placeholder="E.g. MH 12 AA 1234" class="form-control" ng-model="purchaseCtrl.lorryNo" required />
+                    <input type="text" placeholder="E.g. MH 12 AA 1234" class="form-control" ng-model="purchaseCtrl.lorryNo" list="lorries" required />
+                    <datalist id="lorries">
+                        <option ng-repeat="lorry in purchaseCtrl.lorries" ng-value="lorry.lorry_no">
+                    </datalist>
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -90,4 +93,26 @@
     </div>
 </div>
 </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal show fade" ng-class="{'in': purchaseCtrl.addSupplierFlag == true, '': purchaseCtrl.addSupplierFlag == false}" ng-show="purchaseCtrl.addSupplierFlag">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="purchaseCtrl.hideModal()">
+            x
+        </button>
+        <h4 class="modal-title">Add Supplier</h4>
+      </div>
+      <div class="modal-body">
+        <div class="card-content table-responsive">
+            <addsupplier-component></addsupplier-component>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade" ng-class="{'in': purchaseCtrl.addSupplierFlag == true, '': purchaseCtrl.addSupplierFlag == false}" ng-click="purchaseCtrl.hideModal()"></div>
 </div>

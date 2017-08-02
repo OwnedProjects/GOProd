@@ -9,6 +9,7 @@ function ProductService($q, $http){
     vm.updateProduct = updateProduct;
     vm.getSupplierWithProducts = getSupplierWithProducts;
 	vm.addNewProduct = addNewProduct;
+    vm.getLorries = getLorries;
 
     function getProducts(){
         return $q(function(resolve, reject) {
@@ -54,12 +55,25 @@ function ProductService($q, $http){
     };
 	
     function addNewProduct(prodinfo){
-        console.log(prodinfo);
         return $q(function(resolve, reject) {
             $http({
                 method: 'POST',
                 url: 'db/products.php?action=addNewProduct',
                 data: prodinfo,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).then(function successCallback(response) {        
+                resolve(response.data);
+            }, function errorCallback(error) {
+                reject (error);
+            });
+        });
+    };
+	
+    function getLorries(){
+        return $q(function(resolve, reject) {
+            $http({
+                method: 'GET',
+                url: 'db/products.php?action=getLorries',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).then(function successCallback(response) {        
                 resolve(response.data);

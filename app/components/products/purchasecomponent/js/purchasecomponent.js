@@ -23,12 +23,22 @@ function PurchaseController(ProductService, LogService){
     vm.openBillDate = openBillDate;
     vm.calcTotalAmt = calcTotalAmt;
     vm.purchaseProduct = purchaseProduct;
+    vm.addSupplierModal = addSupplierModal;
+    vm.hideModal = hideModal;
 
     function init() {
         ProductService.getSupplierWithProducts()
             .then(function(response){
                 vm.suppliers=response.SupProd;
                 LogService.setSuccess("Suppliers fetched.").then(function(){});
+            })
+            .catch(function(err){
+                console.log(err)
+            });
+        ProductService.getLorries()
+            .then(function(response){
+                vm.lorries=response.Lorries;
+                LogService.setSuccess("Lorries fetched.").then(function(){});
             })
             .catch(function(err){
                 console.log(err)
@@ -60,7 +70,9 @@ function PurchaseController(ProductService, LogService){
             };
 			ProductService.addNewProduct(prodinfo)
 				.then(function(response){
-					LogService.setSuccess("Successfully added the product to the database");
+					LogService.setSuccess("Successfully added the product to the database").then(function(resp){
+                        vm.init();
+                    });
 				})
 				.catch(function(err){
 					LogService.setError("This product cannot be added, please check the log file");
@@ -98,6 +110,15 @@ function PurchaseController(ProductService, LogService){
 
     function openPurchaseDate(){
         vm.purDate.opened = true;
+    };
+
+    function addSupplierModal(){
+        vm.addSupplierFlag = true;
+    };
+
+    function hideModal(){
+        vm.addSupplierFlag = false;
+        vm.init();
     }
 	
 	function calcTotalAmt(){
@@ -118,7 +139,7 @@ function PurchaseController(ProductService, LogService){
 			lorryfreight = 0;
 		}
 		vm.totalamt = (parseFloat(weight) * parseFloat(rate)) + parseFloat(lorryfreight);
-	}
+	};
 
     vm.init();
 }
