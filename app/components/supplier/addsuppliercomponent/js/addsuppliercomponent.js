@@ -25,7 +25,7 @@ function AddsupplierController(SupplierService, LogService, ProductService){
     vm.reset = reset;
 
     function addSupplier(){
-        console.log(vm.name,vm.vat,vm.product,vm.contactperson, vm.city, vm.contactno,vm.address );
+        console.log(vm.name,vm.vat,vm.product.prod_name,vm.contactperson, vm.city, vm.contactno,vm.address );
         var tmpObj = {
             name: vm.name,
             vat: vm.vat,
@@ -36,18 +36,18 @@ function AddsupplierController(SupplierService, LogService, ProductService){
             address: vm.address
         };
         
-        /* SupplierService.addSupplier(tmpObj)
+         SupplierService.addSupplier(tmpObj)
             .then(function(response){
-                //console.log(response);
+                console.log(response);
                 LogService.setSuccess("Supplier added successfully").then(function(){
                     vm.reset();
+		            vm.ondone();
                 });
             })
             .catch(function(err){
                 //console.log(err);
                 LogService.setError("Supplier cannot be added, try again later");
-            }); */
-		vm.ondone();
+            }); 
     };
 
     function init(){

@@ -7,6 +7,8 @@ function SupplierService($q, $http){
     var vm = this;
     vm.addSupplier = addSupplier;
     vm.getSuppliers = getSuppliers;
+    vm.updateSupplier = updateSupplier;
+    vm.deactivateSupplier = deactivateSupplier;
 
     function addSupplier(tmpObj){
         return $q(function(resolve, reject){
@@ -36,4 +38,37 @@ function SupplierService($q, $http){
             });
         })
     }
+
+
+    function updateSupplier(supplierData){
+        return $q(function(resolve, reject){
+            $http({
+                method: "POST",
+                url: 'db/supplier.php?action=updateSuppliers',
+                data: supplierData,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).then(function successCallback(response){
+                resolve(response);
+            }, function errorCallback(error){
+                console.log(error);
+                reject(error);
+            });
+        })
+    }
+
+    function deactivateSupplier(supplierData){
+        return $q(function(resolve, reject){
+            $http({
+                method: 'POST',
+                url: 'db/supplier.php?action=deactivateSuppliers',
+                data: supplierData,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).then(function successCallback(response){
+                resolve(response);
+            }, function errorCallback(error){
+                reject(error);
+            })
+        })
+    }
+
 }

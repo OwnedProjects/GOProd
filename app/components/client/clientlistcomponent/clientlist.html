@@ -73,7 +73,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>VAT Number</label>
-                        <input type="email" class="form-control" ng-model="clientlistCtrl.modVat" />
+                        <input type="text" class="form-control" ng-model="clientlistCtrl.modVat" />
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -138,9 +138,6 @@
       <div class="modal-body">
         <div class="card-content table-responsive">
             <h3 class="text-danger">Are you sure you want to deactivate <strong class="txt-blue">{{clientlistCtrl.selectedClient.client_name}}</strong>?</h3>
-            <div class="col-md-12">
-                
-            </div>
             <button class="btn btn-orange pull-right" ng-click="clientlistCtrl.deleteClient()">Confirm</button>
         </div>
       </div>

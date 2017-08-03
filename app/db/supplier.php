@@ -20,34 +20,35 @@ $action=$_GET['action'];
         echo json_encode($obj);
     }
 
-
-    if($action =='getSupplier'){
-        $data = json_decode(file_get_contents("php://input"));
-		$getSupplier="SELECT * FROM `supplier_master` WHERE `supplier_status` = 'active'";
-		$resSupplier=mysql_query($getSupplier);
-		$count = mysql_num_rows($resSupplier);
-		if($count>0){
-			$cnt=0;
-			while($row = mysql_fetch_array( $resSupplier )) {
-				$tmpRes[$cnt]->client_id=$row['supplier_id'];
-				$tmpRes[$cnt]->supplier_name=$row['supplier_name'];
-				$tmpRes[$cnt]->vat=$row['vat'];
-				$tmpRes[$cnt]->prod_id=$row['prod_id'];
-				$tmpRes[$cnt]->contact_person=$row['contact_person'];
-				$tmpRes[$cnt]->city=$row['city'];
-				$tmpRes[$cnt]->contactno=$row['contactno'];
-				$tmpRes[$cnt]->address=$row['address'];
-				$cnt++;
-			}
-			$obj->Supplier = $tmpRes;
+if($action=='updateSuppliers'){
+	$data = json_decode(file_get_contents("php://input"));
+	$getsupplier="UPDATE `supplier_master` SET `supplier_name`= '".$data->supplier_name."' ,`vat`= '".$data->vat."' ,`prod_id`= '".$data->prod_id."' ,`contact_person`= '".$data->contact_person."' ,`city`= '".$data->city."' ,`contactno`= '".$data->contactno."' ,`address`= '".$data->address."' WHERE `supplier_id`=".$data->supplier_id;
+	$updSupplier=mysql_query($getsupplier);
+		if($updSupplier){
+			$obj->status=true;
 			header(' ', true, 200);
-        }
-        else{
-            $obj->status=false;
-            header(' ', true, 500);
-        }
-        echo json_encode($obj);
+		}
+		else{
+			$obj->status=false;
+			header(' ', true, 500);
+		}
+		echo json_encode($obj);
+	}
+
+if($action=='deactivateSuppliers') {
+    $data = json_decode(file_get_contents("php://input"));
+    $getSupplier="UPDATE `supplier_master` SET `supplier_status`='deactive' WHERE `supplier_id`=".$data->supplier_id;
+    $deactSupplier=mysql_query($getSupplier);
+    if($deactSupplier){
+        $obj->status=true;
+        header(' ', true, 200);
     }
+    else{
+        $obj->status=false;
+        header(' ', true, 500);
+    }
+    echo json_encode($obj);
+}
 
 
 ?>

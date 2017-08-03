@@ -6,7 +6,7 @@
                 <h4 class="title text-left pull-left">All Client</h4>
                 <form class="search-cnt pull-right">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="" />
+                        <input type="text" class="form-control" ng-model="supplierlistCtrl.search" />
                         <button type="submit" class="btn search-btn">
                             <i class="fa fa-search"></i>
                         </button>
@@ -24,27 +24,138 @@
                             <th>Contact Person</th>
                             <th>City</th>
                             <th>Contact No.</th>
-                            <th class="address">Address</th>
+                            <th>Address</th>
                             <th>Edit / Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="supplier in supplierlistCtrl.suppliers">		
-                            <td>{{supplier.supplier_name}}</td>
-                            <td>{{supplier.vat}}</td>
-                            <td>{{supplier.prod_id}}</td>
-                            <td>{{supplier.contact_person}}</td>
-                            <td>{{supplier.city}}</td>
-                            <td>{{supplier.contactno}}</td>
-                            <td>{{supplier.address}}</td>
+                        <tr ng-repeat="supplier in supplierlistCtrl.suppliers | filter: supplierlistCtrl.search">
+                            <td class="name">{{supplier.supplier_name}}</td>
+                            <td class="vat">{{supplier.vat}}</td>
+                            <td class="prod-name">{{supplier.prod_name}}</td>
+                            <td class="cont">{{supplier.contact_person}}</td>
+                            <td class="city">{{supplier.city}}</td>
+                            <td class="contno">{{supplier.contactno}}</td>
+                            <td class="address">{{supplier.address}}</td>
                             <td>
-                                <a href="javascript:void(0);" class="table-btn text-info" ><i class="icon-pencil icon fa-lg"></i></a>
-                                <a href="javascript:void(0);" class="table-btn text-danger"><i class="icon-trash icon fa-lg"></i></a>
+                                <button class="btn btn-lgrey text-grey" ng-click="supplierlistCtrl.editModal(supplier)"><i class="icon-pencil icon fa-lg"></i></button>
+                                <button class="btn btn-lgrey text-grey" ng-click="supplierlistCtrl.removeSupplier(supplier)"><i class="icon-trash icon fa-lg"></i></button>
                             </td>
-                        </tr> 
+                        </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+</div>
+
+
+
+<!-- Modal -->
+<div id="editmodalFlagModal" class="modal show fade" ng-class="{'in': supplierlistCtrl.editmodalFlag == true, '': supplierlistCtrl.editmodalFlag == false}" ng-show="supplierlistCtrl.editmodalFlag">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="card table-card">
+        <div class="card-header" data-background-color="purple">
+            <h4 class="title text-left">Select Profile
+                <button type="button" class="close" ng-click="supplierlistCtrl.hideModal()">
+                    x
+                </button>
+            </h4>
+        </div>
+      <div class="modal-body">
+        <div class="card-content table-responsive">
+            <form class="">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label id="forname">Name</label>
+                        <input type="text" class="form-control" ng-model="supplierlistCtrl.modName">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>VAT Number</label>
+                        <input type="text" class="form-control" ng-model="supplierlistCtrl.modVat">
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" class="form-control" ng-model="supplierlistCtrl.modCity">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Product Name</label>
+                         <input type="text" class="form-control" ng-model="supplierlistCtrl.modprodName" disabled> 
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Contact Person</label>
+                        <input type="text" class="form-control" ng-model="supplierlistCtrl.modContactPerson">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Contact Number</label>
+                        <input type="text" class="form-control" ng-model="supplierlistCtrl.modContactNo">
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea type="text" class="form-control" ng-model="supplierlistCtrl.modAddress"></textarea>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-primary pull-right" data-background-color="purple" ng-click="supplierlistCtrl.updateSupplier()">Update Supplier</button>
+                </div>
+                <div class="clearfix"></div>
+
+            </form>
+        </div>
+        </div>
+       </div> 
+    </div>
+  </div>
+  <div class="modal-backdrop fade" ng-class="{'in': supplierlistCtrl.editmodalFlag == true, '': supplierlistCtrl.editmodalFlag == false}" ng-click="supplierlistCtrl.hideModal()"></div>
+</div>
+
+
+
+<!-- Modal -->
+<div id="editmodalFlagModal" class="modal show fade" ng-class="{'in': supplierlistCtrl.deletemodalFlag == true, '': supplierlistCtrl.deletemodalFlag == false}" ng-show="supplierlistCtrl.deletemodalFlag">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="card table-card">
+        <div class="card-header" data-background-color="purple">
+            <h4 class="title text-left">Deactivate Supplier
+                <button type="button" class="close" ng-click="supplierlistCtrl.hideModal()">x</button>
+            </h4>
+        </div>
+      <div class="modal-body">
+        <div class="card-content table-responsive">
+            <div class="colmd-12 text-center">
+                <h3 class="text-lgrey fa-lg"><i class="fa fa-bell text-text"></i> Are you sure you want to Deactivate <span class="text-info">{{supplierlistCtrl.selectedSupplier.supplier_name}}</span>?</h3>
+                <button class="btn btn-purple pull-right" ng-click="supplierlistCtrl.deactivateSupplier()">Deactivate</button>
+            </div>
+        </div>
+        </div>
+       </div> 
+    </div>
+  </div>
+  <div class="modal-backdrop fade" ng-class="{'in': supplierlistCtrl.deletemodalFlag == true, '': supplierlistCtrl.deletemodalFlag == false}" ng-click="supplierlistCtrl.hideModal()"></div>
 </div>

@@ -134,7 +134,7 @@ li{
         box-shadow: none;
         border-radius: 0;
         border-bottom: solid 1px #d7d7d7;
-        padding-left: 10px !important;
+        padding-left: 0;
         font-size: 16px;
         @include pad(0);
         transition: all 0.1s linear 0.2s;
@@ -144,6 +144,7 @@ li{
             outline: none;
             background: rgba(0,0,0,0.05);
             border-bottom:solid 1px $red;
+            padding-left: 10px;
             // ~ label{
             //     // top: -9px;
             //     font-size: 11px;
@@ -240,6 +241,11 @@ li{
                             .btn{@include pad(5px 10px);}
                         }
                     }
+                }
+            }
+            .modal-body{
+                .card-content{
+                    @include pad(0);
                 }
             }
         }
