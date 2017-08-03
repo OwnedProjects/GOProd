@@ -8,7 +8,10 @@ angular.module('GreenApp').config(function($stateProvider){
 .component('addsupplierComponent', {
     templateUrl: 'components/supplier/addsuppliercomponent/addsupplier.html',
     controller: AddsupplierController,
-    controllerAs: 'addsupplierCtrl'
+    controllerAs: 'addsupplierCtrl',
+	bindings: {
+        onComplete: '&?'
+    }
 });
 
 AddsupplierController.$inject = ["SupplierService", "LogService", "ProductService"]
@@ -17,22 +20,23 @@ function AddsupplierController(SupplierService, LogService, ProductService){
     var vm = this;
     vm.Products = null;
     vm.addSupplier = addSupplier;
-    vm.init = init; 
+    vm.init = init;
+	vm.ondone = ondone;
     vm.reset = reset;
 
     function addSupplier(){
-        //console.log(vm.name,vm.vat,vm.product,vm.contactperson, vm.city, vm.contactno,vm.address )'
+        console.log(vm.name,vm.vat,vm.product,vm.contactperson, vm.city, vm.contactno,vm.address );
         var tmpObj = {
             name: vm.name,
             vat: vm.vat,
-            prodid: vm.product.prod_id,
+            //prodid: vm.product.prod_id,
             contactperson: vm.contactperson,
             city: vm.city,
             contactno: vm.contactno,
             address: vm.address
         };
         
-        SupplierService.addSupplier(tmpObj)
+        /* SupplierService.addSupplier(tmpObj)
             .then(function(response){
                 //console.log(response);
                 LogService.setSuccess("Supplier added successfully").then(function(){
@@ -42,7 +46,8 @@ function AddsupplierController(SupplierService, LogService, ProductService){
             .catch(function(err){
                 //console.log(err);
                 LogService.setError("Supplier cannot be added, try again later");
-            })
+            }); */
+		vm.ondone();
     };
 
     function init(){
@@ -67,6 +72,10 @@ function AddsupplierController(SupplierService, LogService, ProductService){
         vm.contactno = null,
         vm.address = null
     };
-
+	
+	function ondone(){
+		//This method is written for calls from Parent
+        vm.onComplete && vm.onComplete();
+    }
     vm.init();
 }

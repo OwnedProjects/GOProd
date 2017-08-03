@@ -117,6 +117,7 @@ function PurchaseController(ProductService, LogService){
     };
 
     function hideModal(){
+		console.log("Hide Modal Called");
         vm.addSupplierFlag = false;
         vm.init();
     }
