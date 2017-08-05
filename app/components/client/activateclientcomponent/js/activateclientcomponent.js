@@ -23,10 +23,7 @@ function ActivateclientController(ClientService, LogService){
     vm.hideactivateModal = hideactivateModal;
     vm.activateClient = activateClient;
 
-    function getdeactiveClient(){
-        ClientService.getDeactiveClient
-    }
-
+    
     function showModal(client){
         vm.showactiveModal = true;
         vm.selectedClient = client;

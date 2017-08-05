@@ -9,6 +9,8 @@ function SupplierService($q, $http){
     vm.getSuppliers = getSuppliers;
     vm.updateSupplier = updateSupplier;
     vm.deactivateSupplier = deactivateSupplier;
+    vm.getdeactiveSupplier = getdeactiveSupplier;
+    vm.activateSupplier = activateSupplier;
 
     function addSupplier(tmpObj){
         return $q(function(resolve, reject){
@@ -70,5 +72,37 @@ function SupplierService($q, $http){
             })
         })
     }
+
+    
+    function getdeactiveSupplier(){
+        return $q(function(resolve, reject){
+            $http({
+                method: "GET",
+                url: 'db/supplier.php?action=getdeactiveSupplier',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).then(function successCallback(response){
+                resolve(response.data.DSupplier);
+            }, function errorCallback(error){
+                reject(error);
+            });
+        })
+    }
+    
+
+    function activateSupplier(supplierData){
+        return $q(function(resolve, reject){
+            $http({
+                method: "POST",
+                url: 'db/supplier.php?action=activateSupplier',
+                data: supplierData,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).then(function successCallback(response){
+                resolve(response);
+            }, function errorCallback(error){
+                reject(error);
+            });
+        })
+    }
+
 
 }

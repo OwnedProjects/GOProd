@@ -18,6 +18,7 @@ function SupplierlistController(ProductService, SupplierService, LogService,){
     vm.suppliers = null;
 	vm.editmodalFlag = false;
 	vm.deletemodalFlag = false;
+	vm.noSupplierFlag = true;
     vm.selectedSupplier = null;
     vm.Products = null;
     vm.selprodId = null;
@@ -102,12 +103,15 @@ function SupplierlistController(ProductService, SupplierService, LogService,){
     function init(){
         ProductService.getSupplierWithProducts()
         .then(function(response){
+            vm.noSupplierFlag = false;
             vm.suppliers = response.SupProd;
             //console.log(response.SupProd);
-            //LogService.setSuccess("Supplier pulled successfuly");
+            LogService.setSuccess("Supplier pulled successfuly");
         })
         .catch(function(error){
-            console.log(error);
+            vm.noSupplierFlag = true;
+            LogService.setError('There is no supplier.');
+            //console.log(error);
         })
     }
 

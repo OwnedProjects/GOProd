@@ -29,7 +29,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="supplier in supplierlistCtrl.suppliers | filter: supplierlistCtrl.search">
+                        <tr ng-show="supplierlistCtrl.noSupplierFlag == false" ng-repeat="supplier in supplierlistCtrl.suppliers | filter: supplierlistCtrl.search">
                             <td class="name">{{supplier.supplier_name}}</td>
                             <td class="vat">{{supplier.vat}}</td>
                             <td class="prod-name">{{supplier.prod_name}}</td>
@@ -41,6 +41,9 @@
                                 <button class="btn btn-lgrey text-grey" ng-click="supplierlistCtrl.editModal(supplier)"><i class="icon-pencil icon fa-lg"></i></button>
                                 <button class="btn btn-lgrey text-grey" ng-click="supplierlistCtrl.removeSupplier(supplier)"><i class="icon-trash icon fa-lg"></i></button>
                             </td>
+                        </tr>
+                        <tr ng-show="supplierlistCtrl.noSupplierFlag == true" >
+                            <td colspan="8">There is no deactiavted Suppliers</td>
                         </tr>
                     </tbody>
                 </table>
@@ -141,7 +144,7 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="card table-card">
-        <div class="card-header" data-background-color="purple">
+        <div class="card-header" data-background-color="red">
             <h4 class="title text-left">Deactivate Supplier
                 <button type="button" class="close" ng-click="supplierlistCtrl.hideModal()">x</button>
             </h4>
@@ -149,8 +152,8 @@
       <div class="modal-body">
         <div class="card-content table-responsive">
             <div class="colmd-12 text-center">
-                <h3 class="text-lgrey fa-lg"><i class="fa fa-bell text-text"></i> Are you sure you want to Deactivate <span class="text-info">{{supplierlistCtrl.selectedSupplier.supplier_name}}</span>?</h3>
-                <button class="btn btn-purple pull-right" ng-click="supplierlistCtrl.deactivateSupplier()">Deactivate</button>
+                <h3 class="text-danger fa-lg"><i class="fa fa-bell text-text"></i> Are you sure you want to Deactivate <span class="text-info">{{supplierlistCtrl.selectedSupplier.supplier_name}}</span>?</h3>
+                <button class="btn btn-red pull-right" ng-click="supplierlistCtrl.deactivateSupplier()">Deactivate</button>
             </div>
         </div>
         </div>

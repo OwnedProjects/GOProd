@@ -29,7 +29,6 @@ function AddsupplierController(SupplierService, LogService, ProductService){
         var tmpObj = {
             name: vm.name,
             vat: vm.vat,
-            //prodid: vm.product.prod_id,
             contactperson: vm.contactperson,
             city: vm.city,
             contactno: vm.contactno,
@@ -45,7 +44,6 @@ function AddsupplierController(SupplierService, LogService, ProductService){
                 });
             })
             .catch(function(err){
-                //console.log(err);
                 LogService.setError("Supplier cannot be added, try again later");
             }); 
     };
