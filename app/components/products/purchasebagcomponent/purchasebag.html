@@ -9,75 +9,96 @@
         <form>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="purchaseDate">Enter Purchase Date</label>
-                    <input type="text" placeholder="Purchase Date" class="form-control" id="purchaseDate" disabled />
-                    <button class="btn btn-orange btn-addon">
+                    <label for="purchaseDate">Enter Purchase Date*</label>
+                    <input type="text" placeholder="Purchase Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="purchasebagCtrl.purchaseDate" is-open="purchasebagCtrl.purDate.opened" datepicker-options="purchasebagCtrl.dateOptions" show-button-bar="false" readonly required />
+                    <button class="btn btn-orange btn-addon" type="button" ng-click="purchasebagCtrl.openPurchaseDate()">
                         <span class="fa fa-calendar"></span>
                     </button>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="selLorry">Enter Lorry Number</label>
-                    <input type="text" placeholder="Lorry Number" class="form-control" id="selLorry" disabled />
-                    <button class="btn btn-orange btn-addon" ng-click="productlistCtrl.selectLorry()">
-                        <span class="fa fa-truck"></span>
+                    <label for="">Supplier*</label>
+                    <input type="text" class="form-control" placeholder="Supplier" list="suppliers" ng-model="purchasebagCtrl.supplier_name" ng-change="purchasebagCtrl.selectSupplierProd();" required />
+                    <button class="btn btn-orange btn-addon" type="button" ng-click="purchasebagCtrl.addSupplierModal()">
+                        <span class="fa fa-user-plus"></span>
+                    </button>
+                    <datalist id="suppliers">
+                        <option ng-repeat="supplier in purchasebagCtrl.suppliers" ng-value="supplier.supplier_name">
+                    </datalist>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="">Product*</label>
+                    <input type="text" class="form-control" ng-model="purchasebagCtrl.sup_product.prod_name" disabled placeholder="Product">
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-4">                
+                <div class="form-group">
+                    <label for="billDate">Bill Date*</label>
+                    <input type="text" placeholder="Bill Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="purchasebagCtrl.billDate" is-open="purchasebagCtrl.billDateMod.opened" datepicker-options="purchasebagCtrl.dateOptions" show-button-bar="false" readonly required />
+                    <button type="button" class="btn btn-orange btn-addon" ng-click="purchasebagCtrl.openBillDate()">
+                        <span class="fa fa-calendar"></span>
                     </button>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="">Supplier</label>
-                    <input type="text" class="form-control" disabled placeholder="Supplier">
-                    <button class="btn btn-orange btn-addon" ng-click="productlistCtrl.supplierlist()">
-                        <span class="fa fa-list"></span>
-                    </button>
+                    <label for="">Bill / Invoice No.*</label>
+                    <input type="text" class="form-control" placeholder="Bill / Invoice No." required >
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="selLorry">Enter Lorry Number*</label>
+                    <input type="text" placeholder="E.g. MH 12 AA 1234" class="form-control" ng-model="purchasebagCtrl.lorryNo" list="lorries" required />
+                    <datalist id="lorries">
+                        <option ng-repeat="lorry in purchasebagCtrl.lorries" ng-value="lorry.lorry_no">
+                    </datalist>
                 </div>
             </div>
             <div class="clearfix"></div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="">Product</label>
-                    <input type="text" class="form-control" disabled placeholder="Product">
+                    <label for="">No. Of Bags*</label>
+                    <input type="text" class="form-control" placeholder="No. of bags" required />
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="">No. Of Bags</label>
-                    <input type="text" class="form-control" placeholder="No. of bags">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="">Bill / Invoice No.</label>
-                    <input type="text" class="form-control" placeholder="Bill / Invoice No.">
-                </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="">Bill Amount</label>
-                    <input type="text" class="form-control" placeholder="Bill Amount">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="">Discount</label>
-                    <input type="text" class="form-control" placeholder="Discount">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="">Net Amount</label>
-                    <input type="text" class="form-control" placeholder="Net Amount">
+                    <label for="">Total Amount</label>
+                    <input type="text" class="form-control" placeholder="Total Amount">
                 </div>
             </div>
             <div class="clearfix"></div>
             <div class="col-md-12">
-                <button class="btn btn-orange pull-right" id="payment" ><i class="fa fa-rupee"></i> Payment</button>
+                <button type="button" class="btn btn-orange pull-right" ><i class="fa fa-cart-arrow-down"></i> Purchase</button>
             </div>
         </form>
     </div>
 </div>
 </div>
+</div>
+
+<!-- Modal -->
+<div class="modal show fade" ng-class="{'in': purchasebagCtrl.addSupplierFlag == true, '': purchasebagCtrl.addSupplierFlag == false}" ng-show="purchasebagCtrl.addSupplierFlag">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="purchasebagCtrl.hideModal()">
+            x
+        </button>
+        <h4 class="modal-title">Add Supplier</h4>
+      </div>
+      <div class="modal-body">
+        <div class="card-content table-responsive">
+            <addsupplier-component on-complete="purchasebagCtrl.hideSupplierModal()"></addsupplier-component>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade" ng-class="{'in': purchasebagCtrl.addSupplierFlag == true, '': purchasebagCtrl.addSupplierFlag == false}" ng-click="purchasebagCtrl.hideModal()"></div>
 </div>

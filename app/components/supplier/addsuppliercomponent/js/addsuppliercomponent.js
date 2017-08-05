@@ -46,14 +46,14 @@ function AddsupplierController(SupplierService, LogService, ProductService){
             })
             .catch(function(err){
                 LogService.setError("Supplier cannot be added, try again later");
-            }); 
+            });
     };
 
     function init(){
         ProductService.getProducts()
             .then(function(response) {
                 vm.Products = response.data.Products;
-                vm.Products.splice((vm.Products.length-2), 2);
+                vm.Products.splice((vm.Products.length-1), 1);
                 vm.product = vm.Products[0];
                 LogService.setSuccess("Products pulled", response.data.Products);
             })
