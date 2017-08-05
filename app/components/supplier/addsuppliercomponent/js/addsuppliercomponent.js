@@ -29,6 +29,7 @@ function AddsupplierController(SupplierService, LogService, ProductService){
         var tmpObj = {
             name: vm.name,
             vat: vm.vat,
+            prod_id: vm.product.prod_id,
             contactperson: vm.contactperson,
             city: vm.city,
             contactno: vm.contactno,
@@ -37,7 +38,7 @@ function AddsupplierController(SupplierService, LogService, ProductService){
         
          SupplierService.addSupplier(tmpObj)
             .then(function(response){
-                console.log(response);
+                //console.log(response);
                 LogService.setSuccess("Supplier added successfully").then(function(){
                     vm.reset();
 		            vm.ondone();

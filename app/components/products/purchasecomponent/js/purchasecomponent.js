@@ -25,6 +25,7 @@ function PurchaseController(ProductService, LogService){
     vm.purchaseProduct = purchaseProduct;
     vm.addSupplierModal = addSupplierModal;
     vm.hideModal = hideModal;
+    vm.hideSupplierModal = hideSupplierModal;
 
     function init() {
         ProductService.getSupplierWithProducts()
@@ -117,9 +118,12 @@ function PurchaseController(ProductService, LogService){
     };
 
     function hideModal(){
-		console.log("Hide Modal Called");
         vm.addSupplierFlag = false;
+    };
+
+    function hideSupplierModal(){
         vm.init();
+        vm.addSupplierFlag = false;
     }
 	
 	function calcTotalAmt(){
