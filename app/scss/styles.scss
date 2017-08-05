@@ -251,7 +251,12 @@ li{
         }
     }
 }
-.modal-backdrop{z-index: -1;}
+.modal-backdrop{
+    z-index: -1;
+    &.fade{
+        opacity: 0.6;
+    }
+}
 
 
 .card-content{

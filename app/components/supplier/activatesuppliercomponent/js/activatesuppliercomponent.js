@@ -55,7 +55,7 @@ function ActivatesupplierController(SupplierService, LogService){
             .then(function(response){
                 vm.noSupplierFlag = false;
                 vm.dsuppliers = response;
-                LogService.setSuccess('Supplier pulled Successfuly.');
+                //LogService.setSuccess('Supplier pulled Successfuly.');
             })
             .catch(function(error){
                 vm.noSupplierFlag = true;
