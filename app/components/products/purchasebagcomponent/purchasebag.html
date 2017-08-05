@@ -47,7 +47,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="">Bill / Invoice No.*</label>
-                    <input type="text" class="form-control" placeholder="Bill / Invoice No." required >
+                    <input type="text" class="form-control" placeholder="Bill / Invoice No." ng-model="purchasebagCtrl.billNo" required />
                 </div>
             </div>
             <div class="col-md-4">
@@ -63,18 +63,18 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="">No. Of Bags*</label>
-                    <input type="text" class="form-control" placeholder="No. of bags" required />
+                    <input type="text" class="form-control" placeholder="No. of bags" ng-model="purchasebagCtrl.noOfBags" required />
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="">Total Amount</label>
-                    <input type="text" class="form-control" placeholder="Total Amount">
+                    <label for="">Total Amount*</label>
+                    <input type="text" class="form-control" placeholder="Total Amount" ng-model="purchasebagCtrl.totalAmount">
                 </div>
             </div>
             <div class="clearfix"></div>
             <div class="col-md-12">
-                <button type="button" class="btn btn-orange pull-right" ><i class="fa fa-cart-arrow-down"></i> Purchase</button>
+                <button type="button" class="btn btn-orange pull-right" ng-click="purchasebagCtrl.purchaseBag()"><i class="fa fa-cart-arrow-down"></i> Purchase</button>
             </div>
         </form>
     </div>

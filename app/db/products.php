@@ -97,7 +97,22 @@ if($action=='getSupplierWithProductBag'){
 
 if($action=='addNewProduct'){
 	$data = json_decode(file_get_contents("php://input"));
-	$addProds="INSERT INTO `purchase_master`(`supplier_id`, `purchase_date`, `bill_date`, `bill_no`, `lorry_no`, `weight`, `rate`, `lorryfreight`) VALUES ('".$data->supplier_id."','".$data->purchase_date."','".$data->bill_date."','".$data->billno."','".$data->lorryNo."','".$data->weight."','".$data->rate."','".$data->lorryfreight."')";
+	$addProds="INSERT INTO `purchase_master`(`supplier_id`, `purchase_date`, `bill_date`, `bill_no`, `lorry_no`, `weight`, `rate`, `lorryfreight`, `total_amount`) VALUES ('".$data->supplier_id."','".$data->purchase_date."','".$data->bill_date."','".$data->billno."','".$data->lorryNo."','".$data->weight."','".$data->rate."','".$data->lorryfreight."','".$data->totalAmount."')";
+	$resProds=mysql_query($addProds);
+	if($resProds){
+		$obj->status=true;
+		header(' ', true, 200);
+	}
+	else{
+		$obj->status=false;
+		header(' ', true, 500);
+	}
+	echo json_encode($obj);
+}
+
+if($action=='addNewBags'){
+	$data = json_decode(file_get_contents("php://input"));
+	$addProds="INSERT INTO `purchase_master`(`supplier_id`, `purchase_date`, `bill_date`, `bill_no`, `lorry_no`, `bags`, `total_amount`) VALUES ('".$data->supplier_id."','".$data->purchase_date."','".$data->bill_date."','".$data->billno."','".$data->lorryNo."','".$data->bags."','".$data->totalAmount."')";
 	$resProds=mysql_query($addProds);
 	if($resProds){
 		$obj->status=true;

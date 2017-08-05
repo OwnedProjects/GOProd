@@ -11,6 +11,7 @@ function ProductService($q, $http){
 	vm.addNewProduct = addNewProduct;
     vm.getLorries = getLorries;
     vm.getSupplierWithProductBag = getSupplierWithProductBag;
+    vm.addNewBags = addNewBags;
 
     function getProducts(){
         return $q(function(resolve, reject) {
@@ -74,6 +75,21 @@ function ProductService($q, $http){
             $http({
                 method: 'POST',
                 url: 'db/products.php?action=addNewProduct',
+                data: prodinfo,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).then(function successCallback(response) {        
+                resolve(response.data);
+            }, function errorCallback(error) {
+                reject (error);
+            });
+        });
+    };
+	
+    function addNewBags(prodinfo){
+        return $q(function(resolve, reject) {
+            $http({
+                method: 'POST',
+                url: 'db/products.php?action=addNewBags',
                 data: prodinfo,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).then(function successCallback(response) {        

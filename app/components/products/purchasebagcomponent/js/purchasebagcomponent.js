@@ -23,6 +23,8 @@ function PurchasebagController(ProductService, LogService){
     vm.addSupplierModal = addSupplierModal;
     vm.hideModal = hideModal;
     vm.hideSupplierModal = hideSupplierModal;
+    vm.purchaseBag = purchaseBag;
+    vm.resetForm = resetForm;
 
     function init() {
         ProductService.getSupplierWithProductBag()
@@ -75,6 +77,32 @@ function PurchasebagController(ProductService, LogService){
         }
     };
 
+    function purchaseBag() {
+        if(vm.purchaseDate != undefined && vm.supplier_name != undefined && vm.sup_product != undefined && vm.billDate != undefined && vm.billNo != undefined && vm.lorryNo != undefined && vm.noOfBags != undefined && vm.totalAmount != undefined){
+             var prodinfo = {
+                supplier_id: vm.sup_product.supplier_id,
+                purchase_date: JSON.stringify(vm.purchaseDate.getTime()),
+                bill_date: JSON.stringify(vm.billDate.getTime()),
+                billno: vm.billNo,
+                lorryNo: vm.lorryNo,
+                bags : vm.noOfBags,
+                totalAmount: vm.totalAmount
+            };
+			ProductService.addNewBags(prodinfo)
+				.then(function(response){
+					LogService.setSuccess("Successfully added the product to the database").then(function(resp){
+                        vm.resetForm();
+                        vm.init();
+                    });
+				})
+				.catch(function(err){
+					LogService.setError("Bags cannot be purchased, please check the log file");
+				});
+        }
+		else{
+			LogService.setError("Fields marked with * cannot be blank");
+		}
+    };
 
     function openBillDate(){
         vm.billDateMod.opened = true;
@@ -95,7 +123,18 @@ function PurchasebagController(ProductService, LogService){
     function hideSupplierModal(){
         vm.init();
         vm.addSupplierFlag = false;
-    }
+    };
+
+    function resetForm(){
+        vm.sup_product = null;
+        vm.purchaseDate = null;
+        vm.billDate = null;
+        vm.billNo = null;
+        vm.lorryNo = null;
+        vm.noOfBags = null;
+        vm.totalAmount = null;
+        vm.supplier_name = null;
+    };
 
     vm.init();
 }

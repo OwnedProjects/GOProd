@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 02, 2017 at 07:36 AM
+-- Generation Time: Aug 05, 2017 at 08:53 PM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -79,16 +79,23 @@ CREATE TABLE IF NOT EXISTS `purchase_master` (
   `weight` varchar(10) DEFAULT NULL,
   `rate` varchar(20) DEFAULT NULL,
   `lorryfreight` varchar(20) DEFAULT NULL,
+  `bags` varchar(10) DEFAULT NULL,
+  `total_amount` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`purchase_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `purchase_master`
 --
 
-INSERT INTO `purchase_master` (`purchase_id`, `supplier_id`, `purchase_date`, `bill_date`, `bill_no`, `lorry_no`, `weight`, `rate`, `lorryfreight`) VALUES
-(4, '8', '1501871400000', '1502303400000', 'B1212', 'MH 12 LL 2803', '20', '500', '0'),
-(5, '9', '1501698600000', '1504117800000', '02', 'MH 12 AA 2320', '50', '20', '0');
+INSERT INTO `purchase_master` (`purchase_id`, `supplier_id`, `purchase_date`, `bill_date`, `bill_no`, `lorry_no`, `weight`, `rate`, `lorryfreight`, `bags`, `total_amount`) VALUES
+(4, '8', '1501871400000', '1502303400000', 'B1212', 'MH 12 LL 2803', '20', '500', '0', NULL, NULL),
+(5, '9', '1501698600000', '1504117800000', '02', 'MH 12 AA 2320', '50', '20', '0', NULL, NULL),
+(6, '12', '1501957800000', '1502303400000', 'B22', 'MH 12 LL 2803', NULL, NULL, NULL, '200', '2000'),
+(7, '11', '1501957800000', '1502303400000', 'B212', 'MH 12 LL 2803', NULL, NULL, NULL, '300', '3200'),
+(8, '11', '1502044200000', '1502908200000', 'Test', 'MH 12 AA 2320', NULL, NULL, NULL, '120', '1200'),
+(9, '10', '1501957800000', '1502821800000', 'b212', 'MH 09 AB 4087', '20', '500', '0', NULL, '10000'),
+(10, '16', '1502044200000', '1502303400000', 'BB22', 'MH 09 AB 4087', '20', '600', '0', NULL, '12000');
 
 -- --------------------------------------------------------
 
@@ -107,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `supplier_master` (
   `address` varchar(100) DEFAULT NULL,
   `supplier_status` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`supplier_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `supplier_master`
@@ -117,8 +124,10 @@ INSERT INTO `supplier_master` (`supplier_id`, `supplier_name`, `vat`, `prod_id`,
 (8, 'Wasim', 'asdasd', '3', 'adasd', 'adad', 'adad', 'asdasdad', 'active'),
 (9, 'Avees', 'asdsda', '2', 'adad', 'asdasd', 'asdasd', 'adasda', 'active'),
 (10, 'Meezan', 'V2323', '2', 'Bokud', 'Miraj', '8237402054', 'Khasai galli Miraj', 'active'),
-(11, 'Test', 'V1212', '4', 'Test', 'test', '1212', 'test add', 'active'),
-(12, 'demo', 'ad', '2', 'test', 'ajara', '123123', 'demo add', 'active');
+(11, 'Test', 'V1212', '5', 'Test', 'test', '1212', 'test add', 'active'),
+(12, 'demo', 'ad', '5', 'test', 'ajara', '123123', 'demo add', 'active'),
+(16, 'Uzair', 'U321', '2', 'Usama', 'Pune', '654', 'Salunke', 'active'),
+(17, 'Sam', 'V123', '5', '12', 'pun', '2313', 'Aaa', 'active');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

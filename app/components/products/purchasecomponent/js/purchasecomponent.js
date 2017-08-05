@@ -26,6 +26,7 @@ function PurchaseController(ProductService, LogService){
     vm.addSupplierModal = addSupplierModal;
     vm.hideModal = hideModal;
     vm.hideSupplierModal = hideSupplierModal;
+    vm.resetForm = resetForm;
 
     function init() {
         ProductService.getSupplierWithProducts()
@@ -67,17 +68,19 @@ function PurchaseController(ProductService, LogService){
                 lorryNo: vm.lorryNo,
                 weight: vm.weight,
                 rate: vm.rate,
-                lorryfreight: lorryfreight
+                lorryfreight: lorryfreight,
+                totalAmount: vm.totalamt 
             };
 			ProductService.addNewProduct(prodinfo)
 				.then(function(response){
 					LogService.setSuccess("Successfully added the product to the database").then(function(resp){
+                        vm.resetForm();
                         vm.init();
                     });
 				})
 				.catch(function(err){
 					LogService.setError("This product cannot be added, please check the log file");
-				})
+				});
 		}
 		else{
 			LogService.setError("Fields marked with * cannot be blank");
@@ -145,6 +148,19 @@ function PurchaseController(ProductService, LogService){
 		}
 		vm.totalamt = (parseFloat(weight) * parseFloat(rate)) + parseFloat(lorryfreight);
 	};
+
+    function resetForm() {
+        vm.sup_product = null;
+        vm.purchaseDate = null;
+        vm.billDate = null;
+        vm.billNo = null;
+        vm.lorryNo = null;
+        vm.weight = null;
+        vm.rate = null;
+        vm.lorryfreight = null;
+        vm.totalamt = null;
+        vm.supplier_name = null;
+    };
 
     vm.init();
 }
