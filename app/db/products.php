@@ -41,7 +41,7 @@ if($action=='updateProduct'){
 
 if($action=='getSupplierWithProducts'){
 	$data = json_decode(file_get_contents("php://input"));
-	$getSupProds="SELECT * FROM `supplier_master` s, `product_master` p WHERE s.prod_id=p.prod_id AND s.supplier_status='active'";
+	$getSupProds="SELECT * FROM `supplier_master` s, `product_master` p WHERE s.prod_id=p.prod_id AND s.supplier_status='active' and not s.prod_id = 5";
 	$resSupProds=mysql_query($getSupProds);
 	$count = mysql_num_rows($resSupProds);
 	if($count>0){

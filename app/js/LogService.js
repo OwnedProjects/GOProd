@@ -5,6 +5,7 @@ LogService.$inject = ["$rootScope", "$timeout", "$q", "$http"];
 	
 function LogService($rootScope, $timeout, $q, $http){
 	var vm = this;
+	vm.msgTimer = 1500;
 	vm.setSuccess = setSuccess;
 	vm.setError = setError;
 	vm.init = init;
@@ -36,17 +37,17 @@ function LogService($rootScope, $timeout, $q, $http){
 				$timeout(function(){
 					$rootScope.log.success.shift();
 					resolve(true);
-				},3000);
+				},vm.msgTimer);
             }, function errorCallback(error) {
 				$timeout(function(){
 					console.log(error)
 					reject (error)
-				},3000);
+				},vm.msgTimer);
             });*/
 			$timeout(function(){
 				$rootScope.log.success.shift();
 				resolve(true);
-			},3000);
+			},vm.msgTimer);
 		});
 	}
 		
@@ -77,17 +78,17 @@ function LogService($rootScope, $timeout, $q, $http){
 				$timeout(function(){
 					$rootScope.log.error.shift();
 					resolve(true);
-				},3000);
+				},vm.msgTimer);
             }, function errorCallback(error) {
 				$timeout(function(){
 					console.log(error)
 					reject (error)
-				},3000);
+				},vm.msgTimer);
             })*/
 			$timeout(function(){
 				$rootScope.log.error.shift();
 				resolve(true);
-			},3000);
+			},vm.msgTimer);
 		});
 	}
 	
