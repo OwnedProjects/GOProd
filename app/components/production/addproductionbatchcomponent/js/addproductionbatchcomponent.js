@@ -8,28 +8,38 @@ angular.module('GreenApp').config(function($stateProvider){
 .component('addproductionComponent', {
     templateUrl: 'components/production/addproductionbatchcomponent/addproductionbatch.html',
     controller: AddproductionController,
-    controllerAs: 'addproductionCtrl'
+    controllerAs: 'prodBatchCtrl'
 });
 
-function AddproductionController(){
+AddproductionController.$inject = ["ProductService", "ProductionService", "LogService"];
+
+function AddproductionController(ProductService, ProductionService, LogService){
     var vm = this;
-	vm.ele = null;
-    vm.selectProfile = null;
-    vm.showProfileModal = showProfileModal;
-    vm.hideProfileModal = hideProfileModal;
-    vm.setprofileDetails = setprofileDetails;
+    vm.Products = null;
+    vm.init = init;
+    vm.openPurchaseDate = openPurchaseDate;
 
-	function showProfileModal(){
-		vm.selectProfile = true;
-		ele = document.getElementById('selectProfileModal');
-    }
-    
-    function hideProfileModal(){
-		vm.selectProfile = false;
-		ele = document.getElementById('selectProfileModal');
+
+    function init() {
+        ProductService.getProducts()
+            .then(function(response) {
+                vm.Products = response.data.Products;
+                LogService.setSuccess("Products pulled.");
+                vm.dateOptions = {
+                    showWeeks: false
+                };
+                vm.purDate = {
+                    opened : false
+                };
+            })
+            .catch(function(error) {
+                LogService.setError("Cannot find products. Please check the log file");
+            })
+    };
+
+    function openPurchaseDate() {
+        vm.purDate.opened = true;
     }
 
-    function setprofileDetails(){
-
-    }
+    vm.init();
 }
