@@ -20,7 +20,7 @@ function AddproductionController(ProductService, ProductionService, LogService){
     vm.openPurchaseDate = openPurchaseDate;
     vm.calcFinalProd = calcFinalProd;
     vm.createBatch = createBatch;
-
+    vm.resetForm = resetForm;
 
     function init() {
         ProductService.getProducts()
@@ -86,7 +86,7 @@ function AddproductionController(ProductService, ProductionService, LogService){
             };
             ProductionService.addNewBatch(batchObj)
                 .then(function(response){
-                    console.log(response)
+                    vm.resetForm();
                     LogService.setSuccess("New batch added successfully", response);
                 })
                 .catch(function(error){
@@ -97,6 +97,17 @@ function AddproductionController(ProductService, ProductionService, LogService){
             LogService.setError("Fields marked with * cannot be blank");
         }
     }
+
+    function resetForm() {
+        vm.batchno = null;
+        vm.purchaseDate = null;
+        vm.ROM = null;
+        vm.SHW = null;
+        vm.FP = null;
+        vm.AWF = null;
+        vm.bags = null;
+        vm.echomeal = null;
+    };
 
     vm.init();
 }
