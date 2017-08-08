@@ -11589,6 +11589,10 @@ body {
   color: #8e24aa;
 }
 
+.mt0 {
+  margin-top: 0;
+}
+
 .mt5 {
   margin-top: 5px;
 }
@@ -11631,6 +11635,10 @@ body {
 
 .mt35 {
   margin-top: 35px;
+}
+
+.mb0 {
+  margin-bottom: 0;
 }
 
 .mb5 {
@@ -11677,6 +11685,10 @@ body {
   margin-bottom: 35px;
 }
 
+.ml {
+  margin-left: 0;
+}
+
 .ml5 {
   margin-left: 5px;
 }
@@ -11707,6 +11719,10 @@ body {
 
 .ml20 {
   margin-left: 10px;
+}
+
+.mr {
+  margin-right: 0;
 }
 
 .mr5 {
@@ -12823,6 +12839,10 @@ table.table tr td.address {
   font-weight: bold;
   display: block;
   margin: 3px 0;
+}
+
+.td-maxWidth {
+  width: 140px;
 }
 @font-face {
   font-family: 'simple-line-icons';

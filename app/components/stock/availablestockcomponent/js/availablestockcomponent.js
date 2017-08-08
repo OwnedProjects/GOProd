@@ -11,7 +11,9 @@ angular.module('GreenApp').config(function($stateProvider){
     controllerAs: 'availablestockCtrl'
 });
 
+AvailablestockController.$inject = ["StockService", "LogService"];
+
 function AvailablestockController(){
     var vm = this;
-    
+    vm.stockProduct = null;
 }

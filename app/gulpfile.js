@@ -44,7 +44,10 @@ gulp.task('watch', function(){
 		//sales styles
 		'components/sales/newordercomponent/css/neworder.scss',		
 		'components/sales/despatchescomponent/css/despatches.scss',		
-		'components/sales/generatebillcomponent/css/gerneratebill.scss'
+		'components/sales/generatebillcomponent/css/gerneratebill.scss',
+		//stock style
+		'components/stock/addstockcomponent/css/addstock.scss',		
+		'components/stock/availablecomponent/css/availablestock.scss'
 	],['sass']);
 	gulp.watch('css/*.css',['cssStream']);
 });
