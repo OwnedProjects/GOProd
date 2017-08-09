@@ -37,16 +37,14 @@
                 <table class="table">
                     <thead>
                         <tr class="txt-dblue">
-                            <th>Sr. No.</th>
                             <th>Product Name</th>
                             <th class="text-center td-maxWidth">Stock Available <small>(in M.T / Count)</small></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="stock in availstockCtrl.ecomeal">
-                            <td>{{$index + 1}}</td>
-                            <td>{{stock.prod_name}}</td>
-                            <td class="text-center">{{stock.stock_avail}}</td>
+                        <tr>
+                            <td>{{availstockCtrl.ecomeal.prod_name}}</td>
+                            <td class="text-center">{{availstockCtrl.ecomeal.stock_avail}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -60,16 +58,14 @@
                 <table class="table">
                     <thead>
                         <tr class="txt-dblue">
-                            <th>Sr. No.</th>
                             <th>Product Name</th>
                             <th class="text-center td-maxWidth">Stock Available <small>(in M.T / Count)</small></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="stock in availstockCtrl.bags">
-                            <td>{{$index + 1}}</td>
-                            <td>{{stock.prod_name}}</td>
-                            <td class="text-center">{{stock.stock_avail}}</td>
+                        <tr>
+                            <td>{{availstockCtrl.bags.prod_name}}</td>
+                            <td class="text-center">{{availstockCtrl.bags.stock_avail}}</td>
                         </tr>
                     </tbody>
                 </table>

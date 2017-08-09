@@ -25,8 +25,8 @@ function AvailablestockController(StockService, LogService){
         StockService.getDetails()
         .then(function(response){
             vm.stockProduct = response;
-            vm.ecomeal = [vm.stockProduct[vm.stockProduct.length-1]];
-            vm.bags = [vm.stockProduct[vm.stockProduct.length-2]];
+            vm.ecomeal = vm.stockProduct[vm.stockProduct.length-1];
+            vm.bags = vm.stockProduct[vm.stockProduct.length-2];
         })
         .catch(function(error){
             console.log(error);
