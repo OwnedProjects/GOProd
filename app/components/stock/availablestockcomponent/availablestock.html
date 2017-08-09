@@ -1,6 +1,82 @@
-<div class="inner-component content-wrapper">
-    <div class="col-md-12">
-        <h1>Available Stock</h1>
-        
+
+<div class="inner-component add-supplier content-wrapper">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+            <h1>Add Stock</h1>
+    </div>
+    <div class="col-md-6">
+        <div class="card panel-card">
+            <div class="card-header" data-background-color="blue">
+                <h4 class="title text-left">Raw Material</h4>
+            </div>
+            <div class="card-content table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr class="txt-dblue">
+                            <th>Sr. No.</th>
+                            <th>Product Name</th>
+                            <th class="text-center td-maxWidth">Stock Available <small>(in M.T / Count)</small></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="stock in addstockCtrl.stockProduct | limitTo : 4">
+                            <td>{{$index + 1}}</td>
+                            <td>{{stock.prod_name}}</td>
+                            <td class="text-center">{{stock.stock_avail}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="card panel-card">
+            <div class="card-header" data-background-color="red">
+                <h4 class="title text-left">Ecomeal</h4>
+            </div>
+            <div class="card-content table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr class="txt-dblue">
+                            <th>Sr. No.</th>
+                            <th>Product Name</th>
+                            <th class="text-center td-maxWidth">Stock Available <small>(in M.T / Count)</small></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="stock in addstockCtrl.ecomeal">
+                            <td>{{$index + 1}}</td>
+                            <td>{{stock.prod_name}}</td>
+                            <td class="text-center">{{stock.stock_avail}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card panel-card">
+            <div class="card-header" data-background-color="orange">
+                <h4 class="title text-left">Bags</h4>
+            </div>
+            <div class="card-content table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr class="txt-dblue">
+                            <th>Sr. No.</th>
+                            <th>Product Name</th>
+                            <th class="text-center td-maxWidth">Stock Available <small>(in M.T / Count)</small></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="stock in addstockCtrl.bags">
+                            <td>{{$index + 1}}</td>
+                            <td>{{stock.prod_name}}</td>
+                            <td class="text-center">{{stock.stock_avail}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-md-6 col-sm-6 col-xs-12">
     </div>
 </div>
