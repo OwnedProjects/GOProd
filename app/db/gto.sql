@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 09, 2017 at 01:26 PM
+-- Generation Time: Aug 09, 2017 at 01:28 PM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -173,15 +173,17 @@ CREATE TABLE IF NOT EXISTS `sales_master` (
   `client_id` varchar(10) DEFAULT NULL,
   `sale_date` varchar(20) DEFAULT NULL,
   `quantity` varchar(10) DEFAULT NULL,
+  `sale_status` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`sale_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `sales_master`
 --
 
-INSERT INTO `sales_master` (`sale_id`, `order_no`, `client_id`, `sale_date`, `quantity`) VALUES
-(1, 'O12', '5', '1502303400000', '20');
+INSERT INTO `sales_master` (`sale_id`, `order_no`, `client_id`, `sale_date`, `quantity`, `sale_status`) VALUES
+(1, 'O12', '5', '1502303400000', '20', 'open'),
+(2, 'O1', '1', '1502735400000', '50', 'open');
 
 -- --------------------------------------------------------
 
