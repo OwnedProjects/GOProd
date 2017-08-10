@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2017 at 10:40 AM
+-- Generation Time: Aug 10, 2017 at 08:51 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.5.37
 
@@ -221,6 +221,17 @@ CREATE TABLE `user_master` (
   `user_name` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_master`
+--
+
+INSERT INTO `user_master` (`user_name`, `password`) VALUES
+('admin', 'admin@123'),
+('usama', 'usama@123'),
+('uzair', 'uzair@123'),
+('sameer', 'sameer@123'),
+('user', 'user@123');
 
 --
 -- Indexes for dumped tables
