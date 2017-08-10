@@ -1,4 +1,3 @@
-
 <div class="inner-component content-wrapper">
     <div class="col-md-12">
         <h1>New Order</h1>
@@ -7,51 +6,51 @@
                 <h4 class="title text-left">Create new Order</h4>
             </div>
             <div class="card-content table-responsive">
-                <form ng-submit="addclientctrl.addClient()">
-                        <div class="col-md-4">
+                <form ng-submit="neworderCtrl.addClient()">
+                        <div class="col-md-2">
                             <div class="form-group">
-                                <label>Order Number</label>
-                                <input type="text" class="form-control" ng-model="addclientctrl.name" required/>
+                                <label>Order Number<span class="txt-red">*</span></label>
+                                <input type="text" class="form-control" ng-model="neworderCtrl.orderno" required/>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Client<span class="txt-red">*</span></label>
+                                <input type="text" class="form-control" ng-model="neworderCtrl.clientnm" placeholder="Client" required list="clients" ng-change="neworderCtrl.getDestination()"/>
+                                <datalist id="clients">
+                                    <option ng-repeat="client in neworderCtrl.clients" ng-value="client.client_name">
+                                </datalist>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="purchaseDate">Date of Order</label>
-                                <input type="text" placeholder="Purchase Date" class="form-control" id="purchaseDate" disabled="">
-                                <button class="btn btn-blue btn-addon">
+                                <label>Destination<span class="txt-red">*</span></label>
+                                <input type="text" class="form-control" ng-model="neworderCtrl.clientDet.city" placeholder="Destination" disabled required/>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="purchaseDate">Date of Order<span class="txt-red">*</span></label>
+                                <input type="text" placeholder="Order Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" ng-model="neworderCtrl.orderDate" is-open="neworderCtrl.purDate.opened" datepicker-options="neworderCtrl.dateOptions" show-button-bar="false" readonly required >
+                                <button class="btn btn-blue btn-addon" ng-click="neworderCtrl.openOrderDate()" type="button">
                                     <span class="fa fa-calendar"></span>
                                 </button>
                             </div>
                         </div>
-                        
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Client</label>
-                                <input type="text" class="form-control" ng-model="addclientctrl.client" placeholder="Client" disabled required/>
-                                <button class="btn btn-blue btn-addon">
-                                    <span class="fa fa-search"></span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Destination</label>
-                                <input type="text" class="form-control" ng-model="addclientctrl.state" placeholder="Destination" disabled required/>
-                            </div>
-                        </div>     
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Quantity</label>
-                                <input type="text" class="form-control" ng-model="addclientctrl.contactperson" placeholder="Quantity" required/>
+                                <label>Quantity<span class="txt-red">*</span></label>
+                                <input type="text" class="form-control" ng-model="neworderCtrl.quantity" placeholder="Quantity" required/>
                             </div>
                         </div>
 
                         <div class="clearfix"></div>    
 
-                        <button type="submit" class="btn btn-primary pull-right" data-background-color="blue">Create Batch</button>
+                        <button type="button" class="btn btn-primary pull-right" data-background-color="blue" ng-click="neworderCtrl.purchaseNewOrder()">New Order</button>
                 </form>
             </div>
         </div>

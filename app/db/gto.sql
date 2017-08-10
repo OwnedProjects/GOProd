@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2017 at 08:51 AM
+-- Generation Time: Aug 10, 2017 at 09:12 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.5.37
 
@@ -218,7 +218,7 @@ INSERT INTO `supplier_master` (`supplier_id`, `supplier_name`, `vat`, `prod_id`,
 --
 
 CREATE TABLE `user_master` (
-  `user_name` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -226,7 +226,7 @@ CREATE TABLE `user_master` (
 -- Dumping data for table `user_master`
 --
 
-INSERT INTO `user_master` (`user_name`, `password`) VALUES
+INSERT INTO `user_master` (`username`, `password`) VALUES
 ('admin', 'admin@123'),
 ('usama', 'usama@123'),
 ('uzair', 'uzair@123'),
