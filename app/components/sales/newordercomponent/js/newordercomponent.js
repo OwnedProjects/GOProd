@@ -20,6 +20,7 @@ function NeworderController(ClientService, LogService, SalesService){
     vm.getDestination = getDestination;
     vm.openOrderDate = openOrderDate;
     vm.purchaseNewOrder = purchaseNewOrder;
+    vm.resetForm = resetForm;
 
     function init() {
         ClientService.getClients()
@@ -67,7 +68,8 @@ function NeworderController(ClientService, LogService, SalesService){
             console.log(orderInfo)
             SalesService.addNewOrder(orderInfo)
                 .then(function(response){
-                    LogService.setSuccess("Successfully placed order.")
+                    LogService.setSuccess("Successfully placed order.");
+                    vm.resetForm();
                 })
                 .catch(function(error){
                     LogService.setError(error);
@@ -79,6 +81,14 @@ function NeworderController(ClientService, LogService, SalesService){
 
     function openOrderDate(){
         vm.purDate.opened = true;
+    };
+
+    function resetForm() {
+        vm.orderno = null;
+        vm.clientDet = null;
+        vm.clientnm = null;
+        vm.orderDate = null;
+        vm.quantity = null;
     };
 
     vm.init();

@@ -17,3 +17,24 @@ if($action=='addNewOrder'){
 	}
 	echo json_encode($obj);
 }
+
+if($action=='getOrderNoForDespatches'){
+	$data = json_decode(file_get_contents("php://input"));
+	$getOrders="SELECT * FROM `sales_master` WHERE `dc_no` IS NULL";
+	$resOrders=mysql_query($getOrders);
+	$count = mysql_num_rows($resOrders);
+	if($count>0){
+		$cnt=0;
+		while($row = mysql_fetch_array( $resOrders )) {
+			$tmpRes[$cnt]->order_no=$row['order_no'];
+			$cnt++;
+		}
+		$obj->Orders=$tmpRes;
+		header(' ', true, 200);
+	}
+	else{
+		$obj->status=false;
+		header(' ', true, 500);
+	}
+	echo json_encode($obj);
+}
