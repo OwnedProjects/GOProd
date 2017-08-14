@@ -126,7 +126,7 @@ if($action=='addNewBags'){
 }
 
 if($action=='getLorries'){
-	$getLorries="SELECT DISTINCT(`lorry_no`) FROM `purchase_master`";
+	$getLorries="SELECT `lorry_no` FROM `sales_master` where `lorry_no` IS NOT NULL UNION SELECT `lorry_no` FROM `purchase_master`";
 	$reslorry=mysql_query($getLorries);
 	$count = mysql_num_rows($reslorry);
 	if($count>0){

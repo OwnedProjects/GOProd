@@ -30,7 +30,7 @@ function SalesService($q, $http){
                 url: 'db/sales.php?action=getOrderNoForDespatches',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).then(function successCallback(response) {        
-                resolve(response)
+                resolve(response.data)
             }, function errorCallback(error) {
                 reject (error)
             });

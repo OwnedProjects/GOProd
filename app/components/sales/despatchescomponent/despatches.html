@@ -6,18 +6,21 @@
                 <h4 class="title text-left">Completion Order</h4>
             </div>
             <div class="card-content table-responsive">
-                <form ng-submit="addclientctrl.addClient()">
+                <form ng-submit="despatchesCtrl.addClient()">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Order No.</label>
-                                <input type="text" class="form-control" ng-model="addclientctrl.name" required/>
+                                <input type="text" class="form-control" ng-model="despatchesCtrl.orderno" list="orders" required/>
+                                <datalist id="orders">
+                                    <option ng-repeat="order in despatchesCtrl.orders" ng-value="order.order_no">
+                                </datalist>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>D.C Number</label>
-                                <input type="text" placeholder="Dispatch Chalan" class="form-control">
+                                <input type="text" placeholder="Dispatch Chalan" class="form-control" ng-model="despatchesCtrl.dcno" />
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -25,8 +28,8 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Date of Dispatch</label>
-                                <input type="text" class="form-control" placeholder="Date" required/>
-                                <button class="btn btn-blue btn-addon">
+                                <input type="text" class="form-control" placeholder="Date" uib-datepicker-popup="dd-MMM-yyyy" ng-model="despatchesCtrl.despatchDate" is-open="despatchesCtrl.despDate.opened" datepicker-options="despatchesCtrl.dateOptions" show-button-bar="false" readonly required/>
+                                <button class="btn btn-blue btn-addon" type="button" ng-click="despatchesCtrl.openDespatchDate()">
                                     <span class="fa fa-calendar"></span>
                                 </button>
                             </div>
@@ -35,14 +38,10 @@
                             <div class="form-group">
                                 <label>Lorry</label>
                                 <div class="input-group lorry-cnt">
-                                    <input type="hidden" class="form-control">
-                                    <input type="text" class="form-control " placeholder="Lorry No" required="">
-                                    <button class="btn btn-blue btn-lorry" type="button" ng-click="despatchesCtrl.selectLorryModal()">
-                                        <span class="fa fa-truck"></span>
-                                    </button>
-                                    <button class="btn btn-blue btn-lorry" type="button" ng-click="despatchesCtrl.addLorryModal()">
-                                        <span class="fa fa-plus"></span>
-                                    </button>
+                                    <input type="text" class="form-control " placeholder="Lorry No" ng-model="despatchesCtrl.lorryno" list="lorries" required/>
+                                    <datalist id="lorries">
+                                        <option ng-repeat="lorry in despatchesCtrl.lorries" ng-value="lorry.lorry_no">
+                                    </datalist>
                                 </div>
                             </div>
                         </div>     
@@ -50,11 +49,7 @@
                         <div class="col-md-4 form-group">
                             <label>Select Batches</label>
                             <div class="input-group">
-                                <select class="form-control" placeholder="Select Batch">
-                                    <option value="4">19</option>
-                                    <option value="5">101</option>
-                                    <option value="6">123</option>
-                                </select>
+                                <select class="form-control" ng-options="item as item.batch_no for item in despatchesCtrl.batches track by item.batch_id" ng-model="despatchesCtrl.selectedBatch"></select>
                                 <span class="input-group-addon btn btn-blue btn-batch"title="Click to Add from Batch">
                                     <span class="fa fa-plus-square"></span>
                                 </span>
@@ -62,105 +57,9 @@
                         </div>
 
                         <div class="clearfix"></div>    
-                        <button type="submit" class="btn btn-blue pull-right">Create Batch</button>
+                        <button type="button" class="btn btn-blue pull-right">Create Batch</button>
                 </form>
             </div>
         </div>
     </div>
-</div>
-
-
-<!-- Modal -->
-<div id="addLorryModal" class="modal show fade" ng-class="{'in': despatchesCtrl.addLorryFlage == true, '': despatchesCtrl.addLorryFlage == false}" ng-show="despatchesCtrl.addLorryFlage">
-  <div class="modal-dialog modal-lg">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="card table-card">
-        <div class="card-header" data-background-color="blue">
-            <h4 class="title text-left">Select Lorry
-                <button type="button" class="close" ng-click="despatchesCtrl.addLorryModal()">x</button>
-            </h4>
-        </div>
-      <div class="modal-body card-content table-responsive">
-          <addlorry-component></addlorry-component>
-        </div>
-       </div> 
-    </div>
-  </div>
-  <div class="modal-backdrop fade" ng-class="{'in': despatchesCtrl.addLorryFlage == true, '': despatchesCtrl.addLorryFlage == false}" ng-click="despatchesCtrl.addLorryModal()"></div>
-</div>
-
-
-
-<!-- Modal -->
-<div class="modal show fade"  ng-class="{'in': despatchesCtrl.selectLorryFlag == true, '': despatchesCtrl.selectLorryFlag == false}" ng-show="despatchesCtrl.selectLorryFlag">
-  <div class="modal-dialog modal-lg">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="card table-card">
-        <div class="card-header" data-background-color="blue">
-            <h4 class="title text-left">Select Lorry
-                <button type="button" class="close" ng-click="despatchesCtrl.selectLorryModal()">
-                    x
-                </button>
-            </h4>
-        </div>
-      <div class="modal-body">
-        <div class="card-content table-responsive">
-            <table class="table table-responsive">
-                <thead class="text-info">
-                    <tr>
-                        <th>Lorry Number</th>
-                        <th>Select</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <tr>		
-                    <td>MH 20/BT 4890</td>
-                    <td>			
-                        <button type="button" class="btn btn-sm btn-blue" ng-click="setLorryDetails(data.lorry_id, data.lorry_no);">
-                            <i class="fa fa-outdent"></i> SET
-                        </button>
-                    </td>
-                </tr>
-                <tr>		
-                    <td>MH 20/AA 8682</td>
-                    <td>			
-                        <button type="button" class="btn btn-sm btn-blue" ng-click="setLorryDetails(data.lorry_id, data.lorry_no);">
-                            <i class="fa fa-outdent"></i> SET
-                        </button>
-                    </td>
-                </tr>
-                <tr>		
-                    <td>MH 12/LL 2803</td>
-                    <td>			
-                        <button type="button" class="btn btn-sm btn-blue" ng-click="setLorryDetails(data.lorry_id, data.lorry_no);">
-                            <i class="fa fa-outdent"></i> SET
-                        </button>
-                    </td>
-                </tr>
-                <tr>		
-                    <td>KA 10/AA 1234</td>
-                    <td>			
-                        <button type="button" class="btn btn-sm btn-blue" ng-click="setLorryDetails(data.lorry_id, data.lorry_no);">
-                            <i class="fa fa-outdent"></i> SET
-                        </button>
-                    </td>
-                </tr>
-                <tr>		
-                    <td>MH 12/MM 3556</td>
-                    <td>			
-                        <button type="button" class="btn btn-sm btn-blue" ng-click="setLorryDetails(data.lorry_id, data.lorry_no);">
-                            <i class="fa fa-outdent"></i> SET
-                        </button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        </div>
-       </div> 
-    </div>
-  </div>
-  <div class="modal-backdrop fade" ng-class="{'in': despatchesCtrl.selectLorryFlag == true, '': despatchesCtrl.selectLorryFlag == false}" ng-click="despatchesCtrl.selectLorryModal()"></div>
 </div>

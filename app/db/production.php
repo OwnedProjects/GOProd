@@ -26,4 +26,28 @@ if($action=='addNewBatch'){
 	echo json_encode($obj);
 }
 
+if($action=='getOpenProductionBatches'){
+	$data = json_decode(file_get_contents("php://input"));
+	$getBatches="SELECT * FROM `production_batch_master` WHERE `batch_status`='open'";
+	$retBatches=mysql_query($getBatches);
+	$count = mysql_num_rows($retBatches);
+	if($count>0){
+		$cnt=0;
+		while($row = mysql_fetch_array( $retBatches )) {
+			$tmpRes[$cnt]->batch_id=$row['batch_id'];
+			$tmpRes[$cnt]->batch_no=$row['batch_no'];
+			$tmpRes[$cnt]->bags=$row['bags'];
+			$tmpRes[$cnt]->echomeal=$row['echomeal'];
+			$tmpRes[$cnt]->prod_date=$row['prod_date'];
+			$cnt++;
+		}
+		$obj->Batches=$tmpRes;
+		header(' ', true, 200);
+	}
+	else{
+		$obj->status=false;
+		header(' ', true, 500);
+	}
+	echo json_encode($obj);
+}
 ?>

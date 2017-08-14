@@ -17,5 +17,5 @@ function HomeController($state){
     var vm = this;
     vm.isToggle = false;
         
-    $state.go('home.neworder');
+    $state.go('home.despatches');
 };
