@@ -10,7 +10,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Order No.</label>
-                                <input type="text" class="form-control" ng-model="despatchesCtrl.orderno" list="orders" required/>
+                                <input type="text" class="form-control" ng-model="despatchesCtrl.orderno" list="orders" ng-change="despatchesCtrl.selectOrderNo()" required/>
                                 <datalist id="orders">
                                     <option ng-repeat="order in despatchesCtrl.orders" ng-value="order.order_no">
                                 </datalist>
@@ -50,16 +50,85 @@
                             <label>Select Batches</label>
                             <div class="input-group">
                                 <select class="form-control" ng-options="item as item.batch_no for item in despatchesCtrl.batches track by item.batch_id" ng-model="despatchesCtrl.selectedBatch"></select>
-                                <span class="input-group-addon btn btn-blue btn-batch"title="Click to Add from Batch">
+                                <span class="input-group-addon btn btn-blue btn-batch" title="Click to Add from Batch" type="button" ng-click="despatchesCtrl.openBatchPopUp()">
                                     <span class="fa fa-plus-square"></span>
                                 </span>
                             </div>
                         </div>
 
                         <div class="clearfix"></div>    
+                             
+                        <div class="col-md-12 form-group" ng-if="despatchesCtrl.selectedBatchArray.length>0">
+                            <br/>
+                            <table class="table table-responsive">
+                                <tr>
+                                    <th><strong>Batch Number</strong></th>
+                                    <th><strong>Quantity Remained</strong></th>
+                                    <th><strong>Quantity Set</strong></th>
+                                </tr>
+                                <tr ng-repeat="selbatch in despatchesCtrl.selectedBatchArray track by $index">
+                                    <td>{{selbatch.batchno}}</td>
+                                    <td>{{selbatch.itemrem}}</td>
+                                    <td>{{selbatch.quantity}}</td>
+                                </tr>
+                            </table>                            
+                        </div>
+                        <div class="clearfix"></div>    
                         <button type="button" class="btn btn-blue pull-right">Create Batch</button>
                 </form>
             </div>
         </div>
     </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal show fade" ng-class="{'in': despatchesCtrl.addBatchFlag == true, '': despatchesCtrl.addBatchFlag == false}" ng-show="despatchesCtrl.addBatchFlag">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="despatchesCtrl.hideModal()">
+            x
+        </button>
+        <h4 class="modal-title">Add Batch Quantity</h4>
+      </div>
+      <div class="modal-body">
+        <div class="card-content table-responsive">
+            <form>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label  id="forname">Batch number:</label>
+                        <input type="text" class="form-control" id="name" ng-model="despatchesCtrl.modBatchNo" disabled />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label  id="forname">Product remained from last sale:</label>
+                        <input type="text" class="form-control" id="name" ng-model="despatchesCtrl.modBatchRem" disabled />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label >Quantity</label>
+                        <input type="text" class="form-control" placeholder="Quantity" ng-model="despatchesCtrl.modquantity" ng-change="despatchesCtrl.checkModQuantityChange()"/>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12">
+                    <div class="col-md-9">
+                        <h5 class="txt-red">{{despatchesCtrl.errorMessage}}</h5>
+                        <h5 class="txt-green">Quantity remained: <strong class="txt-purple">{{despatchesCtrl.modquantityrem}}</strong></h5>
+                        <h5 class="txt-green">Total Order Quantity: <strong class="txt-lblue">{{despatchesCtrl.selectedOrder.quantity}}</strong></h5>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-primary pull-right" data-background-color="purple" ng-click="despatchesCtrl.selectBatch()">Select Batch</button>
+                    </div>
+                </div>    
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade" ng-class="{'in': despatchesCtrl.addBatchFlag == true, '': despatchesCtrl.addBatchFlag == false}" ng-click="despatchesCtrl.hideModal()"></div>
 </div>

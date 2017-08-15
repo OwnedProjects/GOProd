@@ -27,6 +27,7 @@ if($action=='getOrderNoForDespatches'){
 		$cnt=0;
 		while($row = mysql_fetch_array( $resOrders )) {
 			$tmpRes[$cnt]->order_no=$row['order_no'];
+			$tmpRes[$cnt]->quantity=$row['quantity'];
 			$cnt++;
 		}
 		$obj->Orders=$tmpRes;
