@@ -18,6 +18,26 @@ if($action=='addNewOrder'){
 	echo json_encode($obj);
 }
 
+if($action=='addSalesBatches'){
+	$data = json_decode(file_get_contents("php://input"));
+	/*foreach( $data->batchArr as $key => $value ){
+		$obj[$key] = $value->batch_no;
+	}
+	$obj[3] = $data->orderNo;*/
+	
+	/*$addProds="INSERT INTO `sales_master`(`order_no`, `client_id`, `sale_date`, `quantity`, `sale_status`) VALUES ('".$data->orderNo."','".$data->clientId."','".$data->orderDate."','".$data->quantity."','open')";
+	$resProds=mysql_query($addProds);
+	if($resProds){
+		$obj->status=true;
+		header(' ', true, 200);
+	}
+	else{
+		$obj->status=false;
+		header(' ', true, 500);
+	}
+	echo json_encode($obj);*/
+}
+
 if($action=='getOrderNoForDespatches'){
 	$data = json_decode(file_get_contents("php://input"));
 	$getOrders="SELECT * FROM `sales_master` WHERE `dc_no` IS NULL";
