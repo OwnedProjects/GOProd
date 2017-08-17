@@ -1,20 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 3.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 10, 2017 at 09:12 AM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 5.5.37
+-- Host: localhost
+-- Generation Time: Aug 17, 2017 at 02:04 PM
+-- Server version: 5.5.25a
+-- PHP Version: 5.4.4
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `gto`
@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `client_master`
 --
 
-CREATE TABLE `client_master` (
-  `client_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `client_master` (
+  `client_id` int(11) NOT NULL AUTO_INCREMENT,
   `client_name` varchar(100) NOT NULL,
   `address` varchar(500) DEFAULT NULL,
   `city` varchar(50) DEFAULT NULL,
@@ -35,8 +35,9 @@ CREATE TABLE `client_master` (
   `contact_no` varchar(15) DEFAULT NULL,
   `contact_person` varchar(50) DEFAULT NULL,
   `vat_no` varchar(50) DEFAULT NULL,
-  `client_status` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `client_status` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`client_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `client_master`
@@ -56,14 +57,15 @@ INSERT INTO `client_master` (`client_id`, `client_name`, `address`, `city`, `sta
 -- Table structure for table `production_batch_master`
 --
 
-CREATE TABLE `production_batch_master` (
-  `batch_id` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `production_batch_master` (
+  `batch_id` int(10) NOT NULL AUTO_INCREMENT,
   `batch_no` varchar(10) DEFAULT NULL,
   `bags` varchar(10) DEFAULT NULL,
   `echomeal` varchar(10) DEFAULT NULL,
   `prod_date` varchar(15) DEFAULT NULL,
-  `batch_status` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `batch_status` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`batch_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `production_batch_master`
@@ -79,12 +81,13 @@ INSERT INTO `production_batch_master` (`batch_id`, `batch_no`, `bags`, `echomeal
 -- Table structure for table `production_batch_register`
 --
 
-CREATE TABLE `production_batch_register` (
-  `batch_reg_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `production_batch_register` (
+  `batch_reg_id` int(11) NOT NULL AUTO_INCREMENT,
   `prod_id` varchar(10) DEFAULT NULL,
   `quantity` varchar(20) DEFAULT NULL,
-  `batch_id` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `batch_id` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`batch_reg_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `production_batch_register`
@@ -106,10 +109,11 @@ INSERT INTO `production_batch_register` (`batch_reg_id`, `prod_id`, `quantity`, 
 -- Table structure for table `product_master`
 --
 
-CREATE TABLE `product_master` (
-  `prod_id` int(11) NOT NULL,
-  `prod_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `product_master` (
+  `prod_id` int(11) NOT NULL AUTO_INCREMENT,
+  `prod_name` varchar(50) NOT NULL,
+  PRIMARY KEY (`prod_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `product_master`
@@ -129,8 +133,8 @@ INSERT INTO `product_master` (`prod_id`, `prod_name`) VALUES
 -- Table structure for table `purchase_master`
 --
 
-CREATE TABLE `purchase_master` (
-  `purchase_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `purchase_master` (
+  `purchase_id` int(11) NOT NULL AUTO_INCREMENT,
   `supplier_id` varchar(11) DEFAULT NULL,
   `purchase_date` varchar(20) DEFAULT NULL,
   `bill_date` varchar(20) DEFAULT NULL,
@@ -140,8 +144,9 @@ CREATE TABLE `purchase_master` (
   `rate` varchar(20) DEFAULT NULL,
   `lorryfreight` varchar(20) DEFAULT NULL,
   `bags` varchar(10) DEFAULT NULL,
-  `total_amount` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `total_amount` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`purchase_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `purchase_master`
@@ -159,15 +164,44 @@ INSERT INTO `purchase_master` (`purchase_id`, `supplier_id`, `purchase_date`, `b
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sales_master`
+--
+
+CREATE TABLE IF NOT EXISTS `sales_master` (
+  `sale_id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_no` varchar(20) DEFAULT NULL,
+  `dc_no` varchar(15) DEFAULT NULL,
+  `client_id` varchar(10) DEFAULT NULL,
+  `sale_date` varchar(20) DEFAULT NULL,
+  `dispatch_date` varchar(20) DEFAULT NULL,
+  `quantity` varchar(20) DEFAULT NULL,
+  `lorry_no` varchar(20) DEFAULT NULL,
+  `sale_status` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`sale_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `sales_master`
+--
+
+INSERT INTO `sales_master` (`sale_id`, `order_no`, `dc_no`, `client_id`, `sale_date`, `dispatch_date`, `quantity`, `lorry_no`, `sale_status`) VALUES
+(1, 'O12', NULL, '3', '1502303400000', NULL, '20', NULL, 'open'),
+(2, 'New1', NULL, '2', '1501525800000', NULL, '5', NULL, 'open'),
+(4, 'Test1', NULL, '4', '1502908200000', NULL, '200', NULL, 'open');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `stock_master`
 --
 
-CREATE TABLE `stock_master` (
-  `stock_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `stock_master` (
+  `stock_id` int(11) NOT NULL AUTO_INCREMENT,
   `product_type` varchar(100) DEFAULT NULL,
   `prod_id` varchar(10) DEFAULT NULL,
-  `stock_avail` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `stock_avail` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`stock_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `stock_master`
@@ -186,8 +220,8 @@ INSERT INTO `stock_master` (`stock_id`, `product_type`, `prod_id`, `stock_avail`
 -- Table structure for table `supplier_master`
 --
 
-CREATE TABLE `supplier_master` (
-  `supplier_id` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `supplier_master` (
+  `supplier_id` int(10) NOT NULL AUTO_INCREMENT,
   `supplier_name` varchar(50) DEFAULT NULL,
   `vat` varchar(20) DEFAULT NULL,
   `prod_id` varchar(50) DEFAULT NULL,
@@ -195,8 +229,9 @@ CREATE TABLE `supplier_master` (
   `city` varchar(50) DEFAULT NULL,
   `contactno` varchar(20) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
-  `supplier_status` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `supplier_status` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`supplier_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `supplier_master`
@@ -217,7 +252,7 @@ INSERT INTO `supplier_master` (`supplier_id`, `supplier_name`, `vat`, `prod_id`,
 -- Table structure for table `user_master`
 --
 
-CREATE TABLE `user_master` (
+CREATE TABLE IF NOT EXISTS `user_master` (
   `username` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -233,91 +268,6 @@ INSERT INTO `user_master` (`username`, `password`) VALUES
 ('sameer', 'sameer@123'),
 ('user', 'user@123');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `client_master`
---
-ALTER TABLE `client_master`
-  ADD PRIMARY KEY (`client_id`);
-
---
--- Indexes for table `production_batch_master`
---
-ALTER TABLE `production_batch_master`
-  ADD PRIMARY KEY (`batch_id`);
-
---
--- Indexes for table `production_batch_register`
---
-ALTER TABLE `production_batch_register`
-  ADD PRIMARY KEY (`batch_reg_id`);
-
---
--- Indexes for table `product_master`
---
-ALTER TABLE `product_master`
-  ADD PRIMARY KEY (`prod_id`);
-
---
--- Indexes for table `purchase_master`
---
-ALTER TABLE `purchase_master`
-  ADD PRIMARY KEY (`purchase_id`);
-
---
--- Indexes for table `stock_master`
---
-ALTER TABLE `stock_master`
-  ADD PRIMARY KEY (`stock_id`);
-
---
--- Indexes for table `supplier_master`
---
-ALTER TABLE `supplier_master`
-  ADD PRIMARY KEY (`supplier_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `client_master`
---
-ALTER TABLE `client_master`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `production_batch_master`
---
-ALTER TABLE `production_batch_master`
-  MODIFY `batch_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `production_batch_register`
---
-ALTER TABLE `production_batch_register`
-  MODIFY `batch_reg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
---
--- AUTO_INCREMENT for table `product_master`
---
-ALTER TABLE `product_master`
-  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `purchase_master`
---
-ALTER TABLE `purchase_master`
-  MODIFY `purchase_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT for table `stock_master`
---
-ALTER TABLE `stock_master`
-  MODIFY `stock_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `supplier_master`
---
-ALTER TABLE `supplier_master`
-  MODIFY `supplier_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
