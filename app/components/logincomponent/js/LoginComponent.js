@@ -18,13 +18,17 @@ function LoginController(LoginService, $state, LogService){
 	vm.signin = signin;
 
 	function signin(){
-		LoginService.checkLogin(vm.usernm, vm.passwd)
+		var loginObj = {
+			user_name: vm.usernm, 
+			password: vm.passwd
+		}
+		LoginService.checkLogin(loginObj)
 			.then(function(response){
-				LogService.setSuccess("Login Success").then(function(response){});
-				$state.go('home');
+				console.log(response);
+				//$state.go('home');
 			})
 			.catch(function(err){
-				LogService.setError("Login failed.").then(function(){});
+				//LogService.setError("Login failed.").then(function(){});
 			});
 	};
 };
