@@ -24,11 +24,15 @@ function LoginController(LoginService, $state, LogService){
 		}
 		LoginService.checkLogin(loginObj)
 			.then(function(response){
-				console.log(response);
-				//$state.go('home');
+				//console.log(response);
+				LogService.setSuccess("Welcome " + response.data.user)
+					.then(function(){
+						$state.go('home');
+					});
 			})
 			.catch(function(err){
-				//LogService.setError("Login failed.").then(function(){});
+				LogService.setError("Login failed.").then(function(){});
+				vm.passwd = null;
 			});
 	};
 };

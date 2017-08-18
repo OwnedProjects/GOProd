@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 17, 2017 at 02:04 PM
+-- Generation Time: Aug 18, 2017 at 09:56 AM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -164,6 +164,19 @@ INSERT INTO `purchase_master` (`purchase_id`, `supplier_id`, `purchase_date`, `b
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sales_batch_register`
+--
+
+CREATE TABLE IF NOT EXISTS `sales_batch_register` (
+  `sale_reg_id` int(10) NOT NULL AUTO_INCREMENT,
+  `order_no` int(20) DEFAULT NULL,
+  `batch_no` int(20) DEFAULT NULL,
+  PRIMARY KEY (`sale_reg_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sales_master`
 --
 
@@ -186,8 +199,8 @@ CREATE TABLE IF NOT EXISTS `sales_master` (
 
 INSERT INTO `sales_master` (`sale_id`, `order_no`, `dc_no`, `client_id`, `sale_date`, `dispatch_date`, `quantity`, `lorry_no`, `sale_status`) VALUES
 (1, 'O12', NULL, '3', '1502303400000', NULL, '20', NULL, 'open'),
-(2, 'New1', NULL, '2', '1501525800000', NULL, '5', NULL, 'open'),
-(4, 'Test1', NULL, '4', '1502908200000', NULL, '200', NULL, 'open');
+(2, 'New1', NULL, '2', '1501525800000', NULL, '10', NULL, 'open'),
+(4, 'Test1', NULL, '4', '1502908200000', NULL, '30', NULL, 'open');
 
 -- --------------------------------------------------------
 
@@ -254,19 +267,21 @@ INSERT INTO `supplier_master` (`supplier_id`, `supplier_name`, `vat`, `prod_id`,
 
 CREATE TABLE IF NOT EXISTS `user_master` (
   `username` varchar(50) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `fullname` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user_master`
 --
 
-INSERT INTO `user_master` (`username`, `password`) VALUES
-('admin', 'admin@123'),
-('usama', 'usama@123'),
-('uzair', 'uzair@123'),
-('sameer', 'sameer@123'),
-('user', 'user@123');
+INSERT INTO `user_master` (`username`, `password`, `fullname`) VALUES
+('admin', 'admin', 'Wasim'),
+('sameer', 'sameer@123', 'Sameer'),
+('usama', 'usama@123', 'Usama'),
+('user', 'user@123', 'User'),
+('uzair', 'uzair@123', 'Uzair');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
