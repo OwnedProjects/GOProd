@@ -19,7 +19,7 @@ function LoginController(LoginService, $state, LogService){
 
 	function signin(){
 		var loginObj = {
-			user_name: vm.usernm, 
+			username: vm.usernm, 
 			password: vm.passwd
 		}
 		LoginService.checkLogin(loginObj)
