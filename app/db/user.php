@@ -17,7 +17,7 @@ if($action=='getUsers'){
         }
         else{
             $obj->status = false;
-            header(' ', true, 500);    
+            header(' ', true, 500);
         }
     }
     else{

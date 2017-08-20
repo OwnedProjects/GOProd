@@ -139,7 +139,7 @@ li{
         @include pad(0);
         transition: all 0.1s linear 0.2s;
         outline: none;
-        // z-index: 1;
+        z-index: 0;
         &:focus{
             outline: none;
             background: rgba(0,0,0,0.05);

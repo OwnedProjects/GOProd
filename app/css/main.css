@@ -11893,6 +11893,7 @@ body {
   padding: 0;
   transition: all 0.1s linear 0.2s;
   outline: none;
+  z-index: 0;
 }
 
 .form-group .form-control:focus {
@@ -12111,6 +12112,7 @@ body {
 .login-cnt .login-middle .form-control {
   box-shadow: none;
   outline: none;
+  z-index: 0;
 }
 
 .login-cnt .login-middle .input-group {
@@ -12781,7 +12783,7 @@ table.table tr td.address {
   display: inherit;
   position: static;
   margin-bottom: 0;
-  z-index: 2;
+  z-index: 0;
 }
 
 .lorry-cnt .btn-lorry {
@@ -12844,6 +12846,8 @@ table.table tr td.address {
 .td-maxWidth {
   width: 140px;
 }
+
+/* @import '../components/stock/availablestockcomponent/css/availablestock.scss'; */
 @font-face {
   font-family: 'simple-line-icons';
   src: url("../fonts/Simple-Line-Icons.eot?v=2.4.0");

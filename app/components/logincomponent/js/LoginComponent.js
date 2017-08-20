@@ -16,6 +16,7 @@ LoginController.$inject = ["LoginService", "$state", "LogService"];
 function LoginController(LoginService, $state, LogService){
 	var vm = this;
 	vm.signin = signin;
+	vm.logedUser = 'userlist';
 
 	function signin(){
 		var loginObj = {
@@ -28,6 +29,7 @@ function LoginController(LoginService, $state, LogService){
 				LogService.setSuccess("Welcome " + response.data.user)
 					.then(function(){
 						$state.go('home');
+						sessionStorage.setItem('userlist', response.data.user);
 					});
 			})
 			.catch(function(err){
