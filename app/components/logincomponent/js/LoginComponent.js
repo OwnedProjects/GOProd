@@ -16,7 +16,6 @@ LoginController.$inject = ["LoginService", "$state", "LogService"];
 function LoginController(LoginService, $state, LogService){
 	var vm = this;
 	vm.signin = signin;
-	vm.logedUser = 'userlist';
 
 	function signin(){
 		var loginObj = {

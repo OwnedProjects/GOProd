@@ -8,8 +8,10 @@ function SidemenuController(){
     var vm = this;
     vm.ele = null;
     vm.ele2 = null;
+    vm.logedInUser = null;
     vm.isToggle = false;
     vm.toggleMenu = toggleMenu;
+    vm.init = init;
 
 
     function toggleMenu(){
@@ -24,6 +26,13 @@ function SidemenuController(){
           vm.ele2.remove('compact');
       }
       vm.isToggle = !vm.isToggle;
-      //console.log( vm.ele.classList.contains("foo") );
     }
+
+    function init(){
+      vm.logedInUser = sessionStorage.getItem('userlist');
+      if(vm.logedInUser == undefined){
+          $state.go('home.login');
+      }
+    }
+    vm.init();
 };
