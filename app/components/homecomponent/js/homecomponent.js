@@ -23,7 +23,6 @@ function HomeController($state){
     $state.go('home.despatches');
 
   function logout(){
-    alert('hii..');
     $state.go('login');
     sessionStorage.clear();
   }
