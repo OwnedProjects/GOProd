@@ -16,10 +16,15 @@ HomeController.$inject = ["$state"];
 function HomeController($state){
     var vm = this;
     vm.isToggle = false;
-    vm.init = init;
     vm.logedInUser = null;
+    vm.init = init;
+    vm.logout = logout;
         
     $state.go('home.despatches');
+
+    function logout(){
+      vm.logedInUser = null;
+    }
 
     function init(){
       vm.logedInUser = sessionStorage.getItem('userlist');
