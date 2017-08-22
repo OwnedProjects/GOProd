@@ -22,16 +22,18 @@ function HomeController($state){
         
     $state.go('home.despatches');
 
-    function logout(){
-      vm.logedInUser = null;
-    }
+  function logout(){
+    alert('hii..');
+    $state.go('login');
+    sessionStorage.clear();
+  }
 
-    function init(){
-      vm.logedInUser = sessionStorage.getItem('userlist');
-      if(vm.logedInUser == undefined){
-          $state.go('home.login');
-      }
+  function init(){
+    vm.logedInUser = sessionStorage.getItem('userlist');
+    if(vm.logedInUser == undefined){
+        $state.go('home.login');
     }
+  }
 
     vm.init();
 };
