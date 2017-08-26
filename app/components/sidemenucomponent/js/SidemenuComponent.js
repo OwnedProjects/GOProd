@@ -4,11 +4,13 @@ angular.module('GreenApp').component('sidemenuComponent', {
   controllerAs: 'sidemenuCtrl'
 });
 
-function SidemenuController(){
+SidemenuController.$inject = ["$state"];
+
+function SidemenuController($state){
     var vm = this;
     vm.ele = null;
     vm.ele2 = null;
-    vm.logedInUser = null;
+    vm.loggedInUser = null;
     vm.isToggle = false;
     vm.toggleMenu = toggleMenu;
     vm.init = init;
@@ -29,9 +31,9 @@ function SidemenuController(){
     }
 
     function init(){
-      vm.logedInUser = sessionStorage.getItem('userlist');
-      if(vm.logedInUser == undefined){
-          $state.go('home.login');
+      vm.loggedInUser = sessionStorage.getItem('userlist');
+      if(vm.loggedInUser == undefined){
+        $state.go('login');
       }
     }
     vm.init();
