@@ -166,7 +166,7 @@ function DespatchesController(SalesService, LogService, ProductionService, Produ
                     LogService.setError("Selected quantity does not match your Order quantity.");
                 }
                 else{
-                    //console.log("Everything is good");
+                    console.log("Everything is good");
                     var batchData = {
                         batchArr: vm.selectedBatchArray,
                         orderNo: vm.orderno

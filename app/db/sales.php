@@ -20,11 +20,28 @@ if($action=='addNewOrder'){
 
 if($action=='addSalesBatches'){
 	$data = json_decode(file_get_contents("php://input"));
-	/*foreach( $data->batchArr as $key => $value ){
-		$obj[$key] = $value->batch_no;
+	$flag = false;
+	//Adding batches data to sales batch register;
+	$sqlTpl = 'INSERT INTO `sales_batch_register`(`order_no`, `batch_no`) VALUES ("%s","%s")';
+	foreach( $data->batchArr as $key => $value ){
+		$sqlStr = sprintf( $sqlTpl , ( $data->orderNo ) , $value->batch_no );
+		if( !mysql_query( $sqlStr ) ){
+		  $flag = true;
+		}
 	}
-	$obj[3] = $data->orderNo;*/
-	
+
+	if($flag == false){
+		$obj->status=true;
+		header(' ', true, 200);
+	}
+	else{
+		$obj->status=false;
+		header(' ', true, 500);
+	}
+	echo json_encode($obj);
+	// header(' ', true, 200);
+	// echo json_encode($obj);
+	// exit;
 	/*$addProds="INSERT INTO `sales_master`(`order_no`, `client_id`, `sale_date`, `quantity`, `sale_status`) VALUES ('".$data->orderNo."','".$data->clientId."','".$data->orderDate."','".$data->quantity."','open')";
 	$resProds=mysql_query($addProds);
 	if($resProds){
