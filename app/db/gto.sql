@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 18, 2017 at 09:56 AM
+-- Generation Time: Sep 03, 2017 at 06:24 PM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -169,10 +169,21 @@ INSERT INTO `purchase_master` (`purchase_id`, `supplier_id`, `purchase_date`, `b
 
 CREATE TABLE IF NOT EXISTS `sales_batch_register` (
   `sale_reg_id` int(10) NOT NULL AUTO_INCREMENT,
-  `order_no` int(20) DEFAULT NULL,
-  `batch_no` int(20) DEFAULT NULL,
+  `order_no` varchar(50) DEFAULT NULL,
+  `batch_no` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`sale_reg_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+
+--
+-- Dumping data for table `sales_batch_register`
+--
+
+INSERT INTO `sales_batch_register` (`sale_reg_id`, `order_no`, `batch_no`) VALUES
+(8, 'New1', 'MT22322'),
+(9, 'New1', 'BN4131'),
+(10, 'O12', 'MT22322'),
+(11, 'New1', 'MT22322'),
+(12, 'New1', 'BN4131');
 
 -- --------------------------------------------------------
 
@@ -198,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `sales_master` (
 --
 
 INSERT INTO `sales_master` (`sale_id`, `order_no`, `dc_no`, `client_id`, `sale_date`, `dispatch_date`, `quantity`, `lorry_no`, `sale_status`) VALUES
-(1, 'O12', NULL, '3', '1502303400000', NULL, '20', NULL, 'open'),
+(1, 'O12', NULL, '3', '1502303400000', NULL, '5', NULL, 'open'),
 (2, 'New1', NULL, '2', '1501525800000', NULL, '10', NULL, 'open'),
 (4, 'Test1', NULL, '4', '1502908200000', NULL, '30', NULL, 'open');
 
